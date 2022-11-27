@@ -24,7 +24,7 @@
   ],
   "tags": [
     {
-      "name": "Authz",
+      "name": "Auth",
       "description": ""
     },
     {
@@ -41,9 +41,9 @@
     }
   ],
   "paths": {
-    "/authz/login": {
+    "/auth/login": {
       "post": {
-        "tags": ["Authz"],
+        "tags": ["Auth"],
         "summary": "authenticates user",
         "description": "returns the authentication ID token (JWT) to use in further API calls.",
         "responses": {
@@ -66,7 +66,7 @@
         }
       }
     },
-    "/plans": {
+    "/plan": {
       "get": {
         "tags": ["Plans"],
         "summary": "1.4  Shows all available plans",
@@ -90,9 +90,7 @@
             "description": "Internal Server Error"
           }
         }
-      }
-    },
-    "/plan": {
+      },
       "post": {
         "tags": ["Plans"],
         "summary": "1.1   Create a new plan",
@@ -305,43 +303,30 @@
         }
       }
     },
-    "/subscription": {
+    "/subscription/{username}": {
       "get": {
         "tags": ["Subscriptions"],
         "summary": "2.3   Details of my plan",
         "description": "2.3. As subscriber I want to know the details of my plan",
-        "operationId": "getDetailsSubPlan",
+        "operationId": "getDetailsPlan",
         "parameters": [
           {
-            "name": "id",
+            "name": "username",
             "in": "path",
-            "description": "Numeric ID of the plan we want to subscribe",
+            "description": "Unique identity username",
             "required": true,
-            "style": "simple",
-            "explode": false,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           }
-        ],
-        "requestBody": {
-          "description": "Subscribe an existing plan",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Subscription"
-              }
-            }
-          },
-          "required": true
-        },
+        ],       
         "responses": {
           "201": {
             "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Subscription"
+                  "$ref": "#/components/schemas/DetailsPlan"
                 }
               }
             }
@@ -363,55 +348,23 @@
       "delete": {
         "tags": ["Subscriptions"],
         "summary": "2.2   Cancel my subscription",
+        "operationId": "deleteSubscription",
         "description": "2.2. As subscriber I want to cancel my subscription",
         "parameters": [
           {
-            "name": "id",
+            "name": "username",
             "in": "path",
-            "description": "Numeric ID of the plan we want to subscribe",
+            "description": "Delete unique identity username",
             "required": true,
             "style": "simple",
-            "explode": false,
             "schema": {
-              "type": "integer"
-            }
-          },
-          {
-            "name": "subscribe",
-            "in": "query",
-            "description": "Shows us if the user subscribed or not the plan",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean"
+              "type": "string"
             }
           }
         ],
-        "requestBody": {
-          "description": "Subscribe an existing plan",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Subscription"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Subscription"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
+          "200": {
+            "description": "OK"
           },
           "401": {
             "description": "Unauthorized"
@@ -426,53 +379,31 @@
       }
     },
 
-    "/subscription/devices": {
+    "/subscription/{username}/devices": {
       "get": {
         "tags": ["Subscriptions"],
         "summary": "5.4   List of subscriber devices ",
+        "operationId": "getSubscriberDevices",
         "description": "5.4   As subscriber I want to list my devices",
         "parameters": [
           {
-            "name": "id",
+            "name": "username",
             "in": "path",
-            "description": "Numeric ID of the plan we want to subscribe",
+            "description": "All devices affiliated",
             "required": true,
             "style": "simple",
-            "explode": false,
             "schema": {
               "type": "integer"
             }
-          },
-          {
-            "name": "subscribe",
-            "in": "query",
-            "description": "Shows us if the user subscribed or not the plan",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean"
-            }
           }
         ],
-        "requestBody": {
-          "description": "Subscribe an existing plan",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Subscription"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "201": {
             "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Subscription"
+                  "$ref": "#/components/schemas/Devices"
                 }
               }
             }
@@ -495,37 +426,26 @@
       "post": {
         "tags": ["Subscriptions"],
         "summary": "5.1   Subscriber adds a new device to subscription ",
+        "operationId": "postAddDevice",
         "description": "5.1   As subscriber I want to add a new device to my subscription",
         "parameters": [
           {
-            "name": "id",
+            "name": "username",
             "in": "path",
-            "description": "Numeric ID of the plan we want to subscribe",
+            "description": "Unique identity username device",
             "required": true,
             "style": "simple",
-            "explode": false,
             "schema": {
               "type": "integer"
-            }
-          },
-          {
-            "name": "subscribe",
-            "in": "query",
-            "description": "Shows us if the user subscribed or not the plan",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean"
             }
           }
         ],
         "requestBody": {
-          "description": "Subscribe an existing plan",
+          "description": "Add a new device to my subscription",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Subscription"
+                "$ref": "#/components/schemas/Devices"
               }
             }
           },
@@ -537,16 +457,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Subscription"
+                  "$ref": "#/components/schemas/Devices"
                 }
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
-          },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
@@ -557,56 +477,27 @@
         }
       }
     },
-    "/subscription/devices/{id}": {
+    "/subscription/{username}/devices/{id}": {
       "delete": {
         "tags": ["Subscriptions"],
         "summary": "5.2   Subscriber removes devices from subscription ",
+        "operationId": "deleteDeviceById",
         "description": "5.2. As subscriber I want to remove a device from my subscription",
         "parameters": [
           {
-            "name": "id",
+            "name": "username",
             "in": "path",
-            "description": "Numeric ID of the plan we want to subscribe",
+            "description": "Delete a device from a specific username identity",
             "required": true,
             "style": "simple",
-            "explode": false,
             "schema": {
               "type": "integer"
             }
-          },
-          {
-            "name": "subscribe",
-            "in": "query",
-            "description": "Shows us if the user subscribed or not the plan",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean"
-            }
           }
         ],
-        "requestBody": {
-          "description": "Subscribe an existing plan",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Subscription"
-              }
-            }
-          },
-          "required": true
-        },
         "responses": {
           "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Subscription"
-                }
-              }
-            }
+            "description": "Ok"
           },
           "400": {
             "description": "Bad Request"
@@ -625,49 +516,48 @@
       "put": {
         "tags": ["Subscriptions"],
         "summary": "5.3   Subscriber updates the details of device  ",
+        "operationId": "putDetailsDevice",
         "description": "5.3. As subscriber I want to update the details of my device (name and description)",
         "parameters": [
           {
-            "name": "id",
+            "name": "username",
             "in": "path",
-            "description": "Numeric ID of the plan we want to subscribe",
+            "description": "Edit details plan from a specific username identity",
             "required": true,
             "style": "simple",
-            "explode": false,
             "schema": {
               "type": "integer"
-            }
-          },
-          {
-            "name": "subscribe",
-            "in": "query",
-            "description": "Shows us if the user subscribed or not the plan",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "boolean"
             }
           }
         ],
         "requestBody": {
-          "description": "Subscribe an existing plan",
+          "description": "Edit details of a scpecific device",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Subscription"
+                "$ref": "#/components/schemas/Devices"
               }
             }
           },
           "required": true
         },
         "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Devices"
+                }
+              }
+            }
+          },
           "201": {
             "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Subscription"
+                  "$ref": "#/components/schemas/Devices"
                 }
               }
             }
@@ -688,43 +578,41 @@
       }
     },
 
-    "/newsub": {
+    "/subscriptors": {
       "get": {
         "tags": ["Dashboard"],
-        "summary": "Displays all new subscritors",
-        "description": "Shows all new subscritors in a specific month",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NewSubs"
-                }
-              }
+        "summary": "Displays all new subscritors and new cancellations",
+        "operationId": "getNewSubscribers",
+        "description": "Shows all new subscritors and new cancellations in a specific month",
+        "parameters": [
+          {
+            "name": "month",
+            "in": "path",
+            "description": "New subscribers and new cancellations in a specific month of a certain year",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
             }
           },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          {
+            "name": "year",
+            "in": "path",
+            "description": "New subscribers and new cancellations in a specific month of a certain year",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
           }
-        }
-      }
-    },
-    "/newcancel": {
-      "get": {
-        "tags": ["Dashboard"],
-        "summary": "Displays all cancellations",
-        "description": "Shows all cancellations in a specific month",
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Cancel"
+                  "$ref": "#/components/schemas/NewSubsCancells"
                 }
               }
             }
@@ -801,28 +689,36 @@
         ],
         "properties": {
           "plan": {
-
+            "type": "string"
           },
           "description":{
-
+            "type": "string"
           },
           "number_of_minutes":{
-
+            "type": "string"
           },
           "maximum_number_of_users_devices":{
-
+            "type": "integer"
           },
           "music_collections":{
-
+            "type": "integer"
           },
           "music_suggestions":{
-
+            "type": "integer"
           },
           "monthly_fee":{
-
+            "type": "integer",
+            "format": "currency"
           },
           "anual_fee":{
-            
+            "type": "integer",
+            "format": "currency"
+          },
+          "startDate": {
+            "type": "string"
+          },
+          "endDate": {
+            "type": "string"
           }
         }      
       },
@@ -836,24 +732,25 @@
         ],
         "properties": {
           "id": {
-
+            "type": "string"
           },
           "idPlan":{
-
+            "type": "string"
           },
-          "user":{
-
+          "username":{
+            "type": "string"
           },
           "email":{
-
+            "type": "string"
           },
           "subscribe":{
-
+            "type": "boolean"
           },
           "startDate":{
-
+            "type": "string"
           },
           "endDate":{
+            "type": "string"
           },
           "correlation": {
             "type": "object",
@@ -882,40 +779,73 @@
           }
         }
       },
-      "NewSubs": {
+      "DetailsPlan": {
+        "description": "The details from my plan",
+        "additionalProperties": false,
         "type": "object",
+        "required": [
+          "username"
+        ],
         "properties": {
-          "year": {
-            "type": "integer",
-            "format": "int64",
-            "example": 0
+          "username": {
+
           },
-          "month": {
-            "type": "integer",
-            "format": "int64",
-            "example": 0
+          "plan": {
+            
           },
-          "new_subscritors": {
-            "type": "integer",
-            "format": "int64",
-            "example": 0
+          "number_of_minutes": {
+            
+          },
+          "maximum_number_of_users_devices":{
+
+          }, 
+          "music_collections":{
+
+          },
+          "music_suggestions":{
+
+          },
+          "monthly_fee":{
+
+          },
+          "anual_fee":{
+
+          },
+          "startDate": {
+
+          },
+          "endDate": {
+
           }
         }
       },
-      "Cancel": {
+      "Devices": {
         "type": "object",
         "properties": {
-          "year": {
+          "idDevice": {
+            "type": "string"
+          },
+          "device": {
+            "type": "string"
+          },
+          "esn": {
+            "type": "string",
+            "description": "Equipment Serial Number"
+          },
+          "affiliatedOn":{
+            "type": "string"
+          }
+        }
+      },
+      "NewSubsCancells": {
+        "type": "object",
+        "properties": {
+          "new_subscribers": {
             "type": "integer",
             "format": "int64",
             "example": 0
           },
-          "month": {
-            "type": "integer",
-            "format": "int64",
-            "example": 0
-          },
-          "cancellations": {
+          "new_cancellations": {
             "type": "integer",
             "format": "int64",
             "example": 0
