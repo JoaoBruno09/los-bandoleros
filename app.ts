@@ -1,15 +1,17 @@
-import express from "express";
+import express, { Express, Request, Response } from "express";
+import { router as routerPlans } from "./src/routes/Plans";
 
-const app = express();
-
-// GET
-app.get("/hello", function (req, res) {
-  res.contentType("application/json");
-  res.send(JSON.stringify({ text: "HELLO WORLD" }));
-});
-
+const app: Express = express();
 const port = process.env.PORT || 3000;
 
-app.listen(port, function () {
-  console.log("Servidor a correr na porta", port);
+//ROUTES
+app.use("/plans", routerPlans);
+
+app.use("/", (req: Request, res: Response) => {
+  res.status(404).send("404 NOT FOUND");
+  res.send("Express + TypeScript Server");
+});
+
+app.listen(port, () => {
+  console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
 });
