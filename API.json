@@ -2,14 +2,29 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Music Streaming Service   OpenAPI 3.0",
-    "description": "The console below provides you with all endpoints and parameters available for this REST API.",
+    "description": "A REST API for ACME, Inc. is a SaaS-based music streaming service to manage the subscriptions of the service. The company offers several plans and needs the ability to create new plans to adapt to market.",
     "termsOfService": "http://swagger.io/terms/",
-    "contact": {
-      "email": "losBandoleros@gmail.com"
-    },
+
+    "contact": 
+      {
+        { 
+        "name": "API Support",
+        "url": "http://www.example.com/support",
+        "email": "support@example.com"
+        } ,
+
+        { 
+        "name": "API Support",
+        "url": "http://www.example.com/support",
+        "email": "support@example.com"
+        }
+
+       
+      },
+
     "license": {
-      "name": "Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE 2.0.html"
+      "name": "MIT",
+      "url": "https://spdx.org/licenses/MIT.html"
     },
     "version": "1.0.0"
   },
@@ -82,7 +97,7 @@
           "404": {
             "description": "Not Found"
           },
-          
+
           "500": {
             "description": "Internal Server Error"
           }
@@ -125,10 +140,10 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/newPlan"
-                }
-              }               
+              }
             }
-          },
+          }
+        },
         "responses": {
           "201": {
             "description": "Created",
@@ -342,7 +357,7 @@
               "type": "string"
             }
           }
-        ],       
+        ],
         "responses": {
           "201": {
             "description": "Created",
@@ -668,10 +683,7 @@
         "description": "the user form input",
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "username",
-          "password"
-        ],
+        "required": ["username", "password"],
         "properties": {
           "username": {
             "$ref": "#/components/schemas/attrUserName"
@@ -694,19 +706,18 @@
           "id": {
             "type": "string",
             "example": "a3fg"
-           
           },
           "plan": {
             "type": "string",
-            "example":"Gold"
+            "example": "Gold"
           },
           "description": {
             "type": "string",
-            "example":"Brief plan description"
+            "example": "Brief plan description"
           },
           "number_of_minutes": {
             "type": "integer",
-            "example":"",
+            "example": "",
             "nullable": true,
             "description": "If empty the number of minutes is unlimited"
           },
@@ -714,26 +725,25 @@
             "type": "integer",
             "format": "int64",
             "example": "6"
-          }, 
+          },
           "music_collections": {
             "type": "integer",
-            "example":"25",
+            "example": "25",
             "description": "If 0 you can not creat music collections"
           },
           "music_suggestions": {
             "type": "string",
-            "example":"personalized"
+            "example": "personalized"
           },
           "monthly_fee": {
             "type": "number",
             "format": "currency",
-            "example":"5,99€"
+            "example": "5,99€"
           },
           "anual_fee": {
             "type": "number",
             "format": "currency",
             "example": "59,90€"
-
           },
           "status": {
             "type": "boolean"
@@ -747,28 +757,28 @@
         "properties": {
           "id": {
             "type": "string",
-            "example":"atf5"
+            "example": "atf5"
           },
-         
-          "username":{
+
+          "username": {
             "type": "string",
-            "example":"los-bandoleros"
+            "example": "los-bandoleros"
           },
-          "email":{
+          "email": {
             "type": "string",
-            "example":"los-bandoleros@email.com"
+            "example": "los-bandoleros@email.com"
           },
-          "subscribe":{
+          "subscribe": {
             "type": "boolean",
-            "example":"true"
+            "example": "true"
           },
-          "startDate":{
+          "startDate": {
             "type": "string",
-            "example":"2022-11-28"
+            "example": "2022-11-28"
           },
-          "endDate":{
+          "endDate": {
             "type": "string",
-            "example":"2023-11-29"
+            "example": "2023-11-29"
           },
           "plan": {
             "type": "object",
@@ -784,19 +794,18 @@
           "id": {
             "type": "string",
             "example": "a3fg"
-           
           },
           "plan": {
             "type": "string",
-            "example":"NEW Gold"
+            "example": "NEW Gold"
           },
           "description": {
             "type": "string",
-            "example":"Change plan description"
+            "example": "Change plan description"
           },
           "number_of_minutes": {
             "type": "integer",
-            "example":"1000",
+            "example": "1000",
             "nullable": true,
             "description": "If empty the number of minutes is unlimited"
           },
@@ -807,50 +816,45 @@
           },
           "music_collections": {
             "type": "integer",
-            "example":"25",
+            "example": "25",
             "description": "If 0 you can not creat music collections"
           },
           "music_suggestions": {
             "type": "string",
-            "example":"personalized"
+            "example": "personalized"
           },
           "monthly_fee": {
             "type": "number",
             "format": "currency",
-            "example":"5,99€"
+            "example": "5,99€"
           },
           "anual_fee": {
             "type": "number",
             "format": "currency",
             "example": "59,90€"
-
           },
           "status": {
             "type": "boolean"
           }
         }
       },
-      "newPlan":{
+      "newPlan": {
         "description": "The plan form input",
         "additionalProperties": false,
         "type": "object",
-        "required": [
-          "plan",
-          "description",
-          "maximum_number_of_users_devices"
-        ],
+        "required": ["plan", "description", "maximum_number_of_users_devices"],
         "properties": {
           "plan": {
             "type": "string",
-            "example":"Gold"
+            "example": "Gold"
           },
           "description": {
             "type": "string",
-            "example":"Breve descrição do Plano"
+            "example": "Breve descrição do Plano"
           },
           "number_of_minutes": {
             "type": "integer",
-            "example":"",
+            "example": "",
             "nullable": true,
             "description": "If empty the number of minutes is unlimited"
           },
@@ -861,69 +865,65 @@
           },
           "music_collections": {
             "type": "integer",
-            "example":"25",
+            "example": "25",
             "description": "If 0 you can not creat music collections"
           },
           "music_suggestions": {
             "type": "string",
-            "example":"personalized"
+            "example": "personalized"
           },
           "monthly_fee": {
             "type": "number",
             "format": "currency",
-            "example":"5,99€"
+            "example": "5,99€"
           },
           "anual_fee": {
             "type": "number",
             "format": "currency",
             "example": "59,90€"
-
           },
           "startDate": {
             "type": "string",
-            "example":"2022-11-28"
+            "example": "2022-11-28"
           },
           "endDate": {
             "type": "string",
-            "example":"2023-11-29"
+            "example": "2023-11-29"
           }
-        }      
+        }
       },
-      "subscribePlan":{
+      "subscribePlan": {
         "description": "The subscribe form input",
         "additionalProperties": false,
         "type": "object",
-        "required": [
-          "id",
-          "subscribe"
-        ],
+        "required": ["id", "subscribe"],
         "properties": {
           "id": {
             "type": "string",
-            "example":"atf5"
+            "example": "atf5"
           },
-         
-          "username":{
+
+          "username": {
             "type": "string",
-            "example":"los-bandoleros"
+            "example": "los-bandoleros"
           },
-          "email":{
+          "email": {
             "type": "string",
-            "example":"los-bandoleros@email.com"
+            "example": "los-bandoleros@email.com"
           },
-          "subscribe":{
+          "subscribe": {
             "type": "boolean",
-            "example":"true"
+            "example": "true"
           },
-          "startDate":{
+          "startDate": {
             "type": "string",
-            "example":"2022-11-28"
+            "example": "2022-11-28"
           },
-          "endDate":{
+          "endDate": {
             "type": "string",
-            "example":"2023-11-29"
+            "example": "2023-11-29"
           }
-        }      
+        }
       },
       "Subscription": {
         "type": "object",
@@ -942,14 +942,12 @@
         "description": "The details from my plan",
         "additionalProperties": false,
         "type": "object",
-        "required": [
-          "username"
-        ],
+        "required": ["username"],
         "properties": {
           "username": {
             "type": "string"
           },
-          "idPlan":{
+          "idPlan": {
             "type": "string"
           },
           "number_of_minutes": {
@@ -975,10 +973,10 @@
             "type": "number",
             "format": "currency"
           },
-          "startDate":{
+          "startDate": {
             "type": "string"
           },
-          "endDate":{
+          "endDate": {
             "type": "string"
           }
         }
@@ -988,21 +986,21 @@
         "properties": {
           "idDevice": {
             "type": "string",
-            "example":"dv854t"
+            "example": "dv854t"
           },
           "device": {
             "type": "string",
-            "example":"Hp 850"
+            "example": "Hp 850"
           },
           "esn": {
             "type": "string",
             "description": "Equipment Serial Number",
-            "example" : "ESNaojsdf4389LK345345345ZY3"
+            "example": "ESNaojsdf4389LK345345345ZY3"
           },
-          "affiliatedOn":{
+          "affiliatedOn": {
             "type": "string",
-            "format":"date",
-            "example":"2022-11-28"
+            "format": "date",
+            "example": "2022-11-28"
           }
         }
       },
