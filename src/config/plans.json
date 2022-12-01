@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "plan": "Free",
+    "description": "Brief plan description",
+    "number_of_minutes": "1000",
+    "maximum_number_of_users_devices": 1,
+    "music_collections": 0,
+    "music_suggestions": "automatic",
+    "monthly_fee": 0.0,
+    "anual_fee": 0.0,
+    "status": true
+  },
+  {
+    "id": 2,
+    "plan": "Silver",
+    "description": "Brief plan description",
+    "number_of_minutes": "5000",
+    "maximum_number_of_users_devices": 3,
+    "music_collections": 10,
+    "music_suggestions": "automatic",
+    "monthly_fee": 4.99,
+    "anual_fee": 49.9,
+    "status": true
+  },
+  {
+    "id": 3,
+    "plan": "Gold",
+    "description": "Brief plan description",
+    "number_of_minutes": "Unlimited",
+    "maximum_number_of_users_devices": 6,
+    "music_collections": 25,
+    "music_suggestions": "personalized",
+    "monthly_fee": 5.99,
+    "anual_fee": 59.9,
+    "status": true
+  }
+]
