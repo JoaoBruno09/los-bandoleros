@@ -7,10 +7,10 @@ const random = Math.random().toString();
 const accessTokenSecret = CryptoJS.SHA256(current_date + random).toString();
 const user = { id: 1, role: "Marketing Director" };
 
-export const router = Router();
+export const authRouter = Router();
 
 //AUTH ROUTES
-router.post("/login", (req, res) => {
+authRouter.post("/login", (req, res) => {
   jwt.sign(user, accessTokenSecret, (err, token) => {
     res.json({
       token: token,
