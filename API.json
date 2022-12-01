@@ -108,9 +108,6 @@
           },
           "404": {
             "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
@@ -144,13 +141,10 @@
             "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Unauthorized. You must first authenticate in order to perform this request."
           },
           "404": {
             "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
@@ -174,7 +168,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Ok",
             "content": {
               "application/json": {
                 "schema": {
@@ -185,15 +179,12 @@
           },
           "404": {
             "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
       "put": {
         "tags": ["Plans"],
-        "summary": "1.3   Change plan details",
+        "summary": "1.3   Update details of a existing plan",
         "description": "1.3   As marketing director, i want to change a plan's details other than pricing",
         "operationId": "putPlanById",
         "parameters": [
@@ -207,9 +198,19 @@
             }
           }
         ],
+        "requestBody": {
+          "description": "Plan",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/editPlan"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Ok",
             "content": {
               "application/json": {
                 "schema": {
@@ -218,11 +219,27 @@
               }
             }
           },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/changePlans"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized. You must first authenticate in order to perform this request."
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "404": {
             "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
@@ -244,20 +261,16 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plans"
-                }
-              }
-            }
+            "description": "Ok"
+          },
+          "401": {
+            "description": "Unauthorized. You must first authenticate in order to perform this request."
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
@@ -301,8 +314,8 @@
           "required": true
         },
         "responses": {
-          "201": {
-            "description": "Created",
+          "200": {
+            "description": "Ok",
             "content": {
               "application/json": {
                 "schema": {
@@ -319,9 +332,6 @@
           },
           "404": {
             "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
@@ -344,8 +354,8 @@
           }
         ],       
         "responses": {
-          "201": {
-            "description": "Created",
+          "200": {
+            "description": "Ok",
             "content": {
               "application/json": {
                 "schema": {
@@ -354,17 +364,8 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
           "404": {
             "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
@@ -390,13 +391,10 @@
             "description": "OK"
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Unauthorized. You must first authenticate in order to perform this request."
           },
           "404": {
             "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
@@ -431,17 +429,8 @@
               }
             }
           },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
           "404": {
             "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
@@ -475,6 +464,16 @@
           "required": true
         },
         "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Devices"
+                }
+              }
+            }
+          },
           "201": {
             "description": "Created",
             "content": {
@@ -486,16 +485,13 @@
             }
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Unauthorized. You must first authenticate in order to perform this request."
           },
           "403": {
             "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
@@ -520,19 +516,13 @@
         ],
         "responses": {
           "200": {
-            "description": "Ok"
-          },
-          "400": {
-            "description": "Bad Request"
+            "description": "OK"
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Unauthorized. You must first authenticate in order to perform this request."
           },
           "404": {
             "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       },
@@ -545,7 +535,7 @@
           {
             "name": "username",
             "in": "path",
-            "description": "Edit details plan from a specific username identity",
+            "description": "Edit details of a device from a specific username identity",
             "required": true,
             "style": "simple",
             "schema": {
@@ -589,13 +579,13 @@
             "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Unauthorized. You must first authenticate in order to perform this request."
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
           }
         }
       }
@@ -639,6 +629,9 @@
                 }
               }
             }
+          },
+          "202": {
+            "description": "Accepted"
           },
           "404": {
             "description": "Not Found"
@@ -705,10 +698,8 @@
             "example":"Brief plan description"
           },
           "number_of_minutes": {
-            "type": "integer",
-            "example":"",
-            "nullable": true,
-            "description": "If empty the number of minutes is unlimited"
+            "type": "string",
+            "example": "Unlimited"
           },
           "maximum_number_of_users_devices": {
             "type": "integer",
@@ -748,8 +739,7 @@
           "id": {
             "type": "string",
             "example":"atf5"
-          },
-         
+          },        
           "username":{
             "type": "string",
             "example":"los-bandoleros"
@@ -777,6 +767,21 @@
         }
       },
 
+      "editPlan": {
+        "required": ["id"],
+        "type": "object",
+        "properties": {
+          "plan": {
+            "type": "string",
+            "example":"NEW Gold"
+          },
+          "description": {
+            "type": "string",
+            "example":"Change plan description"
+          }
+        }
+      },
+
       "changePlans": {
         "required": ["id"],
         "type": "object",
@@ -795,10 +800,8 @@
             "example":"Change plan description"
           },
           "number_of_minutes": {
-            "type": "integer",
-            "example":"1000",
-            "nullable": true,
-            "description": "If empty the number of minutes is unlimited"
+            "type": "string",
+            "example":"Unlimited"
           },
           "maximum_number_of_users_devices": {
             "type": "integer",
@@ -849,10 +852,8 @@
             "example":"Breve descrição do Plano"
           },
           "number_of_minutes": {
-            "type": "integer",
-            "example":"",
-            "nullable": true,
-            "description": "If empty the number of minutes is unlimited"
+            "type": "string",
+            "example":"Unlimited"
           },
           "maximum_number_of_users_devices": {
             "type": "integer",
@@ -947,39 +948,48 @@
         ],
         "properties": {
           "username": {
-            "type": "string"
+            "type": "string",
+            "example": "los-bandoleros"
           },
           "idPlan":{
-            "type": "string"
+            "type": "string",
+            "example": "3"
           },
           "number_of_minutes": {
-            "type": "integer"
+            "type": "string",
+            "example": "Unlimited"
           },
           "maximum_number_of_users_devices": {
             "type": "integer",
             "format": "int64",
-            "example": 0
+            "example": 6
           },
           "music_collections": {
             "type": "integer",
-            "nullable": true
+            "nullable": true,
+            "example": 25
           },
           "music_suggestions": {
-            "type": "string"
+            "type": "string",
+            "example": "personalized"
           },
           "monthly_fee": {
             "type": "number",
-            "format": "currency"
+            "format": "currency",
+            "example": "5,99€"
           },
           "anual_fee": {
             "type": "number",
-            "format": "currency"
+            "format": "currency",
+            "example": "59,90€"
           },
           "startDate":{
-            "type": "string"
+            "type": "string",
+            "example": "01-12-2022"
           },
           "endDate":{
-            "type": "string"
+            "type": "string",
+            "example": "01-01-2023"
           }
         }
       },
