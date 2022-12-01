@@ -275,15 +275,15 @@
         }
       }
     },
-    "/plan/{id}/subscribe": {
+    "/subscription/{username}/subscribe": {
       "post": {
-        "tags": ["Plans"],
+        "tags": ["Subscriptions"],
         "summary": "2.1   Subscribe an existing plan",
         "description": "2.1. As a new customer I want to subscribe to a plan",
         "operationId": "postPlanByIdSub",
         "parameters": [
           {
-            "name": "id",
+            "name": "username",
             "in": "path",
             "description": "Numeric ID of the plan we want to subscribe",
             "required": true,
@@ -684,7 +684,7 @@
         "required": ["id"],
         "type": "object",
         "properties": {
-          "id": {
+          "idPlan": {
             "type": "string",
             "example": "a3fg"
            
@@ -786,7 +786,7 @@
         "required": ["id"],
         "type": "object",
         "properties": {
-          "id": {
+          "idPlan": {
             "type": "string",
             "example": "a3fg"
            
@@ -912,6 +912,10 @@
             "type": "string",
             "example":"los-bandoleros@email.com"
           },
+          "idPlan":{
+            "type": "string",
+            "example": "a3fg"
+          },
           "subscribe":{
             "type": "boolean",
             "example":"true"
@@ -953,7 +957,7 @@
           },
           "idPlan":{
             "type": "string",
-            "example": "3"
+            "example": "a3fg"
           },
           "number_of_minutes": {
             "type": "string",
