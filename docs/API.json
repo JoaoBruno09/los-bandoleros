@@ -82,7 +82,7 @@
           "404": {
             "description": "Not Found"
           },
-          
+
           "500": {
             "description": "Internal Server Error"
           }
@@ -122,10 +122,10 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/newPlan"
-                }
-              }               
+              }
             }
-          },
+          }
+        },
         "responses": {
           "201": {
             "description": "Created",
@@ -352,7 +352,7 @@
               "type": "string"
             }
           }
-        ],       
+        ],
         "responses": {
           "200": {
             "description": "Ok",
@@ -504,13 +504,23 @@
         "description": "5.2. As subscriber I want to remove a device from my subscription",
         "parameters": [
           {
-            "name": "username",
+            "name": "id",
             "in": "path",
             "description": "Delete a device from a specific username identity",
             "required": true,
             "style": "simple",
             "schema": {
               "type": "integer"
+            }
+          },
+          {
+            "name": "username",
+            "in": "path",
+            "description": "Delete a device from a specific username identity",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -533,13 +543,23 @@
         "description": "5.3. As subscriber I want to update the details of my device (name and description)",
         "parameters": [
           {
-            "name": "username",
+            "name": "id",
             "in": "path",
             "description": "Edit details of a device from a specific username identity",
             "required": true,
             "style": "simple",
             "schema": {
               "type": "integer"
+            }
+          },
+          {
+            "name": "username",
+            "in": "path",
+            "description": "Edit details of a device from a specific username identity",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -600,7 +620,7 @@
         "parameters": [
           {
             "name": "month",
-            "in": "path",
+            "in": "query",
             "description": "New subscribers and new cancellations in a specific month of a certain year",
             "required": true,
             "style": "simple",
@@ -610,7 +630,7 @@
           },
           {
             "name": "year",
-            "in": "path",
+            "in": "query",
             "description": "New subscribers and new cancellations in a specific month of a certain year",
             "required": true,
             "style": "simple",
@@ -661,10 +681,7 @@
         "description": "the user form input",
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "username",
-          "password"
-        ],
+        "required": ["username", "password"],
         "properties": {
           "username": {
             "$ref": "#/components/schemas/attrUserName"
@@ -687,15 +704,14 @@
           "idPlan": {
             "type": "string",
             "example": "a3fg"
-           
           },
           "plan": {
             "type": "string",
-            "example":"Gold"
+            "example": "Gold"
           },
           "description": {
             "type": "string",
-            "example":"Brief plan description"
+            "example": "Brief plan description"
           },
           "number_of_minutes": {
             "type": "string",
@@ -705,26 +721,25 @@
             "type": "integer",
             "format": "int64",
             "example": "6"
-          }, 
+          },
           "music_collections": {
             "type": "integer",
-            "example":"25",
+            "example": "25",
             "description": "If 0 you can not creat music collections"
           },
           "music_suggestions": {
             "type": "string",
-            "example":"personalized"
+            "example": "personalized"
           },
           "monthly_fee": {
             "type": "number",
             "format": "currency",
-            "example":"5,99€"
+            "example": "5,99€"
           },
           "anual_fee": {
             "type": "number",
             "format": "currency",
             "example": "59,90€"
-
           },
           "status": {
             "type": "boolean"
@@ -738,27 +753,27 @@
         "properties": {
           "id": {
             "type": "string",
-            "example":"atf5"
-          },        
-          "username":{
-            "type": "string",
-            "example":"los-bandoleros"
+            "example": "atf5"
           },
-          "email":{
+          "username": {
             "type": "string",
-            "example":"los-bandoleros@email.com"
+            "example": "los-bandoleros"
           },
-          "subscribe":{
+          "email": {
+            "type": "string",
+            "example": "los-bandoleros@email.com"
+          },
+          "subscribe": {
             "type": "boolean",
-            "example":"true"
+            "example": "true"
           },
-          "startDate":{
+          "startDate": {
             "type": "string",
-            "example":"2022-11-28"
+            "example": "2022-11-28"
           },
-          "endDate":{
+          "endDate": {
             "type": "string",
-            "example":"2023-11-29"
+            "example": "2023-11-29"
           },
           "plan": {
             "type": "object",
@@ -773,11 +788,11 @@
         "properties": {
           "plan": {
             "type": "string",
-            "example":"NEW Gold"
+            "example": "NEW Gold"
           },
           "description": {
             "type": "string",
-            "example":"Change plan description"
+            "example": "Change plan description"
           }
         }
       },
@@ -789,19 +804,18 @@
           "idPlan": {
             "type": "string",
             "example": "a3fg"
-           
           },
           "plan": {
             "type": "string",
-            "example":"NEW Gold"
+            "example": "NEW Gold"
           },
           "description": {
             "type": "string",
-            "example":"Change plan description"
+            "example": "Change plan description"
           },
           "number_of_minutes": {
             "type": "string",
-            "example":"Unlimited"
+            "example": "Unlimited"
           },
           "maximum_number_of_users_devices": {
             "type": "integer",
@@ -810,50 +824,45 @@
           },
           "music_collections": {
             "type": "integer",
-            "example":"25",
+            "example": "25",
             "description": "If 0 you can not creat music collections"
           },
           "music_suggestions": {
             "type": "string",
-            "example":"personalized"
+            "example": "personalized"
           },
           "monthly_fee": {
             "type": "number",
             "format": "currency",
-            "example":"5,99€"
+            "example": "5,99€"
           },
           "anual_fee": {
             "type": "number",
             "format": "currency",
             "example": "59,90€"
-
           },
           "status": {
             "type": "boolean"
           }
         }
       },
-      "newPlan":{
+      "newPlan": {
         "description": "The plan form input",
         "additionalProperties": false,
         "type": "object",
-        "required": [
-          "plan",
-          "description",
-          "maximum_number_of_users_devices"
-        ],
+        "required": ["plan", "description", "maximum_number_of_users_devices"],
         "properties": {
           "plan": {
             "type": "string",
-            "example":"Gold"
+            "example": "Gold"
           },
           "description": {
             "type": "string",
-            "example":"Breve descrição do Plano"
+            "example": "Breve descrição do Plano"
           },
           "number_of_minutes": {
             "type": "string",
-            "example":"Unlimited"
+            "example": "Unlimited"
           },
           "maximum_number_of_users_devices": {
             "type": "integer",
@@ -862,73 +871,69 @@
           },
           "music_collections": {
             "type": "integer",
-            "example":"25",
+            "example": "25",
             "description": "If 0 you can not creat music collections"
           },
           "music_suggestions": {
             "type": "string",
-            "example":"personalized"
+            "example": "personalized"
           },
           "monthly_fee": {
             "type": "number",
             "format": "currency",
-            "example":"5,99€"
+            "example": "5,99€"
           },
           "anual_fee": {
             "type": "number",
             "format": "currency",
             "example": "59,90€"
-
           },
           "startDate": {
             "type": "string",
-            "example":"2022-11-28"
+            "example": "2022-11-28"
           },
           "endDate": {
             "type": "string",
-            "example":"2023-11-29"
+            "example": "2023-11-29"
           }
-        }      
+        }
       },
-      "subscribePlan":{
+      "subscribePlan": {
         "description": "The subscribe form input",
         "additionalProperties": false,
         "type": "object",
-        "required": [
-          "id",
-          "subscribe"
-        ],
+        "required": ["id", "subscribe"],
         "properties": {
           "id": {
             "type": "string",
-            "example":"atf5"
+            "example": "atf5"
           },
-         
-          "username":{
+
+          "username": {
             "type": "string",
-            "example":"los-bandoleros"
+            "example": "los-bandoleros"
           },
-          "email":{
+          "email": {
             "type": "string",
-            "example":"los-bandoleros@email.com"
+            "example": "los-bandoleros@email.com"
           },
-          "idPlan":{
+          "idPlan": {
             "type": "string",
             "example": "a3fg"
           },
-          "subscribe":{
+          "subscribe": {
             "type": "boolean",
-            "example":"true"
+            "example": "true"
           },
-          "startDate":{
+          "startDate": {
             "type": "string",
-            "example":"2022-11-28"
+            "example": "2022-11-28"
           },
-          "endDate":{
+          "endDate": {
             "type": "string",
-            "example":"2023-11-29"
+            "example": "2023-11-29"
           }
-        }      
+        }
       },
       "Subscription": {
         "type": "object",
@@ -947,15 +952,13 @@
         "description": "The details from my plan",
         "additionalProperties": false,
         "type": "object",
-        "required": [
-          "username"
-        ],
+        "required": ["username"],
         "properties": {
           "username": {
             "type": "string",
             "example": "los-bandoleros"
           },
-          "idPlan":{
+          "idPlan": {
             "type": "string",
             "example": "a3fg"
           },
@@ -987,11 +990,11 @@
             "format": "currency",
             "example": "59,90€"
           },
-          "startDate":{
+          "startDate": {
             "type": "string",
             "example": "01-12-2022"
           },
-          "endDate":{
+          "endDate": {
             "type": "string",
             "example": "01-01-2023"
           }
@@ -1002,21 +1005,21 @@
         "properties": {
           "idDevice": {
             "type": "string",
-            "example":"dv854t"
+            "example": "dv854t"
           },
           "device": {
             "type": "string",
-            "example":"Hp 850"
+            "example": "Hp 850"
           },
           "esn": {
             "type": "string",
             "description": "Equipment Serial Number",
-            "example" : "ESNaojsdf4389LK345345345ZY3"
+            "example": "ESNaojsdf4389LK345345345ZY3"
           },
-          "affiliatedOn":{
+          "affiliatedOn": {
             "type": "string",
-            "format":"date",
-            "example":"2022-11-28"
+            "format": "date",
+            "example": "2022-11-28"
           }
         }
       },
