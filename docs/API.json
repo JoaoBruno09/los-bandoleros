@@ -623,7 +623,6 @@
             "in": "query",
             "description": "New subscribers and new cancellations in a specific month of a certain year",
             "required": true,
-            "style": "simple",
             "schema": {
               "type": "string"
             }
@@ -633,7 +632,6 @@
             "in": "query",
             "description": "New subscribers and new cancellations in a specific month of a certain year",
             "required": true,
-            "style": "simple",
             "schema": {
               "type": "string"
             }
