@@ -275,7 +275,7 @@
         }
       }
     },
-    "/subscription/{username}/subscribe": {
+    "/plan/{id}/subscribe": {
       "post": {
         "tags": ["Subscriptions"],
         "summary": "2.1   Subscribe an existing plan",
@@ -283,22 +283,12 @@
         "operationId": "postPlanByIdSub",
         "parameters": [
           {
-            "name": "username",
+            "name": "id",
             "in": "path",
             "description": "Numeric ID of the plan we want to subscribe",
             "required": true,
             "schema": {
               "type": "integer"
-            }
-          },
-          {
-            "name": "subscribe",
-            "in": "query",
-            "description": "Shows us if the user subscribed or not the plan",
-            "required": true,
-            "style": "form",
-            "schema": {
-              "type": "boolean"
             }
           }
         ],
@@ -414,7 +404,7 @@
             "required": true,
             "style": "simple",
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           }
         ],
@@ -424,7 +414,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Devices"
+                  "$ref": "#/components/schemas/AllDevices"
                 }
               }
             }
@@ -448,7 +438,7 @@
             "required": true,
             "style": "simple",
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           }
         ],
@@ -469,7 +459,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Devices"
+                  "$ref": "#/components/schemas/AllDevices"
                 }
               }
             }
@@ -568,7 +558,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Devices"
+                "$ref": "#/components/schemas/AllDevices"
               }
             }
           },
@@ -765,13 +755,17 @@
             "type": "boolean",
             "example": "true"
           },
+          "isYear": {
+            "type": "boolean",
+            "example": "true"
+          },
           "startDate": {
             "type": "string",
             "example": "2022-11-28"
           },
           "endDate": {
             "type": "string",
-            "example": "2023-11-29"
+            "example": "2023-11-28"
           },
           "plan": {
             "type": "object",
@@ -885,14 +879,6 @@
             "type": "number",
             "format": "currency",
             "example": "59,90€"
-          },
-          "startDate": {
-            "type": "string",
-            "example": "2022-11-28"
-          },
-          "endDate": {
-            "type": "string",
-            "example": "2023-11-29"
           }
         }
       },
@@ -900,13 +886,12 @@
         "description": "The subscribe form input",
         "additionalProperties": false,
         "type": "object",
-        "required": ["id", "subscribe"],
+        "required": ["idPlan", "subscribe"],
         "properties": {
-          "id": {
+          "idPlan": {
             "type": "string",
-            "example": "atf5"
+            "example": "a3fg"
           },
-
           "username": {
             "type": "string",
             "example": "los-bandoleros"
@@ -915,21 +900,13 @@
             "type": "string",
             "example": "los-bandoleros@email.com"
           },
-          "idPlan": {
-            "type": "string",
-            "example": "a3fg"
-          },
           "subscribe": {
             "type": "boolean",
             "example": "true"
           },
-          "startDate": {
-            "type": "string",
-            "example": "2022-11-28"
-          },
-          "endDate": {
-            "type": "string",
-            "example": "2023-11-29"
+          "isYear": {
+            "type": "boolean",
+            "example": "true"
           }
         }
       },
@@ -996,6 +973,12 @@
             "type": "string",
             "example": "01-01-2023"
           }
+        }
+      },
+      "AllDevices": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Devices"
         }
       },
       "Devices": {

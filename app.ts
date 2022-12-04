@@ -5,13 +5,14 @@ import { authRouter } from "./src/middlewares/Auth";
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
+app.use(express.json());
 
 //APP ROUTES
 app.use("/auth", authRouter);
 app.use("/plan", planRouter);
 
 app.use("/", (req: Request, res: Response) => {
-  res.status(404).send("404 NOT FOUND");
+  res.sendStatus(404);
 });
 
 app.listen(port, () => {
