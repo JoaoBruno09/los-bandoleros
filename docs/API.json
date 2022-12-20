@@ -28,7 +28,7 @@
       "description": ""
     },
     {
-      "name": "Plans",
+      "name": "plans",
       "description": "Everything about our plans service"
     },
     {
@@ -91,7 +91,7 @@
     },
     "/plan": {
       "get": {
-        "tags": ["Plans"],
+        "tags": ["plans"],
         "summary": "1.4  Shows all available plans",
         "description": "Shows all available plans and their details",
         "operationId": "getPlans",
@@ -101,7 +101,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AllPlans"
+                  "$ref": "#/components/schemas/allPlans"
                 }
               }
             }
@@ -112,7 +112,7 @@
         }
       },
       "post": {
-        "tags": ["Plans"],
+        "tags": ["plans"],
         "summary": "1.1   Create a new plan",
         "description": "Create a new plan and define different characteristics for it",
         "operationId": "postPlan",
@@ -132,7 +132,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plans"
+                  "$ref": "#/components/schemas/plans"
                 }
               }
             }
@@ -149,15 +149,15 @@
         }
       }
     },
-    "/plan/{id}": {
+    "/plan/{PID}": {
       "get": {
-        "tags": ["Plans"],
+        "tags": ["plans"],
         "summary": "Shows available plans by id",
         "description": "From all available plans it is possible to select one by its own identifier",
         "operationId": "getPlanById",
         "parameters": [
           {
-            "name": "id",
+            "name": "PID",
             "in": "path",
             "description": "Numeric ID of the plan to get",
             "required": true,
@@ -172,7 +172,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Plans"
+                  "$ref": "#/components/schemas/plans"
                 }
               }
             }
@@ -182,8 +182,8 @@
           }
         }
       },
-      "put": {
-        "tags": ["Plans"],
+      "post": {
+        "tags": ["plans"],
         "summary": "1.3   Update details of a existing plan",
         "description": "1.3   As marketing director, i want to change a plan's details other than pricing",
         "operationId": "putPlanById",
@@ -243,8 +243,8 @@
           }
         }
       },
-      "delete": {
-        "tags": ["Plans"],
+      "put": {
+        "tags": ["plans"],
         "summary": "1.2   Deactivate a plan",
         "description": "1.2   As a marketing director, i want to deactivate a plan.",
         "operationId": "deletePlan",
@@ -275,7 +275,7 @@
         }
       }
     },
-    "/plan/{id}/subscribe": {
+    "/subscription/{PID}": {
       "post": {
         "tags": ["Subscriptions"],
         "summary": "2.1   Subscribe an existing plan",
@@ -283,7 +283,7 @@
         "operationId": "postPlanByIdSub",
         "parameters": [
           {
-            "name": "id",
+            "name": "PID",
             "in": "path",
             "description": "Numeric ID of the plan we want to subscribe",
             "required": true,
@@ -326,7 +326,7 @@
         }
       }
     },
-    "/subscription/{username}": {
+    "/subscription/{UID}": {
       "get": {
         "tags": ["Subscriptions"],
         "summary": "2.3   Details of my plan",
@@ -334,7 +334,7 @@
         "operationId": "getDetailsPlan",
         "parameters": [
           {
-            "name": "username",
+            "name": "UID",
             "in": "path",
             "description": "Unique identity username",
             "required": true,
@@ -349,7 +349,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/planSubscribed"
+                  "$ref": "#/components/schemas/planSubscribedDetails"
                 }
               }
             }
@@ -366,7 +366,7 @@
         "description": "2.2. As subscriber I want to cancel my subscription",
         "parameters": [
           {
-            "name": "username",
+            "name": "UID",
             "in": "path",
             "description": "Delete unique identity username",
             "required": true,
@@ -390,7 +390,7 @@
       }
     },
 
-    "/subscription/{username}/devices": {
+    "/subscription/{UID}/devices": {
       "get": {
         "tags": ["Subscriptions"],
         "summary": "5.4   List of subscriber devices ",
@@ -398,7 +398,7 @@
         "description": "5.4   As subscriber I want to list my devices",
         "parameters": [
           {
-            "name": "username",
+            "name": "UID",
             "in": "path",
             "description": "All devices affiliated",
             "required": true,
@@ -414,7 +414,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AllDevices"
+                  "$ref": "#/components/schemas/allDevices"
                 }
               }
             }
@@ -432,7 +432,7 @@
         "description": "5.1   As subscriber I want to add a new device to my subscription",
         "parameters": [
           {
-            "name": "username",
+            "name": "UID",
             "in": "path",
             "description": "Unique identity username device",
             "required": true,
@@ -447,7 +447,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Devices"
+                "$ref": "#/components/schemas/addDevices"
               }
             }
           },
@@ -459,7 +459,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AllDevices"
+                  "$ref": "#/components/schemas/allDevices"
                 }
               }
             }
@@ -469,7 +469,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Devices"
+                  "$ref": "#/components/schemas/allDevices"
                 }
               }
             }
@@ -486,7 +486,7 @@
         }
       }
     },
-    "/subscription/{username}/devices/{id}": {
+    "/subscription/{UID}/devices/{DID}": {
       "delete": {
         "tags": ["Subscriptions"],
         "summary": "5.2   Subscriber removes devices from subscription ",
@@ -494,7 +494,7 @@
         "description": "5.2. As subscriber I want to remove a device from my subscription",
         "parameters": [
           {
-            "name": "id",
+            "name": "UID",
             "in": "path",
             "description": "Delete a device from a specific username identity",
             "required": true,
@@ -504,9 +504,9 @@
             }
           },
           {
-            "name": "username",
+            "name": "DID",
             "in": "path",
-            "description": "Delete a device from a specific username identity",
+            "description": "Delete from a specific identity device",
             "required": true,
             "style": "simple",
             "schema": {
@@ -533,7 +533,7 @@
         "description": "5.3. As subscriber I want to update the details of my device (name and description)",
         "parameters": [
           {
-            "name": "id",
+            "name": "UID",
             "in": "path",
             "description": "Edit details of a device from a specific username identity",
             "required": true,
@@ -543,9 +543,9 @@
             }
           },
           {
-            "name": "username",
+            "name": "DID",
             "in": "path",
-            "description": "Edit details of a device from a specific username identity",
+            "description": "Edit details from a specific identity device",
             "required": true,
             "style": "simple",
             "schema": {
@@ -558,7 +558,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AllDevices"
+                "$ref": "#/components/schemas/allDevices"
               }
             }
           },
@@ -679,21 +679,21 @@
           }
         }
       },
-      "AllPlans": {
+      "allPlans": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/Plans"
+          "$ref": "#/components/schemas/plans"
         }
       },
-      "Plans": {
-        "required": ["id"],
+      "plans": {
+        "required": ["PID"],
         "type": "object",
         "properties": {
-          "idPlan": {
+          "PID": {
             "type": "string",
             "example": "a3fg"
           },
-          "plan": {
+          "name": {
             "type": "string",
             "example": "Gold"
           },
@@ -701,59 +701,75 @@
             "type": "string",
             "example": "Brief plan description"
           },
-          "number_of_minutes": {
+          "numberOfMinutes": {
             "type": "string",
             "example": "Unlimited"
           },
-          "maximum_number_of_users_devices": {
+          "maximumNumberOfUsersDevices": {
             "type": "integer",
             "format": "int64",
             "example": "6"
           },
-          "music_collections": {
+          "musicCollections": {
             "type": "integer",
             "example": "25",
             "description": "If 0 you can not creat music collections"
           },
-          "music_suggestions": {
+          "musicSuggestions": {
             "type": "string",
             "example": "personalized"
           },
-          "monthly_fee": {
+          "monthlyFee": {
             "type": "number",
             "format": "currency",
             "example": "5,99€"
           },
-          "anual_fee": {
+          "anualFee": {
             "type": "number",
             "format": "currency",
             "example": "59,90€"
-          },
-          "status": {
-            "type": "boolean"
           }
         }
       },
 
       "planSubscribed": {
-        "required": ["id"],
+        "required": ["SID"],
         "type": "object",
         "properties": {
-          "id": {
+          "SID": {
             "type": "string",
             "example": "atf5"
           },
-          "username": {
-            "type": "string",
-            "example": "los-bandoleros"
-          },
-          "email": {
-            "type": "string",
-            "example": "los-bandoleros@email.com"
-          },
-          "subscribe": {
+          "isYear": {
             "type": "boolean",
             "example": "true"
+          },
+          "startDate": {
+            "type": "string",
+            "example": "2022-11-28"
+          },
+          "endDate": {
+            "type": "string",
+            "example": "2023-11-28"
+          },
+          "user": {
+            "type": "object",
+            "$ref": "#/components/schemas/user"
+          },
+          "plan": {
+            "type": "object",
+            "$ref": "#/components/schemas/plans"
+          }
+        }
+      },
+
+      "planSubscribedDetails": {
+        "required": ["UID"],
+        "type": "object",
+        "properties": {
+          "SID": {
+            "type": "string",
+            "example": "atf5"
           },
           "isYear": {
             "type": "boolean",
@@ -769,7 +785,26 @@
           },
           "plan": {
             "type": "object",
-            "$ref": "#/components/schemas/Plans"
+            "$ref": "#/components/schemas/plans"
+          }
+        }
+      },
+
+      "user": {
+        "required": ["UID"],
+        "type": "object",
+        "properties": {
+          "UID": {
+            "type": "string",
+            "example": "atf5"
+          },
+          "username": {
+            "type": "string",
+            "example": "los-bandoleros"
+          },
+          "email": {
+            "type": "string",
+            "example": "los-bandoleros@email.com"
           }
         }
       },
@@ -778,7 +813,7 @@
         "required": ["id"],
         "type": "object",
         "properties": {
-          "plan": {
+          "name": {
             "type": "string",
             "example": "NEW Gold"
           },
@@ -797,7 +832,7 @@
             "type": "string",
             "example": "a3fg"
           },
-          "plan": {
+          "name": {
             "type": "string",
             "example": "NEW Gold"
           },
@@ -805,36 +840,33 @@
             "type": "string",
             "example": "Change plan description"
           },
-          "number_of_minutes": {
+          "numberOfMinutes": {
             "type": "string",
             "example": "Unlimited"
           },
-          "maximum_number_of_users_devices": {
+          "maximumNumberOfDevices": {
             "type": "integer",
             "format": "int64",
             "example": "6"
           },
-          "music_collections": {
+          "musicColections": {
             "type": "integer",
             "example": "25",
             "description": "If 0 you can not creat music collections"
           },
-          "music_suggestions": {
+          "musicSuggestions": {
             "type": "string",
             "example": "personalized"
           },
-          "monthly_fee": {
+          "monthlyFee": {
             "type": "number",
             "format": "currency",
             "example": "5,99€"
           },
-          "anual_fee": {
+          "anualFee": {
             "type": "number",
             "format": "currency",
             "example": "59,90€"
-          },
-          "status": {
-            "type": "boolean"
           }
         }
       },
@@ -842,9 +874,9 @@
         "description": "The plan form input",
         "additionalProperties": false,
         "type": "object",
-        "required": ["plan", "description", "maximum_number_of_users_devices"],
+        "required": ["name", "description", "maximumNumberOfDevices"],
         "properties": {
-          "plan": {
+          "name": {
             "type": "string",
             "example": "Gold"
           },
@@ -852,30 +884,30 @@
             "type": "string",
             "example": "Breve descrição do Plano"
           },
-          "number_of_minutes": {
+          "numberOfMinutes": {
             "type": "string",
             "example": "Unlimited"
           },
-          "maximum_number_of_users_devices": {
+          "maximumNumberOfDevices": {
             "type": "integer",
             "format": "int64",
             "example": "6"
           },
-          "music_collections": {
+          "musicColections": {
             "type": "integer",
             "example": "25",
             "description": "If 0 you can not creat music collections"
           },
-          "music_suggestions": {
+          "musicSuggestions": {
             "type": "string",
             "example": "personalized"
           },
-          "monthly_fee": {
+          "monthlyFee": {
             "type": "number",
             "format": "currency",
             "example": "5,99€"
           },
-          "anual_fee": {
+          "anualFee": {
             "type": "number",
             "format": "currency",
             "example": "59,90€"
@@ -886,23 +918,11 @@
         "description": "The subscribe form input",
         "additionalProperties": false,
         "type": "object",
-        "required": ["idPlan", "subscribe"],
+        "required": ["UID"],
         "properties": {
-          "idPlan": {
+          "UID": {
             "type": "string",
-            "example": "a3fg"
-          },
-          "username": {
-            "type": "string",
-            "example": "los-bandoleros"
-          },
-          "email": {
-            "type": "string",
-            "example": "los-bandoleros@email.com"
-          },
-          "subscribe": {
-            "type": "boolean",
-            "example": "true"
+            "example": "atf5"
           },
           "isYear": {
             "type": "boolean",
@@ -937,30 +957,30 @@
             "type": "string",
             "example": "a3fg"
           },
-          "number_of_minutes": {
+          "numberOfMinutes": {
             "type": "string",
             "example": "Unlimited"
           },
-          "maximum_number_of_users_devices": {
+          "maximumNumberOfDevices": {
             "type": "integer",
             "format": "int64",
             "example": 6
           },
-          "music_collections": {
+          "musicColections": {
             "type": "integer",
             "nullable": true,
             "example": 25
           },
-          "music_suggestions": {
+          "musicSuggestions": {
             "type": "string",
             "example": "personalized"
           },
-          "monthly_fee": {
+          "monthlyFee": {
             "type": "number",
             "format": "currency",
             "example": "5,99€"
           },
-          "anual_fee": {
+          "anualFee": {
             "type": "number",
             "format": "currency",
             "example": "59,90€"
@@ -975,7 +995,7 @@
           }
         }
       },
-      "AllDevices": {
+      "allDevices": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/Devices"
@@ -984,7 +1004,7 @@
       "Devices": {
         "type": "object",
         "properties": {
-          "idDevice": {
+          "DID": {
             "type": "string",
             "example": "dv854t"
           },
@@ -1004,6 +1024,27 @@
           }
         }
       },
+
+      "addDevices": {
+        "type": "object",
+        "properties": {
+          "device": {
+            "type": "string",
+            "example": "Hp 850"
+          },
+          "esn": {
+            "type": "string",
+            "description": "Equipment Serial Number",
+            "example": "ESNaojsdf4389LK345345345ZY3"
+          },
+          "affiliatedOn": {
+            "type": "string",
+            "format": "date",
+            "example": "2022-11-28"
+          }
+        }
+      },
+
       "NewSubsCancells": {
         "type": "object",
         "properties": {
