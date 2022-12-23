@@ -9,6 +9,13 @@ export const planRouter = Router();
 
 //POST - CREATE NEW PLAN 1.1
 planRouter.post("/", authenticateJWT, (req, res) => {
+  // GENERATE PID
+  /*
+  crypto.generateKey("hmac", { length: 40 }, (err, key) => {
+    if (err) throw err;
+    console.log("P" + key.export().toString("hex"));
+  });
+  */
   plans.push(req.body);
   res.status(200).json({
     message: "POST - CREATE NEW PLAN",

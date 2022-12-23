@@ -64,17 +64,7 @@
         },
         "responses": {
           "200": {
-            "description": "a JSON web token (JWT) required to login.",
-            "content": {
-              "application/jwt": {
-                "schema": {
-                  "type": "string",
-                  "maxLength": 1024,
-                  "pattern": "^[A-Za-z0-9-_=]+\\.[A-Za-z0-9-_=]+\\.?[A-Za-z0-9-_.+/=]*$",
-                  "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL3NwYWNlYXBpLmNvbS9ncmFwaHFsIjp7InJvbGVzIjpbImFzdHJvbmF1dCJdLCJwZXJtaXNzaW9ucyI6WyJyZWFkOm93bl91c2VyIl19LCJpYXQiOjE1OTQyNTI2NjMsImV4cCI6MTU5NDMzOTA2Mywic3ViIjoiNjc4OTAifQ.Z1JPE53ca1JaxwDTlnofa3hwpS0PGdRLUMIrC7M3FCI"
-                }
-              }
-            }
+            "description": "a JSON web token (JWT) required to login."
           },
           "401": {
             "description": "wrong username and/or password"
@@ -112,6 +102,11 @@
         }
       },
       "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "tags": ["plans"],
         "summary": "1.1   Create a new plan",
         "description": "Create a new plan and define different characteristics for it",
@@ -189,7 +184,7 @@
         "operationId": "putPlanById",
         "parameters": [
           {
-            "name": "id",
+            "name": "PID",
             "in": "path",
             "description": "Numeric ID of the plan to get",
             "required": true,
@@ -241,7 +236,12 @@
           "404": {
             "description": "Not Found"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": ["plans"],
@@ -250,7 +250,7 @@
         "operationId": "deletePlan",
         "parameters": [
           {
-            "name": "id",
+            "name": "PID",
             "in": "path",
             "description": "Numeric ID of the plan to get",
             "required": true,
@@ -272,7 +272,12 @@
           "404": {
             "description": "Not Found"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/subscription/{PID}": {
@@ -323,7 +328,12 @@
           "404": {
             "description": "Not Found"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/subscription/{UID}": {
@@ -357,7 +367,12 @@
           "404": {
             "description": "Not Found"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "delete": {
         "tags": ["Subscriptions"],
@@ -386,7 +401,12 @@
           "404": {
             "description": "Not Found"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
 
@@ -422,7 +442,12 @@
           "404": {
             "description": "Not Found"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
 
       "post": {
@@ -483,7 +508,12 @@
           "404": {
             "description": "Not Found"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/subscription/{UID}/devices/{DID}": {
@@ -500,7 +530,7 @@
             "required": true,
             "style": "simple",
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
@@ -524,7 +554,12 @@
           "404": {
             "description": "Not Found"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "put": {
         "tags": ["Subscriptions"],
@@ -539,7 +574,7 @@
             "required": true,
             "style": "simple",
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
@@ -597,11 +632,16 @@
           "404": {
             "description": "Not Found"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
 
-    "/subscriptors": {
+    "/dashboard": {
       "get": {
         "tags": ["Dashboard"],
         "summary": "Displays all new subscritors and new cancellations",
@@ -647,11 +687,23 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     }
   },
   "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
     "schemas": {
       "attrAuthzPassword": {
         "type": "string",
@@ -691,7 +743,7 @@
         "properties": {
           "PID": {
             "type": "string",
-            "example": "a3fg"
+            "example": "P1a2s3d4f5G"
           },
           "name": {
             "type": "string",
@@ -738,7 +790,7 @@
         "properties": {
           "SID": {
             "type": "string",
-            "example": "atf5"
+            "example": "S1a2s3d4f5"
           },
           "isYear": {
             "type": "boolean",
@@ -769,7 +821,7 @@
         "properties": {
           "SID": {
             "type": "string",
-            "example": "atf5"
+            "example": "S1a2s3d4f5"
           },
           "isYear": {
             "type": "boolean",
@@ -796,7 +848,7 @@
         "properties": {
           "UID": {
             "type": "string",
-            "example": "atf5"
+            "example": "U1a2s3d4f5"
           },
           "username": {
             "type": "string",
@@ -876,6 +928,10 @@
         "type": "object",
         "required": ["name", "description", "maximumNumberOfDevices"],
         "properties": {
+          "PID": {
+            "type": "string",
+            "example": "P1a2s3d4f5G"
+          },
           "name": {
             "type": "string",
             "example": "Gold"
@@ -922,7 +978,7 @@
         "properties": {
           "UID": {
             "type": "string",
-            "example": "atf5"
+            "example": "U1a2s3d4f5"
           },
           "isYear": {
             "type": "boolean",
@@ -1006,7 +1062,7 @@
         "properties": {
           "DID": {
             "type": "string",
-            "example": "dv854t"
+            "example": "D1a2s3d4f5"
           },
           "device": {
             "type": "string",

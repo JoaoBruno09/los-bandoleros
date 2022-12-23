@@ -1,10 +1,12 @@
 import { Router } from "express";
+import crypto from "crypto";
 import * as jwt from "jsonwebtoken";
-import CryptoJS from "crypto-js";
 
-const current_date = new Date().valueOf().toString();
-const random = Math.random().toString();
-const accessTokenSecret = CryptoJS.SHA256(current_date + random).toString();
+let accessTokenSecret: string;
+crypto.generateKey("hmac", { length: 100 }, (err, key) => {
+  if (err) throw err;
+  accessTokenSecret = key.export().toString("hex");
+});
 const user = { id: 1, role: "Marketing Director" };
 
 export const authRouter = Router();
@@ -14,6 +16,7 @@ authRouter.post("/login", (req, res) => {
   jwt.sign(user, accessTokenSecret, (err, token) => {
     res.json({
       token: token,
+      accessTokenSecret: accessTokenSecret,
     });
   });
 });
