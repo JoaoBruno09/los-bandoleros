@@ -247,7 +247,43 @@
         "tags": ["plans"],
         "summary": "1.2   Deactivate a plan",
         "description": "1.2   As a marketing director, i want to deactivate a plan.",
-        "operationId": "deletePlan",
+        "operationId": "deactivatePlan",
+        "parameters": [
+          {
+            "name": "PID",
+            "in": "path",
+            "description": "Numeric ID of the plan to get",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok"
+          },
+          "401": {
+            "description": "Unauthorized. You must first authenticate in order to perform this request."
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": ["plans"],
+        "summary": "9.2   Cease a plan",
+        "description": "9.2   As marketing director, I want to cease a plan.",
+        "operationId": "ceasePlan",
         "parameters": [
           {
             "name": "PID",
@@ -299,6 +335,60 @@
         ],
         "requestBody": {
           "description": "Subscribe an existing plan",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/subscribePlan"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/planSubscribed"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "put": {
+        "tags": ["Subscriptions"],
+        "summary": "10.1   Switch plan",
+        "description": "10.1. As subscriber I want to switch my plan (upgrade/downgrade)",
+        "operationId": "putPlanByIdSub",
+        "parameters": [
+          {
+            "name": "PID",
+            "in": "path",
+            "description": "Numeric ID of the plan we want to uprade/downgrade",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Switch plan",
           "content": {
             "application/json": {
               "schema": {
@@ -397,6 +487,49 @@
           },
           "401": {
             "description": "Unauthorized. You must first authenticate in order to perform this request."
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "put": {
+        "tags": ["Subscriptions"],
+        "summary": "10.2   Renew annual subscription",
+        "description": "10.2. As subscriber I want to renew my annual subscription",
+        "operationId": "putSubscription",
+        "parameters": [
+          {
+            "name": "PID",
+            "in": "path",
+            "description": "Numeric ID of the plan we want to uprade/downgrade",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/planSubscribed"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
@@ -641,32 +774,81 @@
       }
     },
 
-    "/dashboard": {
-      "get": {
-        "tags": ["Dashboard"],
-        "summary": "Displays all new subscritors and new cancellations",
-        "operationId": "getNewSubscribers",
-        "description": "Shows all new subscritors and new cancellations in a specific month",
+    "/subscription/{OPID}/migration/{NPID}": {
+      "put": {
+        "tags": ["Subscriptions"],
+        "summary": "10.3 migrate all subscribers of a certain plan to another one",
+        "operationId": "migrateSubscriptions",
+        "description": "10.3 As marketing director, I want to migrate all subscribers of a certain plan to a different plan",
         "parameters": [
           {
-            "name": "month",
-            "in": "query",
-            "description": "New subscribers and new cancellations in a specific month of a certain year",
+            "name": "OPID",
+            "in": "path",
+            "description": "Plan Id of the old plan (plan that will send the subscriptions)",
             "required": true,
+            "style": "simple",
             "schema": {
-              "type": "string"
+              "type": "integer"
             }
           },
           {
-            "name": "year",
-            "in": "query",
-            "description": "New subscribers and new cancellations in a specific month of a certain year",
+            "name": "NPID",
+            "in": "path",
+            "description": "Plan Id of the new plan (plan that will receive the subscriptions)",
             "required": true,
+            "style": "simple",
             "schema": {
-              "type": "string"
+              "type": "integer"
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPlanSubscriptions"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetPlanSubscriptions"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. You must first authenticate in order to perform this request."
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/dashboard": {
+      "get": {
+        "tags": ["Dashboard"],
+        "summary": "3.1 Displays all new subscritors and new cancellations in the last 6 months",
+        "operationId": "getNewSubscribers",
+        "description": "3.1 Shows all new subscritors and new cancellations in the last 6 months",
         "responses": {
           "200": {
             "description": "OK",
@@ -976,11 +1158,7 @@
         "type": "object",
         "required": ["UID"],
         "properties": {
-          "UID": {
-            "type": "string",
-            "example": "U1a2s3d4f5"
-          },
-          "isYear": {
+          "annual": {
             "type": "boolean",
             "example": "true"
           }
@@ -1101,18 +1279,54 @@
         }
       },
 
-      "NewSubsCancells": {
+      "GetPlanSubscriptions": {
         "type": "object",
         "properties": {
-          "new_subscribers": {
-            "type": "integer",
-            "format": "int32",
-            "example": 1651
+          "plan": {
+            "type": "object",
+            "$ref": "#/components/schemas/plans"
           },
-          "new_cancellations": {
-            "type": "integer",
-            "format": "int64",
-            "example": 2
+          "subscriptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/migratedSubscriptions"
+            }
+          }
+        }
+      },
+
+      "migratedSubscriptions": {
+        "required": ["SID"],
+        "type": "object",
+        "properties": {
+          "SID": {
+            "type": "string",
+            "example": "S1a2s3d4f5"
+          }
+        }
+      },
+
+      "NewSubsCancells": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/newSubscribersCancelMonth"
+        }
+      },
+
+      "newSubscribersCancelMonth": {
+        "type": "object",
+        "properties": {
+          "month": {
+            "type": "string",
+            "example": "January"
+          },
+          "new_subscriptions": {
+            "type": "number",
+            "example": "250"
+          },
+          "canceled_subscriptions": {
+            "type": "number",
+            "example": "75"
           }
         }
       }
