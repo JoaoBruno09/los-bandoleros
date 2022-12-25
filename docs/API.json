@@ -44,7 +44,7 @@
     "/auth/login": {
       "post": {
         "tags": ["Auth"],
-        "summary": "authenticates user",
+        "summary": "Authenticates user",
         "description": "returns the authentication ID token (JWT)to use in further API calls.",
         "requestBody": {
           "description": "login data",
@@ -67,7 +67,7 @@
             "description": "a JSON web token (JWT) required to login."
           },
           "401": {
-            "description": "wrong username and/or password"
+            "$ref": "#/components/responses/UnauthorizedError"
           },
           "404": {
             "description": "Not Found"
@@ -80,27 +80,6 @@
       }
     },
     "/plan": {
-      "get": {
-        "tags": ["plans"],
-        "summary": "1.4  Shows all available plans",
-        "description": "Shows all available plans and their details",
-        "operationId": "getPlans",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/allPlans"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      },
       "post": {
         "security": [
           {
@@ -109,7 +88,7 @@
         ],
         "tags": ["plans"],
         "summary": "1.1   Create a new plan",
-        "description": "Create a new plan and define different characteristics for it",
+        "description": "1.1 As Marketing director, I want to define a new Plan detailing the monthly and annual cost, the maximum number of devices and other characteristics of the plan",
         "operationId": "postPlan",
         "requestBody": {
           "description": "",
@@ -122,6 +101,16 @@
           }
         },
         "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/plans"
+                }
+              }
+            }
+          },
           "201": {
             "description": "Created",
             "content": {
@@ -136,7 +125,28 @@
             "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized. You must first authenticate in order to perform this request."
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "get": {
+        "tags": ["plans"],
+        "summary": "1.4  Shows all available plans",
+        "description": "1.4. As a new customer I want to know all existing plans",
+        "operationId": "getPlans",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/allPlans"
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -176,6 +186,42 @@
             "description": "Not Found"
           }
         }
+      },
+      "put": {
+        "tags": ["plans"],
+        "summary": "1.2   Deactivate a plan",
+        "description": "1.2   As a marketing director, i want to deactivate a plan.",
+        "operationId": "deactivatePlan",
+        "parameters": [
+          {
+            "name": "PID",
+            "in": "path",
+            "description": "Numeric ID of the plan to get",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": ["plans"],
@@ -228,43 +274,7 @@
             "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized. You must first authenticate in order to perform this request."
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      },
-      "put": {
-        "tags": ["plans"],
-        "summary": "1.2   Deactivate a plan",
-        "description": "1.2   As a marketing director, i want to deactivate a plan.",
-        "operationId": "deactivatePlan",
-        "parameters": [
-          {
-            "name": "PID",
-            "in": "path",
-            "description": "Numeric ID of the plan to get",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Ok"
-          },
-          "401": {
-            "description": "Unauthorized. You must first authenticate in order to perform this request."
+            "$ref": "#/components/responses/UnauthorizedError"
           },
           "403": {
             "description": "Forbidden"
@@ -300,7 +310,170 @@
             "description": "Ok"
           },
           "401": {
-            "description": "Unauthorized. You must first authenticate in order to perform this request."
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": ["plans"],
+        "summary": "9.3   Change the price of a plan",
+        "description": "9.3 As marketing director, I want to change the pricing of a plan.",
+        "operationId": "changePricePlan",
+        "parameters": [
+          {
+            "name": "PID",
+            "in": "path",
+            "description": "Numeric ID of the plan to get",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updatePricePlan"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/plans"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/plans"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/plan/{PID}/promotion": {
+      "put": {
+        "tags": ["plans"],
+        "summary": "9.1   Promote a plan",
+        "description": "9.1   As marketing director, I want to promote a plan",
+        "operationId": "promotePlan",
+        "parameters": [
+          {
+            "name": "PID",
+            "in": "path",
+            "description": "Numeric ID of the plan to get",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/planPromoted"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/planPromoted"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/plan/{PID}/history": {
+      "get": {
+        "tags": ["plans"],
+        "summary": "13.2   Price change history of a plan",
+        "description": "13.2   As marketing director, I want to know the price change history of a plan",
+        "operationId": "priceChangeHistoryPlan",
+        "parameters": [
+          {
+            "name": "PID",
+            "in": "path",
+            "description": "Numeric ID of the plan to get",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/planHistory"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
           },
           "403": {
             "description": "Forbidden"
@@ -329,7 +502,7 @@
             "description": "Numeric ID of the plan we want to subscribe",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           }
         ],
@@ -359,7 +532,7 @@
             "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/UnauthorizedError"
           },
           "404": {
             "description": "Not Found"
@@ -383,7 +556,7 @@
             "description": "Numeric ID of the plan we want to uprade/downgrade",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           }
         ],
@@ -413,7 +586,7 @@
             "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/UnauthorizedError"
           },
           "404": {
             "description": "Not Found"
@@ -427,6 +600,40 @@
       }
     },
     "/subscription/{UID}": {
+      "delete": {
+        "tags": ["Subscriptions"],
+        "summary": "2.2   Cancel my subscription",
+        "operationId": "deleteSubscription",
+        "description": "2.2. As subscriber I want to cancel my subscription",
+        "parameters": [
+          {
+            "name": "UID",
+            "in": "path",
+            "description": "Delete unique identity username",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
       "get": {
         "tags": ["Subscriptions"],
         "summary": "2.3   Details of my plan",
@@ -464,40 +671,6 @@
           }
         ]
       },
-      "delete": {
-        "tags": ["Subscriptions"],
-        "summary": "2.2   Cancel my subscription",
-        "operationId": "deleteSubscription",
-        "description": "2.2. As subscriber I want to cancel my subscription",
-        "parameters": [
-          {
-            "name": "UID",
-            "in": "path",
-            "description": "Delete unique identity username",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized. You must first authenticate in order to perform this request."
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      },
       "put": {
         "tags": ["Subscriptions"],
         "summary": "10.2   Renew annual subscription",
@@ -510,7 +683,7 @@
             "description": "Numeric ID of the plan we want to uprade/downgrade",
             "required": true,
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           }
         ],
@@ -529,7 +702,7 @@
             "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized"
+            "$ref": "#/components/responses/UnauthorizedError"
           },
           "404": {
             "description": "Not Found"
@@ -544,45 +717,6 @@
     },
 
     "/subscription/{UID}/devices": {
-      "get": {
-        "tags": ["Subscriptions"],
-        "summary": "5.4   List of subscriber devices ",
-        "operationId": "getSubscriberDevices",
-        "description": "5.4   As subscriber I want to list my devices",
-        "parameters": [
-          {
-            "name": "UID",
-            "in": "path",
-            "description": "All devices affiliated",
-            "required": true,
-            "style": "simple",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/allDevices"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      },
-
       "post": {
         "tags": ["Subscriptions"],
         "summary": "5.1   Subscriber adds a new device to subscription ",
@@ -633,10 +767,48 @@
             }
           },
           "401": {
-            "description": "Unauthorized. You must first authenticate in order to perform this request."
+            "$ref": "#/components/responses/UnauthorizedError"
           },
           "403": {
             "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": ["Subscriptions"],
+        "summary": "5.4   List of subscriber devices ",
+        "operationId": "getSubscriberDevices",
+        "description": "5.4   As subscriber I want to list my devices",
+        "parameters": [
+          {
+            "name": "UID",
+            "in": "path",
+            "description": "All devices affiliated",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/allDevices"
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found"
@@ -682,7 +854,7 @@
             "description": "OK"
           },
           "401": {
-            "description": "Unauthorized. You must first authenticate in order to perform this request."
+            "$ref": "#/components/responses/UnauthorizedError"
           },
           "404": {
             "description": "Not Found"
@@ -726,7 +898,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/allDevices"
+                "$ref": "#/components/schemas/addDevices"
               }
             }
           },
@@ -757,7 +929,7 @@
             "description": "Bad Request"
           },
           "401": {
-            "description": "Unauthorized. You must first authenticate in order to perform this request."
+            "$ref": "#/components/responses/UnauthorizedError"
           },
           "403": {
             "description": "Forbidden"
@@ -773,11 +945,10 @@
         ]
       }
     },
-
     "/subscription/{OPID}/migration/{NPID}": {
       "put": {
         "tags": ["Subscriptions"],
-        "summary": "10.3 migrate all subscribers of a certain plan to another one",
+        "summary": "10.3 Migrate all subscribers of a certain plan to another one",
         "operationId": "migrateSubscriptions",
         "description": "10.3 As marketing director, I want to migrate all subscribers of a certain plan to a different plan",
         "parameters": [
@@ -788,7 +959,7 @@
             "required": true,
             "style": "simple",
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           },
           {
@@ -798,7 +969,7 @@
             "required": true,
             "style": "simple",
             "schema": {
-              "type": "integer"
+              "type": "string"
             }
           }
         ],
@@ -824,7 +995,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized. You must first authenticate in order to perform this request."
+            "$ref": "#/components/responses/UnauthorizedError"
           },
           "403": {
             "description": "Forbidden"
@@ -846,16 +1017,106 @@
     "/dashboard": {
       "get": {
         "tags": ["Dashboard"],
-        "summary": "3.1 Displays all new subscritors and new cancellations in the last 6 months",
-        "operationId": "getNewSubscribers",
-        "description": "3.1 Shows all new subscritors and new cancellations in the last 6 months",
+        "summary": "3.1/11.2 Monthly churn rate from the past n months filtered/broken down by plan with details on active subscribers, and new and canceled subscriptions",
+        "operationId": "dashboardStatistics",
+        "description": "3.1/11.2 As Product Manager I want to know the monthly churn rate from the past n months filtered/broken down by plan with details on active subscribers, and new and canceled subscriptions",
+        "parameters": [
+          {
+            "name": "nMonths",
+            "in": "query",
+            "description": "Number of months",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NewSubsCancells"
+                  "$ref": "#/components/schemas/dashboardStatistics"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/dashboard/cashflow": {
+      "get": {
+        "tags": ["Dashboard"],
+        "summary": "11.1 Future cashflows for the upcoming n months filtered/broken down by plan",
+        "operationId": "dashboardCashflowStatistics",
+        "description": "11.1 As Product Manager or Financial director, I want to know the future cashflows for the upcoming n months filtered/broken down by plan",
+        "parameters": [
+          {
+            "name": "nMonths",
+            "in": "query",
+            "description": "Number of months",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dashboardCashflowStatistics"
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/dashboard/revenue": {
+      "get": {
+        "tags": ["Dashboard"],
+        "summary": "14.2 Year-to-date revenue of my company filtered/broken down by plan",
+        "operationId": "dashboardRevenue",
+        "description": "14.2 As Product Manager or Financial director, I want to know the year-to-date revenue of my company filtered/broken down by plan",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dashboardRevenue"
                 }
               }
             }
@@ -879,6 +1140,11 @@
     }
   },
   "components": {
+    "responses": {
+      "UnauthorizedError": {
+        "description": "Access token is missing or invalid"
+      }
+    },
     "securitySchemes": {
       "bearerAuth": {
         "type": "http",
@@ -946,26 +1212,120 @@
           },
           "musicCollections": {
             "type": "integer",
+            "format": "int64",
             "example": "25",
             "description": "If 0 you can not creat music collections"
           },
           "musicSuggestions": {
             "type": "string",
+            "enum": ["automatic", "personalized"],
             "example": "personalized"
           },
           "monthlyFee": {
             "type": "number",
             "format": "currency",
-            "example": "5,99€"
+            "example": "5.99"
           },
           "anualFee": {
             "type": "number",
             "format": "currency",
-            "example": "59,90€"
+            "example": "59.90"
+          },
+          "isPromoted": {
+            "type": "boolean",
+            "example": "false"
           }
         }
       },
-
+      "planPromoted": {
+        "required": ["PID"],
+        "type": "object",
+        "properties": {
+          "PID": {
+            "type": "string",
+            "example": "P1a2s3d4f5G"
+          },
+          "name": {
+            "type": "string",
+            "example": "Gold"
+          },
+          "description": {
+            "type": "string",
+            "example": "Brief plan description"
+          },
+          "numberOfMinutes": {
+            "type": "string",
+            "example": "Unlimited"
+          },
+          "maximumNumberOfUsersDevices": {
+            "type": "integer",
+            "format": "int64",
+            "example": "6"
+          },
+          "musicCollections": {
+            "type": "integer",
+            "format": "int64",
+            "example": "25",
+            "description": "If 0 you can not creat music collections"
+          },
+          "musicSuggestions": {
+            "type": "string",
+            "enum": ["automatic", "personalized"],
+            "example": "personalized"
+          },
+          "monthlyFee": {
+            "type": "number",
+            "format": "currency",
+            "example": "5.99"
+          },
+          "anualFee": {
+            "type": "number",
+            "format": "currency",
+            "example": "59.90"
+          },
+          "isPromoted": {
+            "type": "boolean",
+            "example": "true"
+          }
+        }
+      },
+      "planHistory": {
+        "required": ["PID"],
+        "type": "object",
+        "properties": {
+          "PID": {
+            "type": "string",
+            "example": "P1a2s3d4f5G"
+          },
+          "priceHistory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/planPriceChange"
+            }
+          }
+        }
+      },
+      "planPriceChange": {
+        "required": ["SID"],
+        "type": "object",
+        "properties": {
+          "oldPrice": {
+            "type": "number",
+            "format": "currency",
+            "example": "5.99"
+          },
+          "newPrice": {
+            "type": "number",
+            "format": "currency",
+            "example": "6.99"
+          },
+          "changedDate": {
+            "type": "string",
+            "format": "date",
+            "example": "2022-11-28"
+          }
+        }
+      },
       "planSubscribed": {
         "required": ["SID"],
         "type": "object",
@@ -996,7 +1356,6 @@
           }
         }
       },
-
       "planSubscribedDetails": {
         "required": ["UID"],
         "type": "object",
@@ -1011,10 +1370,12 @@
           },
           "startDate": {
             "type": "string",
+            "format": "date",
             "example": "2022-11-28"
           },
           "endDate": {
             "type": "string",
+            "format": "date",
             "example": "2023-11-28"
           },
           "plan": {
@@ -1085,6 +1446,8 @@
           },
           "musicColections": {
             "type": "integer",
+            "format": "int64",
+            "nullable": true,
             "example": "25",
             "description": "If 0 you can not creat music collections"
           },
@@ -1095,12 +1458,16 @@
           "monthlyFee": {
             "type": "number",
             "format": "currency",
-            "example": "5,99€"
+            "example": "5.99"
           },
           "anualFee": {
             "type": "number",
             "format": "currency",
-            "example": "59,90€"
+            "example": "59.90"
+          },
+          "isPromoted": {
+            "type": "boolean",
+            "example": "false"
           }
         }
       },
@@ -1133,6 +1500,8 @@
           },
           "musicColections": {
             "type": "integer",
+            "format": "int64",
+            "nullable": true,
             "example": "25",
             "description": "If 0 you can not creat music collections"
           },
@@ -1143,12 +1512,30 @@
           "monthlyFee": {
             "type": "number",
             "format": "currency",
-            "example": "5,99€"
+            "example": "5.99"
           },
           "anualFee": {
             "type": "number",
             "format": "currency",
-            "example": "59,90€"
+            "example": "59.90"
+          }
+        }
+      },
+      "updatePricePlan": {
+        "description": "The update price of plan form input",
+        "additionalProperties": false,
+        "type": "object",
+        "required": ["monthlyFee", "anualFee"],
+        "properties": {
+          "monthlyFee": {
+            "type": "number",
+            "format": "currency",
+            "example": "5.99"
+          },
+          "anualFee": {
+            "type": "number",
+            "format": "currency",
+            "example": "59.90"
           }
         }
       },
@@ -1161,19 +1548,6 @@
           "annual": {
             "type": "boolean",
             "example": "true"
-          }
-        }
-      },
-      "Subscription": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "example": 0
-          },
-          "subscribe": {
-            "type": "boolean"
           }
         }
       },
@@ -1202,6 +1576,7 @@
           },
           "musicColections": {
             "type": "integer",
+            "format": "int64",
             "nullable": true,
             "example": 25
           },
@@ -1212,19 +1587,21 @@
           "monthlyFee": {
             "type": "number",
             "format": "currency",
-            "example": "5,99€"
+            "example": "5.99"
           },
           "anualFee": {
             "type": "number",
             "format": "currency",
-            "example": "59,90€"
+            "example": "59.90"
           },
           "startDate": {
             "type": "string",
+            "format": "date",
             "example": "01-12-2022"
           },
           "endDate": {
             "type": "string",
+            "format": "date",
             "example": "01-01-2023"
           }
         }
@@ -1306,27 +1683,147 @@
         }
       },
 
-      "NewSubsCancells": {
+      "dashboardStatistics": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/newSubscribersCancelMonth"
+          "$ref": "#/components/schemas/dashboardStatisticsMonth"
         }
       },
 
-      "newSubscribersCancelMonth": {
+      "dashboardStatisticsMonth": {
         "type": "object",
         "properties": {
           "month": {
             "type": "string",
             "example": "January"
           },
-          "new_subscriptions": {
+          "activeSubscriptions": {
             "type": "number",
+            "format": "int-64",
+            "example": "5000"
+          },
+          "newSubscriptions": {
+            "type": "number",
+            "format": "int-64",
             "example": "250"
           },
-          "canceled_subscriptions": {
+          "canceledSubscriptions": {
             "type": "number",
+            "format": "int-64",
             "example": "75"
+          },
+          "churnRate": {
+            "type": "number",
+            "example": "-3.50"
+          }
+        }
+      },
+      "dashboardCashflowStatistics": {
+        "type": "array",
+        "items": {
+          "anyOf": [
+            {
+              "$ref": "#/components/schemas/dashboardCashflowStatisticsPast"
+            },
+            {
+              "$ref": "#/components/schemas/dashboardCashflowStatisticsFuture"
+            }
+          ]
+        }
+      },
+      "dashboardCashflowStatisticsPast": {
+        "type": "object",
+        "properties": {
+          "past": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/dashboardCashflowStatisticsMonth"
+            }
+          }
+        }
+      },
+      "dashboardCashflowStatisticsFuture": {
+        "type": "object",
+        "properties": {
+          "upcoming": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/dashboardCashflowStatisticsMonth"
+            }
+          }
+        }
+      },
+      "dashboardCashflowStatisticsMonth": {
+        "type": "object",
+        "properties": {
+          "month": {
+            "type": "string",
+            "example": "January"
+          },
+          "plans": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/plansCashflowStatistics"
+            }
+          },
+          "total": {
+            "type": "number",
+            "format": "currency",
+            "example": "17000.00"
+          }
+        }
+      },
+      "plansCashflowStatistics": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Silver"
+          },
+          "total": {
+            "type": "number",
+            "format": "currency",
+            "example": "12000.00"
+          }
+        }
+      },
+      "dashboardRevenue": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/dashboardRevenueMonth"
+        }
+      },
+      "dashboardRevenueMonth": {
+        "type": "object",
+        "properties": {
+          "month": {
+            "type": "string",
+            "example": "January"
+          },
+          "plans": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/plansRevenue"
+            }
+          },
+          "totalRevenue": {
+            "type": "number",
+            "format": "currency",
+            "example": "46910.00"
+          }
+        }
+      },
+      "plansRevenue": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Silver"
+          },
+          "totalRevenue": {
+            "type": "number",
+            "format": "currency",
+            "example": "34930.00"
           }
         }
       }
