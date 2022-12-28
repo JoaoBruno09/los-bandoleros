@@ -381,7 +381,7 @@
       }
     },
     "/plan/{PID}/promotion": {
-      "put": {
+      "patch": {
         "tags": ["Plans"],
         "summary": "9.1   Promote a plan",
         "description": "9.1   As marketing director, I want to promote a plan",
