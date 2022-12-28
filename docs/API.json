@@ -3,19 +3,7 @@
   "info": {
     "title": "Music Streaming Service   OpenAPI 3.0",
     "description": "A REST API for ACME, Inc. is a SaaS-based music streaming service to manage the subscriptions of the service. The company offers several plans and needs the ability to create new plans to adapt to market.",
-    "termsOfService": "http://swagger.io/terms/",
-    "contact": {
-      "email": "losBandoleros@gmail.com"
-    },
-    "license": {
-      "name": "MIT",
-      "url": "https://spdx.org/licenses/MIT.html"
-    },
     "version": "1.0.0"
-  },
-  "externalDocs": {
-    "description": "Find out more about Swagger",
-    "url": "http://swagger.io"
   },
   "servers": [
     {
@@ -28,12 +16,12 @@
       "description": ""
     },
     {
-      "name": "plans",
-      "description": "Everything about our plans service"
+      "name": "Plans",
+      "description": "Everything about plans service"
     },
     {
       "name": "Subscriptions",
-      "description": "All about subscription service"
+      "description": "Everything about subscription service"
     },
     {
       "name": "Dashboard",
@@ -44,8 +32,8 @@
     "/auth/login": {
       "post": {
         "tags": ["Auth"],
-        "summary": "Authenticates user",
-        "description": "returns the authentication ID token (JWT)to use in further API calls.",
+        "summary": "Authenticates a user",
+        "description": "returns the authentication ID token (JWT) to use in further API calls",
         "requestBody": {
           "description": "login data",
           "required": true,
@@ -86,9 +74,9 @@
             "bearerAuth": []
           }
         ],
-        "tags": ["plans"],
+        "tags": ["Plans"],
         "summary": "1.1   Create a new plan",
-        "description": "1.1 As Marketing director, I want to define a new Plan detailing the monthly and annual cost, the maximum number of devices and other characteristics of the plan",
+        "description": "1.1 As Marketing Director, I want to define a new plan detailing characteristics such as name, monthly and annual price, among others",
         "operationId": "postPlan",
         "requestBody": {
           "description": "",
@@ -133,9 +121,9 @@
         }
       },
       "get": {
-        "tags": ["plans"],
+        "tags": ["Plans"],
         "summary": "1.4  Shows all available plans",
-        "description": "1.4. As a new customer I want to know all existing plans",
+        "description": "1.4. As a new customer, I want to know all available plans",
         "operationId": "getPlans",
         "responses": {
           "200": {
@@ -149,14 +137,14 @@
             }
           },
           "404": {
-            "description": "Not Found"
+            "description": "Plans Not Found"
           }
         }
       }
     },
     "/plan/{PID}": {
       "get": {
-        "tags": ["plans"],
+        "tags": ["Plans"],
         "summary": "Shows available plans by id",
         "description": "From all available plans it is possible to select one by its own identifier",
         "operationId": "getPlanById",
@@ -182,13 +170,16 @@
               }
             }
           },
+          "400": {
+            "description": "Invalid PID supplied"
+          },
           "404": {
-            "description": "Not Found"
+            "description": "Plan Not Found"
           }
         }
       },
       "put": {
-        "tags": ["plans"],
+        "tags": ["Plans"],
         "summary": "1.2   Deactivate a plan",
         "description": "1.2   As a marketing director, i want to deactivate a plan.",
         "operationId": "deactivatePlan",
@@ -224,7 +215,7 @@
         ]
       },
       "post": {
-        "tags": ["plans"],
+        "tags": ["Plans"],
         "summary": "1.3   Update details of a existing plan",
         "description": "1.3   As marketing director, i want to change a plan's details other than pricing",
         "operationId": "putPlanById",
@@ -290,7 +281,7 @@
         ]
       },
       "delete": {
-        "tags": ["plans"],
+        "tags": ["Plans"],
         "summary": "9.2   Cease a plan",
         "description": "9.2   As marketing director, I want to cease a plan.",
         "operationId": "ceasePlan",
@@ -326,7 +317,7 @@
         ]
       },
       "patch": {
-        "tags": ["plans"],
+        "tags": ["Plans"],
         "summary": "9.3   Change the price of a plan",
         "description": "9.3 As marketing director, I want to change the pricing of a plan.",
         "operationId": "changePricePlan",
@@ -391,7 +382,7 @@
     },
     "/plan/{PID}/promotion": {
       "put": {
-        "tags": ["plans"],
+        "tags": ["Plans"],
         "summary": "9.1   Promote a plan",
         "description": "9.1   As marketing director, I want to promote a plan",
         "operationId": "promotePlan",
@@ -446,7 +437,7 @@
     },
     "/plan/{PID}/history": {
       "get": {
-        "tags": ["plans"],
+        "tags": ["Plans"],
         "summary": "13.2   Price change history of a plan",
         "description": "13.2   As marketing director, I want to know the price change history of a plan",
         "operationId": "priceChangeHistoryPlan",
