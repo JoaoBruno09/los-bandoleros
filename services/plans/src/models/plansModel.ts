@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+/*
 
 interface Plan {
   plan: string;
@@ -23,3 +23,4 @@ const planSchema = new mongoose.Schema<Plan>({
 });
 
 export const planModel = mongoose.model<Plan>("Plan", planSchema);
+*/

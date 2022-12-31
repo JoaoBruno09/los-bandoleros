@@ -1,14 +1,19 @@
 import express, { Express, Request, Response } from "express";
-import * as dotenv from "dotenv";
+import { load } from "ts-dotenv";
 //import { db } from "./src/config/DatabaseConfig";
 import { planRouter } from "./routes/plansRouter";
 import { authRouter } from "./middlewares/Auth";
 
-dotenv.config();
+const env = load({
+  PORT: Number,
+});
+
 const app: Express = express();
-const port = process.env.PORT || 3001;
+const port = env.PORT || 3001;
 app.use(express.json());
-app.use("/plan", planRouter);
+app.use("/plan", planRouter, (req, res) => {
+  console.log(req.body);
+});
 
 //app.use("/auth", authRouter);
 app.listen(port, () => {

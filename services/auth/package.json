@@ -1,11 +1,11 @@
 {
-  "name": "plans-service",
+  "name": "auth-service",
   "version": "1.0.0",
-  "description": "Plans Service for los bandoleros music app",
-  "main": "plansService.js",
+  "description": "Auth Service for los bandoleros music app",
+  "main": "authService.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "nodemon ./src/plansService.ts",
+    "start": "nodemon ./src/authService.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "DiasRicardo&LeiteNuno&RochaJoao",

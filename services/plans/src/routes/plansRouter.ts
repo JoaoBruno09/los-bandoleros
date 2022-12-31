@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { authenticateJWT } from "../middlewares/Auth";
-import { planModel } from "../models/plansModel";
+//import { planModel } from "../models/plansModel";
 import plans from "../config/plans.json";
 
 export const planRouter = Router();
@@ -24,7 +24,7 @@ planRouter.post("/", authenticateJWT, (req, res) => {
 });
 
 //DELETE - DEACTIVATE PLAN 1.2
-planRouter.delete("/:id", authenticateJWT, (req, res) => {
+planRouter.delete("/:id", (req, res) => {
   const planIndex = plans.findIndex(
     (plan) => plan.id === Number(req.params.id)
   );
@@ -59,6 +59,15 @@ planRouter.get("/", (req, res) => {
 
 //GET - GET PLAN
 planRouter.get("/:id", (req, res) => {
+  const plan = plans.filter((plan) => plan.id === Number(req.params.id));
+  res.status(200).json({
+    message: `GET - GET PLAN ${req.params.id}`,
+    plan: plan,
+  });
+});
+
+//GET - GET PLAN
+planRouter.get("/:id/history", (req, res) => {
   const plan = plans.filter((plan) => plan.id === Number(req.params.id));
   res.status(200).json({
     message: `GET - GET PLAN ${req.params.id}`,

@@ -1,0 +1,113 @@
+http:
+  port: 3000
+admin:
+    host: localhost
+    port: 9080    
+apiEndpoints:
+  auth:
+    host: localhost
+    paths: "/auth*"
+    methods: ["POST"]
+  plan:
+    host: localhost
+    paths: ["/plan", "/plan/:id"]
+    methods: ["GET"]
+  plans:
+    host: localhost
+    paths: "/plan*"
+    methods: ["GET","PUT", "POST", "PATCH", "DELETE"]  
+  subscriptions:
+    host: localhost
+    paths: "/subscription*"
+    methods: ["GET","PUT", "POST", "DELETE"]
+  dashboard:
+    host: localhost
+    paths: "/dashboard*"
+    methods: ["GET"]      
+serviceEndpoints:
+  httpauth:
+    url: 'http://localhost:3002'
+  httpplans:
+    url: 'http://localhost:3001'
+  httpsubscriptions:
+    url: 'http://localhost:3003'
+  httpdashboard:
+    url: 'http://localhost:3004'      
+policies:
+  - cors
+  - log
+  - proxy
+  - jwt
+  - request-transformer
+pipelines:
+  authPipeline:
+    apiEndpoints:
+      - auth
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: httpauth 
+  planPipeline:
+    apiEndpoints:
+      - plan
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: httpplans             
+  plansPipeline:
+    apiEndpoints:
+      - plans
+    policies:
+      - log:
+        - action:
+            message: 'auth ${req.user}'
+      - jwt:
+          - action:
+              secretOrPublicKey: 'the-secret-key'
+              checkCredentialExistence: false
+      - request-transformer:
+          - action:
+              body:
+                add:
+                  user: req.user
+      - proxy:
+          - action:
+              serviceEndpoint: httpplans
+  subscriptionsPipeline:
+    apiEndpoints:
+      - subscriptions
+    policies:
+      - log:
+        - action:
+            message: 'auth ${req.user}'
+      - jwt:
+          - action:
+              secretOrPublicKey: 'the-secret-key'
+              checkCredentialExistence: false
+      - request-transformer:
+          - action:
+              body:
+                add:
+                  user: req.user
+      - proxy:
+          - action:
+              serviceEndpoint: httpsubscriptions
+  dashboardPipeline:
+    apiEndpoints:
+      - dashboard
+    policies:
+      - log:
+        - action:
+            message: 'auth ${req.user}'
+      - jwt:
+          - action:
+              secretOrPublicKey: 'the-secret-key'
+              checkCredentialExistence: false
+      - request-transformer:
+          - action:
+              body:
+                add:
+                  user: req.user
+      - proxy:
+          - action:
+              serviceEndpoint: httpdashboard                                

@@ -5,9 +5,9 @@ import * as jwt from "jsonwebtoken";
 let accessTokenSecret: string;
 crypto.generateKey("hmac", { length: 100 }, (err, key) => {
   if (err) throw err;
-  accessTokenSecret = key.export().toString("hex");
+  accessTokenSecret = "the-secret-key";
 });
-const user = { id: 1, role: "Marketing Director" };
+const user = { role: "Marketing Director" };
 
 export const authRouter = Router();
 
