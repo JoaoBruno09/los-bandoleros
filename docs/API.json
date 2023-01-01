@@ -168,6 +168,29 @@
                   "$ref": "#/components/schemas/plans"
                 }
               }
+            },
+            "links": {
+              "idOfPlan": {
+                "operationId": "getPlanById",
+                "description": "GET the PID of the plan",
+                "parameters": {
+                    "PID": "$response.body#/PID"
+                }
+              },
+              "editPlan": {
+                "operationId": "editPlanById",
+                "description": "Update details of a existing plan",
+                "parameters": {
+                    "PID": "$response.body#/PID"
+                }
+            },
+              "deletePlan": {
+                  "operationId": "ceasePlanByPID",
+                  "description": "Delete this plan by his PID",
+                  "parameters": {
+                      "PID": "$response.body#/PID"
+                  }
+              }              
             }
           },
           "400": {
@@ -182,7 +205,7 @@
         "tags": ["Plans"],
         "summary": "1.2   Deactivate a plan",
         "description": "1.2   As a marketing director, i want to deactivate a plan.",
-        "operationId": "deactivatePlan",
+        "operationId": "deactivatePlanByPID",
         "parameters": [
           {
             "name": "PID",
@@ -196,7 +219,30 @@
         ],
         "responses": {
           "200": {
-            "description": "Ok"
+            "description": "Ok",
+            "links": {
+              "idOfPlan": {
+                "operationId": "getPlanById",
+                "description": "GET the PID of the plan",
+                "parameters": {
+                    "PID": "$response.body#/PID"
+                }
+              },
+              "editPlan": {
+                "operationId": "editPlanById",
+                "description": "Update details of a existing plan",
+                "parameters": {
+                    "PID": "$response.body#/PID"
+                }
+            },
+              "deletePlan": {
+                  "operationId": "ceasePlanByPID",
+                  "description": "Delete this plan by his PID",
+                  "parameters": {
+                      "PID": "$response.body#/PID"
+                  }
+              }              
+            }
           },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
@@ -218,7 +264,7 @@
         "tags": ["Plans"],
         "summary": "1.3   Update details of a existing plan",
         "description": "1.3   As marketing director, i want to change a plan's details other than pricing",
-        "operationId": "putPlanById",
+        "operationId": "editPlanByPID",
         "parameters": [
           {
             "name": "PID",
@@ -249,6 +295,29 @@
                   "$ref": "#/components/schemas/changePlans"
                 }
               }
+            },
+            "links": {
+              "idOfPlan": {
+                "operationId": "getPlanById",
+                "description": "GET the PID of the plan",
+                "parameters": {
+                    "PID": "$response.body#/PID"
+                }
+              },
+              "editPlan": {
+                "operationId": "editPlanById",
+                "description": "Update details of a existing plan",
+                "parameters": {
+                    "PID": "$response.body#/PID"
+                }
+            },
+              "deletePlan": {
+                  "operationId": "ceasePlanByPID",
+                  "description": "Delete this plan by his PID",
+                  "parameters": {
+                      "PID": "$response.body#/PID"
+                  }
+              }              
             }
           },
           "201": {
@@ -284,7 +353,7 @@
         "tags": ["Plans"],
         "summary": "9.2   Cease a plan",
         "description": "9.2   As marketing director, I want to cease a plan.",
-        "operationId": "ceasePlan",
+        "operationId": "ceasePlanByPID",
         "parameters": [
           {
             "name": "PID",
@@ -351,6 +420,29 @@
                   "$ref": "#/components/schemas/plans"
                 }
               }
+            },
+            "links": {
+              "idOfPlan": {
+                "operationId": "getPlanById",
+                "description": "GET the PID of the plan",
+                "parameters": {
+                    "PID": "$response.body#/PID"
+                }
+              },
+              "editPlan": {
+                "operationId": "editPlanById",
+                "description": "Update details of a existing plan",
+                "parameters": {
+                    "PID": "$response.body#/PID"
+                }
+            },
+              "deletePlan": {
+                  "operationId": "ceasePlanByPID",
+                  "description": "Delete this plan by his PID",
+                  "parameters": {
+                      "PID": "$response.body#/PID"
+                  }
+              }              
             }
           },
           "201": {
@@ -1227,6 +1319,7 @@
             "example": "false"
           }
         }
+        
       },
       "planPromoted": {
         "required": ["PID"],
