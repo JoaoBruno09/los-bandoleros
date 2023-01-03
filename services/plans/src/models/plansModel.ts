@@ -1,26 +1,36 @@
-/*
+import mongoose from "mongoose";
 
-interface Plan {
-  plan: string;
+export enum musicSuggestionsEnum {
+  automatic = "automatic",
+  personalized = "personalized",
+}
+
+export interface Plan {
+  PID: string;
+  name: string;
   description: string;
-  number_of_minutes: string;
-  maximum_number_of_users_devices: number;
-  music_collections: number;
-  music_suggestions: string;
-  monthly_fee: number;
-  anual_fee: number;
+  numberOfMinutes: String;
+  maximumNumberOfUsersDevices: number;
+  musicCollections: number;
+  musicSuggestions: musicSuggestionsEnum;
+  monthlyFee: number;
+  anualFee: number;
+  isPromoted: boolean;
+  isActive: boolean;
 }
 
 const planSchema = new mongoose.Schema<Plan>({
-  plan: { type: String, required: true },
-  description: { type: String, required: true },
-  number_of_minutes: { type: String, required: false, default: "Unlimited" },
-  maximum_number_of_users_devices: { type: Number, required: true },
-  music_collections: { type: Number, required: false, default: 0 },
-  music_suggestions: { type: String, required: true },
-  monthly_fee: { type: Number, required: true },
-  anual_fee: { type: Number, required: true },
+  PID: { type: String, required: true },
+  name: { type: String, required: true },
+  description: { type: String, required: false },
+  numberOfMinutes: { type: String, required: false, default: "Unlimited" },
+  maximumNumberOfUsersDevices: { type: Number, required: true },
+  musicCollections: { type: Number, required: false, default: 0 },
+  musicSuggestions: { type: String, required: true },
+  monthlyFee: { type: Number, required: true },
+  anualFee: { type: Number, required: true },
+  isPromoted: { type: Boolean, required: false, default: false },
+  isActive: { type: Boolean, required: false, default: true },
 });
 
 export const planModel = mongoose.model<Plan>("Plan", planSchema);
-*/
