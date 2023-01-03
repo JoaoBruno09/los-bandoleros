@@ -3,6 +3,32 @@ import { authenticateJWT } from "../middlewares/Auth";
 //import { planModel } from "../models/plansModel";
 import plans from "../config/plans.json";
 
+import mongoose from "mongoose";
+mongoose
+  .connect("mongodb://127.0.0.1:27017/plans")
+  .then(() => console.log("MONGODB - Connected!"));
+
+const Schema = mongoose.Schema;
+///const ObjectId = Schema.ObjectId;
+const plansSchema = new Schema(
+  {
+    PID: String,
+    name: String,
+    description: String,
+    numberOfMinutes: String,
+    maximumNumberOfUsersDevices: String, // int32
+    musicCollections: String, //int32
+    musicSuggestions: String,
+    monthlyFee: String, // double int 32
+    anualFee: String, //double int32
+    isPromoted: Boolean,
+    isActive: Boolean,
+  },
+  { collection: "plans" }
+);
+
+const Plans = mongoose.model("Plans", plansSchema);
+
 export const planRouter = Router();
 
 //PLANS ROUTES
@@ -49,21 +75,28 @@ planRouter.put("/:id", authenticateJWT, (req, res) => {
 
 //GET - GET ALL PLANS 1.4
 planRouter.get("/", (req, res) => {
-  //const plans = planModel.find();
-  //res.json(plans);
-  res.status(200).json({
-    messsage: "GET - GET ALL PLANS",
-    plans: plans,
+  Plans.find().then(function (docs) {
+    res.status(200).json({
+      messsage: "GET - GET ALL PLANS",
+      plans: docs,
+    });
   });
 });
 
 //GET - GET PLAN
-planRouter.get("/:id", (req, res) => {
-  const plan = plans.filter((plan) => plan.id === Number(req.params.id));
+planRouter.get("/:PID", (req, res) => {
+  /*const plan = plans.filter((plan) => plan.id === Number(req.params.id));
   res.status(200).json({
     message: `GET - GET PLAN ${req.params.id}`,
     plan: plan,
+  });*/
+  Plans.find({PID:req.params.PID}).then(function (plan) {
+    res.status(200).json({
+      messsage: "GET - GET ALL PLANS",
+      plans: plan,
+    });
   });
+
 });
 
 //GET - GET PLAN
