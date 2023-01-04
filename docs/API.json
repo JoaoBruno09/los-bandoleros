@@ -31,7 +31,9 @@
   "paths": {
     "/auth/login": {
       "post": {
-        "tags": ["Auth"],
+        "tags": [
+          "Auth"
+        ],
         "summary": "Authenticates a user",
         "description": "returns the authentication ID token (JWT) to use in further API calls",
         "requestBody": {
@@ -60,7 +62,6 @@
           "404": {
             "description": "Not Found"
           },
-
           "500": {
             "description": "Internal Server Error"
           }
@@ -74,7 +75,9 @@
             "bearerAuth": []
           }
         ],
-        "tags": ["Plans"],
+        "tags": [
+          "Plans"
+        ],
         "summary": "1.1   Create a new plan",
         "description": "1.1 As Marketing Director, I want to define a new plan detailing characteristics such as name, monthly and annual price, among others",
         "operationId": "postPlan",
@@ -121,7 +124,9 @@
         }
       },
       "get": {
-        "tags": ["Plans"],
+        "tags": [
+          "Plans"
+        ],
         "summary": "1.4  Shows all available plans",
         "description": "1.4. As a new customer, I want to know all available plans",
         "operationId": "getPlans",
@@ -144,7 +149,9 @@
     },
     "/plan/{PID}": {
       "get": {
-        "tags": ["Plans"],
+        "tags": [
+          "Plans"
+        ],
         "summary": "Shows available plans by id",
         "description": "From all available plans it is possible to select one by its own identifier",
         "operationId": "getPlanById",
@@ -174,23 +181,23 @@
                 "operationId": "getPlanById",
                 "description": "GET the PID of the plan",
                 "parameters": {
-                    "PID": "$response.body#/PID"
+                  "PID": "$response.body#/PID"
                 }
               },
               "editPlan": {
                 "operationId": "editPlanById",
                 "description": "Update details of a existing plan",
                 "parameters": {
-                    "PID": "$response.body#/PID"
+                  "PID": "$response.body#/PID"
                 }
-            },
+              },
               "deletePlan": {
-                  "operationId": "ceasePlanByPID",
-                  "description": "Delete this plan by his PID",
-                  "parameters": {
-                      "PID": "$response.body#/PID"
-                  }
-              }              
+                "operationId": "ceasePlanByPID",
+                "description": "Delete this plan by his PID",
+                "parameters": {
+                  "PID": "$response.body#/PID"
+                }
+              }
             }
           },
           "400": {
@@ -202,7 +209,9 @@
         }
       },
       "put": {
-        "tags": ["Plans"],
+        "tags": [
+          "Plans"
+        ],
         "summary": "1.2   Deactivate a plan",
         "description": "1.2   As a marketing director, i want to deactivate a plan.",
         "operationId": "deactivatePlanByPID",
@@ -225,23 +234,23 @@
                 "operationId": "getPlanById",
                 "description": "GET the PID of the plan",
                 "parameters": {
-                    "PID": "$response.body#/PID"
+                  "PID": "$response.body#/PID"
                 }
               },
               "editPlan": {
                 "operationId": "editPlanById",
                 "description": "Update details of a existing plan",
                 "parameters": {
-                    "PID": "$response.body#/PID"
+                  "PID": "$response.body#/PID"
                 }
-            },
+              },
               "deletePlan": {
-                  "operationId": "ceasePlanByPID",
-                  "description": "Delete this plan by his PID",
-                  "parameters": {
-                      "PID": "$response.body#/PID"
-                  }
-              }              
+                "operationId": "ceasePlanByPID",
+                "description": "Delete this plan by his PID",
+                "parameters": {
+                  "PID": "$response.body#/PID"
+                }
+              }
             }
           },
           "401": {
@@ -261,7 +270,9 @@
         ]
       },
       "post": {
-        "tags": ["Plans"],
+        "tags": [
+          "Plans"
+        ],
         "summary": "1.3   Update details of a existing plan",
         "description": "1.3   As marketing director, i want to change a plan's details other than pricing",
         "operationId": "editPlanByPID",
@@ -301,23 +312,23 @@
                 "operationId": "getPlanById",
                 "description": "GET the PID of the plan",
                 "parameters": {
-                    "PID": "$response.body#/PID"
+                  "PID": "$response.body#/PID"
                 }
               },
               "editPlan": {
                 "operationId": "editPlanById",
                 "description": "Update details of a existing plan",
                 "parameters": {
-                    "PID": "$response.body#/PID"
+                  "PID": "$response.body#/PID"
                 }
-            },
+              },
               "deletePlan": {
-                  "operationId": "ceasePlanByPID",
-                  "description": "Delete this plan by his PID",
-                  "parameters": {
-                      "PID": "$response.body#/PID"
-                  }
-              }              
+                "operationId": "ceasePlanByPID",
+                "description": "Delete this plan by his PID",
+                "parameters": {
+                  "PID": "$response.body#/PID"
+                }
+              }
             }
           },
           "201": {
@@ -350,7 +361,9 @@
         ]
       },
       "delete": {
-        "tags": ["Plans"],
+        "tags": [
+          "Plans"
+        ],
         "summary": "9.2   Cease a plan",
         "description": "9.2   As marketing director, I want to cease a plan.",
         "operationId": "ceasePlanByPID",
@@ -386,7 +399,9 @@
         ]
       },
       "patch": {
-        "tags": ["Plans"],
+        "tags": [
+          "Plans"
+        ],
         "summary": "9.3   Change the price of a plan",
         "description": "9.3 As marketing director, I want to change the pricing of a plan.",
         "operationId": "changePricePlan",
@@ -426,23 +441,23 @@
                 "operationId": "getPlanById",
                 "description": "GET the PID of the plan",
                 "parameters": {
-                    "PID": "$response.body#/PID"
+                  "PID": "$response.body#/PID"
                 }
               },
               "editPlan": {
                 "operationId": "editPlanById",
                 "description": "Update details of a existing plan",
                 "parameters": {
-                    "PID": "$response.body#/PID"
+                  "PID": "$response.body#/PID"
                 }
-            },
+              },
               "deletePlan": {
-                  "operationId": "ceasePlanByPID",
-                  "description": "Delete this plan by his PID",
-                  "parameters": {
-                      "PID": "$response.body#/PID"
-                  }
-              }              
+                "operationId": "ceasePlanByPID",
+                "description": "Delete this plan by his PID",
+                "parameters": {
+                  "PID": "$response.body#/PID"
+                }
+              }
             }
           },
           "201": {
@@ -474,7 +489,9 @@
     },
     "/plan/{PID}/promotion": {
       "patch": {
-        "tags": ["Plans"],
+        "tags": [
+          "Plans"
+        ],
         "summary": "9.1   Promote a plan",
         "description": "9.1   As marketing director, I want to promote a plan",
         "operationId": "promotePlan",
@@ -529,7 +546,9 @@
     },
     "/plan/{PID}/history": {
       "get": {
-        "tags": ["Plans"],
+        "tags": [
+          "Plans"
+        ],
         "summary": "13.2   Price change history of a plan",
         "description": "13.2   As marketing director, I want to know the price change history of a plan",
         "operationId": "priceChangeHistoryPlan",
@@ -572,9 +591,11 @@
         ]
       }
     },
-    "/subscription/{PID}": {
+    "/subscription/plan/{PID}": {
       "post": {
-        "tags": ["Subscriptions"],
+        "tags": [
+          "Subscriptions"
+        ],
         "summary": "2.1   Subscribe an existing plan",
         "description": "2.1. As a new customer I want to subscribe to a plan",
         "operationId": "postPlanByIdSub",
@@ -628,7 +649,9 @@
         ]
       },
       "put": {
-        "tags": ["Subscriptions"],
+        "tags": [
+          "Subscriptions"
+        ],
         "summary": "10.1   Switch plan",
         "description": "10.1. As subscriber I want to switch my plan (upgrade/downgrade)",
         "operationId": "putPlanByIdSub",
@@ -684,7 +707,9 @@
     },
     "/subscription/{UID}": {
       "delete": {
-        "tags": ["Subscriptions"],
+        "tags": [
+          "Subscriptions"
+        ],
         "summary": "2.2   Cancel my subscription",
         "operationId": "deleteSubscription",
         "description": "2.2. As subscriber I want to cancel my subscription",
@@ -718,7 +743,9 @@
         ]
       },
       "get": {
-        "tags": ["Subscriptions"],
+        "tags": [
+          "Subscriptions"
+        ],
         "summary": "2.3   Details of my plan",
         "description": "2.3. As subscriber I want to know the details of my plan",
         "operationId": "getDetailsPlan",
@@ -755,13 +782,15 @@
         ]
       },
       "put": {
-        "tags": ["Subscriptions"],
+        "tags": [
+          "Subscriptions"
+        ],
         "summary": "10.2   Renew annual subscription",
         "description": "10.2. As subscriber I want to renew my annual subscription",
         "operationId": "putSubscription",
         "parameters": [
           {
-            "name": "PID",
+            "name": "UID",
             "in": "path",
             "description": "Numeric ID of the plan we want to uprade/downgrade",
             "required": true,
@@ -798,10 +827,11 @@
         ]
       }
     },
-
     "/subscription/{UID}/devices": {
       "post": {
-        "tags": ["Subscriptions"],
+        "tags": [
+          "Subscriptions"
+        ],
         "summary": "5.1   Subscriber adds a new device to subscription ",
         "operationId": "postAddDevice",
         "description": "5.1   As subscriber I want to add a new device to my subscription",
@@ -866,7 +896,9 @@
         ]
       },
       "get": {
-        "tags": ["Subscriptions"],
+        "tags": [
+          "Subscriptions"
+        ],
         "summary": "5.4   List of subscriber devices ",
         "operationId": "getSubscriberDevices",
         "description": "5.4   As subscriber I want to list my devices",
@@ -906,7 +938,9 @@
     },
     "/subscription/{UID}/devices/{DID}": {
       "delete": {
-        "tags": ["Subscriptions"],
+        "tags": [
+          "Subscriptions"
+        ],
         "summary": "5.2   Subscriber removes devices from subscription ",
         "operationId": "deleteDeviceById",
         "description": "5.2. As subscriber I want to remove a device from my subscription",
@@ -950,7 +984,9 @@
         ]
       },
       "put": {
-        "tags": ["Subscriptions"],
+        "tags": [
+          "Subscriptions"
+        ],
         "summary": "5.3   Subscriber updates the details of device  ",
         "operationId": "putDetailsDevice",
         "description": "5.3. As subscriber I want to update the details of my device (name and description)",
@@ -1030,7 +1066,9 @@
     },
     "/subscription/{OPID}/migration/{NPID}": {
       "put": {
-        "tags": ["Subscriptions"],
+        "tags": [
+          "Subscriptions"
+        ],
         "summary": "10.3 Migrate all subscribers of a certain plan to another one",
         "operationId": "migrateSubscriptions",
         "description": "10.3 As marketing director, I want to migrate all subscribers of a certain plan to a different plan",
@@ -1099,7 +1137,9 @@
     },
     "/dashboard": {
       "get": {
-        "tags": ["Dashboard"],
+        "tags": [
+          "Dashboard"
+        ],
         "summary": "3.1/11.2 Monthly churn rate from the past n months filtered/broken down by plan with details on active subscribers, and new and canceled subscriptions",
         "operationId": "dashboardStatistics",
         "description": "3.1/11.2 As Product Manager I want to know the monthly churn rate from the past n months filtered/broken down by plan with details on active subscribers, and new and canceled subscriptions",
@@ -1144,7 +1184,9 @@
     },
     "/dashboard/cashflow": {
       "get": {
-        "tags": ["Dashboard"],
+        "tags": [
+          "Dashboard"
+        ],
         "summary": "11.1 Future cashflows for the upcoming n months filtered/broken down by plan",
         "operationId": "dashboardCashflowStatistics",
         "description": "11.1 As Product Manager or Financial director, I want to know the future cashflows for the upcoming n months filtered/broken down by plan",
@@ -1189,7 +1231,9 @@
     },
     "/dashboard/revenue": {
       "get": {
-        "tags": ["Dashboard"],
+        "tags": [
+          "Dashboard"
+        ],
         "summary": "14.2 Year-to-date revenue of my company filtered/broken down by plan",
         "operationId": "dashboardRevenue",
         "description": "14.2 As Product Manager or Financial director, I want to know the year-to-date revenue of my company filtered/broken down by plan",
@@ -1252,7 +1296,10 @@
         "description": "the user form input",
         "type": "object",
         "additionalProperties": false,
-        "required": ["username", "password"],
+        "required": [
+          "username",
+          "password"
+        ],
         "properties": {
           "username": {
             "$ref": "#/components/schemas/attrUserName"
@@ -1269,7 +1316,9 @@
         }
       },
       "plans": {
-        "required": ["PID"],
+        "required": [
+          "PID"
+        ],
         "type": "object",
         "properties": {
           "PID": {
@@ -1301,7 +1350,10 @@
           },
           "musicSuggestions": {
             "type": "string",
-            "enum": ["automatic", "personalized"],
+            "enum": [
+              "automatic",
+              "personalized"
+            ],
             "example": "personalized"
           },
           "monthlyFee": {
@@ -1319,10 +1371,11 @@
             "example": "false"
           }
         }
-        
       },
       "planPromoted": {
-        "required": ["PID"],
+        "required": [
+          "PID"
+        ],
         "type": "object",
         "properties": {
           "PID": {
@@ -1354,7 +1407,10 @@
           },
           "musicSuggestions": {
             "type": "string",
-            "enum": ["automatic", "personalized"],
+            "enum": [
+              "automatic",
+              "personalized"
+            ],
             "example": "personalized"
           },
           "monthlyFee": {
@@ -1374,7 +1430,9 @@
         }
       },
       "planHistory": {
-        "required": ["PID"],
+        "required": [
+          "PID"
+        ],
         "type": "object",
         "properties": {
           "PID": {
@@ -1390,7 +1448,9 @@
         }
       },
       "planPriceChange": {
-        "required": ["SID"],
+        "required": [
+          "SID"
+        ],
         "type": "object",
         "properties": {
           "oldPrice": {
@@ -1411,7 +1471,9 @@
         }
       },
       "planSubscribed": {
-        "required": ["SID"],
+        "required": [
+          "SID"
+        ],
         "type": "object",
         "properties": {
           "SID": {
@@ -1441,7 +1503,9 @@
         }
       },
       "planSubscribedDetails": {
-        "required": ["UID"],
+        "required": [
+          "UID"
+        ],
         "type": "object",
         "properties": {
           "SID": {
@@ -1468,9 +1532,10 @@
           }
         }
       },
-
       "user": {
-        "required": ["UID"],
+        "required": [
+          "UID"
+        ],
         "type": "object",
         "properties": {
           "UID": {
@@ -1487,9 +1552,10 @@
           }
         }
       },
-
       "editPlan": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "type": "object",
         "properties": {
           "name": {
@@ -1502,9 +1568,10 @@
           }
         }
       },
-
       "changePlans": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "type": "object",
         "properties": {
           "idPlan": {
@@ -1559,7 +1626,11 @@
         "description": "The plan form input",
         "additionalProperties": false,
         "type": "object",
-        "required": ["name", "description", "maximumNumberOfDevices"],
+        "required": [
+          "name",
+          "description",
+          "maximumNumberOfDevices"
+        ],
         "properties": {
           "PID": {
             "type": "string",
@@ -1609,7 +1680,10 @@
         "description": "The update price of plan form input",
         "additionalProperties": false,
         "type": "object",
-        "required": ["monthlyFee", "anualFee"],
+        "required": [
+          "monthlyFee",
+          "anualFee"
+        ],
         "properties": {
           "monthlyFee": {
             "type": "number",
@@ -1627,7 +1701,9 @@
         "description": "The subscribe form input",
         "additionalProperties": false,
         "type": "object",
-        "required": ["UID"],
+        "required": [
+          "UID"
+        ],
         "properties": {
           "annual": {
             "type": "boolean",
@@ -1639,7 +1715,9 @@
         "description": "The details from my plan",
         "additionalProperties": false,
         "type": "object",
-        "required": ["username"],
+        "required": [
+          "username"
+        ],
         "properties": {
           "username": {
             "type": "string",
@@ -1719,7 +1797,6 @@
           }
         }
       },
-
       "addDevices": {
         "type": "object",
         "properties": {
@@ -1739,7 +1816,6 @@
           }
         }
       },
-
       "GetPlanSubscriptions": {
         "type": "object",
         "properties": {
@@ -1755,9 +1831,10 @@
           }
         }
       },
-
       "migratedSubscriptions": {
-        "required": ["SID"],
+        "required": [
+          "SID"
+        ],
         "type": "object",
         "properties": {
           "SID": {
@@ -1766,14 +1843,12 @@
           }
         }
       },
-
       "dashboardStatistics": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/dashboardStatisticsMonth"
         }
       },
-
       "dashboardStatisticsMonth": {
         "type": "object",
         "properties": {
