@@ -2,10 +2,10 @@
   "$id": "http://express-gateway.io/models/users.json",
   "type": "object",
   "properties": {
-    "firstname": {
+    "UID": {
       "type": "string"
     },
-    "lastname": {
+    "name": {
       "type": "string"
     },
     "username": {
@@ -15,14 +15,12 @@
       "type": "string",
       "format": "email"
     },
-    "redirectUri": {
-      "type": "string",
-      "format": "uri"
+    "password": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
     }
   },
-  "required": [
-    "username",
-    "firstname",
-    "lastname"
-  ]
+  "required": ["UID", "name", "username", "email", "password", "role"]
 }

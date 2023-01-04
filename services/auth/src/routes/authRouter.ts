@@ -1,40 +1,36 @@
 import { Router } from "express";
 import crypto from "crypto";
 import * as jwt from "jsonwebtoken";
+import { db } from "../config/DatabaseConfig";
+import { authModel } from "../models/authModel";
+import multer from "multer";
 
-let accessTokenSecret: string;
-crypto.generateKey("hmac", { length: 100 }, (err, key) => {
-  if (err) throw err;
-  accessTokenSecret = "the-secret-key";
-});
-const user = { role: "Marketing Director" };
-
+const accessTokenSecret: string = "the-secret-key";
 export const authRouter = Router();
 
-//AUTH ROUTES
-//x-access-token
-authRouter.post("/login", (req, res) => {
-  jwt.sign(user, accessTokenSecret, (err, token) => {
-    res.json({
-      token: token,
-      accessTokenSecret: accessTokenSecret,
-    });
-  });
-});
+//AUTH ROUTE
+//uses multer module to get the multipart/form-data
+authRouter.post("/login", multer().none(), (req, res) => {
+  if (db) {
+    //get password encripted to combine with the one is in bd
+    const passwordEncripted = crypto
+      .createHash("md5")
+      .update(req.body.password)
+      .digest("hex");
 
-//CHECK HEADER AUTHORIZATION WITH JWT
-export const authenticateJWT = (req: any, res: any, next: any) => {
-  const authHeader = req.headers.authorization;
-  if (authHeader) {
-    const token = authHeader.split(" ")[1];
-    jwt.verify(token, accessTokenSecret, (err: any, user: any) => {
-      if (err) {
-        return res.sendStatus(403);
-      }
-      req.user = user;
-      next();
-    });
+    authModel
+      .findOne(
+        { username: req.body.username, password: passwordEncripted },
+        { _id: 0 }
+      )
+      .then((user) => {
+        jwt.sign(JSON.stringify(user), accessTokenSecret, (err, token) => {
+          res.status(200).json({
+            token: token,
+          });
+        });
+      });
   } else {
-    res.sendStatus(401);
+    res.status(500).send();
   }
-};
+});
