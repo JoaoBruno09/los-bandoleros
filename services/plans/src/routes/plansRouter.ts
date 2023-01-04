@@ -134,21 +134,17 @@ planRouter.put("/:PID", (req, res) => {
   }
 });
 
-//PUT - UPDATE PLAN 1.3
-planRouter.put("/:id", authenticateJWT, (req, res) => {
-  const planIndex = plans.findIndex((plan) => plan.PID === req.params.id);
-  if (planIndex >= 0) plans[planIndex].name = req.body.plan;
-  res.status(200).json({
-    message: `PUT - UPDATE PLAN ${req.params.id}`,
-    plans: plans,
-  });
-});
+//POST - UPDATE DETAILS OF PLAN 1.3
+planRouter.post("/:PID", (req, res) => {});
 
-//GET - GET PLAN
-planRouter.get("/:id/history", (req, res) => {
-  const plan = plans.filter((plan) => plan.PID === req.params.id);
-  res.status(200).json({
-    message: `GET - GET PLAN ${req.params.id}`,
-    plan: plan,
-  });
-});
+//DELETE - DELETE PLAN 9.2
+planRouter.delete("/:PID", (req, res) => {});
+
+//PATCH - CHANGE PRICE OF PLAN 9.3
+planRouter.patch("/:PID", (req, res) => {});
+
+//PATCH - PROMOTE PLAN 9.1
+planRouter.patch("/:PID/promotion", (req, res) => {});
+
+//GET - PRICE CHANGE HISTORY OF A PLAN 13.2
+planRouter.get("/:PID/history", (req, res) => {});
