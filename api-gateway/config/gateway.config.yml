@@ -58,9 +58,6 @@ pipelines:
     apiEndpoints:
       - plans
     policies:
-      - log:
-        - action:
-            message: 'auth ${req.user}'
       - jwt:
           - action:
               secretOrPublicKey: 'the-secret-key'
@@ -77,9 +74,6 @@ pipelines:
     apiEndpoints:
       - subscriptions
     policies:
-      - log:
-        - action:
-            message: 'auth ${req.user}'
       - jwt:
           - action:
               secretOrPublicKey: 'the-secret-key'
