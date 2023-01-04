@@ -1,0 +1,5419 @@
+{
+	"info": {
+		"_postman_id": "00c1fd32-3f8d-4269-80a2-ba2073f729d6",
+		"name": "Postman API Collection",
+		"description": "A REST API for ACME, Inc. is a SaaS-based music streaming service to manage the subscriptions of the service. The company offers several plans and needs the ability to create new plans to adapt to market.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "24115790-00c1fd32-3f8d-4269-80a2-ba2073f729d6"
+	},
+	"item": [
+		{
+			"name": "plan",
+			"item": [
+				{
+					"name": "{PID}",
+					"item": [
+						{
+							"name": "Shows available plans by id",
+							"id": "9dd0ae2d-b26f-4c8c-b934-cc9fbb49b52f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/plan/:PID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plan",
+										":PID"
+									],
+									"variable": [
+										{
+											"key": "PID",
+											"value": "<string>",
+											"description": "(Required) Numeric ID of the plan to get"
+										}
+									]
+								},
+								"description": "From all available plans it is possible to select one by its own identifier"
+							},
+							"response": [
+								{
+									"id": "d9599fe2-ec7d-4306-9d0c-55abeeb86631",
+									"name": "Ok",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+								},
+								{
+									"id": "0b62903d-9429-4863-a159-9936d36cf7ca",
+									"name": "Invalid PID supplied",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "1538b05b-fb4a-473c-b080-04201010fc45",
+									"name": "Plan Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "1.2   Deactivate a plan",
+							"id": "4805554d-b95b-4361-9e2c-6488cf53551f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "<Bearer Token>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/plan/:PID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plan",
+										":PID"
+									],
+									"variable": [
+										{
+											"key": "PID",
+											"value": "<string>",
+											"description": "(Required) Numeric ID of the plan to get"
+										}
+									]
+								},
+								"description": "1.2   As a marketing director, i want to deactivate a plan."
+							},
+							"response": [
+								{
+									"id": "f82b8e5b-2c72-4114-9ba5-420dd12efda3",
+									"name": "Ok",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "23479302-44a7-47b2-87d5-81b4acae351b",
+									"name": "Access token is missing or invalid",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "3daaad8d-d574-4bc4-b81a-e40319ef8b77",
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "d1dbc933-4b0d-4ba5-82b2-84313adb4f79",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "1.3   Update details of a existing plan",
+							"id": "65d4dbca-4fc7-45fa-9731-e8ea876da251",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "<Bearer Token>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/plan/:PID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plan",
+										":PID"
+									],
+									"variable": [
+										{
+											"key": "PID",
+											"value": "<string>",
+											"description": "(Required) Numeric ID of the plan to get"
+										}
+									]
+								},
+								"description": "1.3   As marketing director, i want to change a plan's details other than pricing"
+							},
+							"response": [
+								{
+									"id": "eb47378c-e051-4c33-b361-77ca1e7f8006",
+									"name": "Ok",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"idPlan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+								},
+								{
+									"id": "d203ab5d-8ae8-4419-80d2-533e6127f744",
+									"name": "Created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"idPlan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+								},
+								{
+									"id": "3278dd41-a64f-4c63-85f7-ce50f06f4b82",
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "0dd62406-0c37-428f-bc4b-793180c01669",
+									"name": "Access token is missing or invalid",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "c4464b18-843b-454b-b8bb-278298d3e73d",
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "deb5ea30-b363-430d-8a75-d3479037b735",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "9.2   Cease a plan",
+							"id": "3ebc9ee2-9894-4706-b929-989cda3beb42",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "<Bearer Token>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/plan/:PID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plan",
+										":PID"
+									],
+									"variable": [
+										{
+											"key": "PID",
+											"value": "<string>",
+											"description": "(Required) Numeric ID of the plan to get"
+										}
+									]
+								},
+								"description": "9.2   As marketing director, I want to cease a plan."
+							},
+							"response": [
+								{
+									"id": "e7c3f6f2-0e7a-4f6f-abcf-b6b6871a1733",
+									"name": "Ok",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "52f6cb81-beb9-4721-9c95-ee21d4d44f21",
+									"name": "Access token is missing or invalid",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "9c481d45-22d5-49eb-9fa5-958a89fc8f45",
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "e235edef-a597-4d4a-ab7c-45dd026ee413",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "9.3   Change the price of a plan",
+							"id": "ee2ccb8e-ecc5-4423-a5f7-5d2d070fdf1a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "<Bearer Token>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/plan/:PID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plan",
+										":PID"
+									],
+									"variable": [
+										{
+											"key": "PID",
+											"value": "<string>",
+											"description": "(Required) Numeric ID of the plan to get"
+										}
+									]
+								},
+								"description": "9.3 As marketing director, I want to change the pricing of a plan."
+							},
+							"response": [
+								{
+									"id": "e3588c03-dc95-4d82-a5a0-aac25a8833ea",
+									"name": "Ok",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+								},
+								{
+									"id": "d68b837d-d439-4ab1-b466-f31005bc1178",
+									"name": "Created",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+								},
+								{
+									"id": "eec6d263-f726-45c5-97e9-5b741ff620a1",
+									"name": "Access token is missing or invalid",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "0558d0e6-9b46-4f79-b22f-491194ea76a0",
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "c3d4a682-660e-4d86-bad1-5bae26ebc91d",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "9.1   Promote a plan",
+							"id": "d25b3552-8f70-4401-89e9-4dc7d94f6a51",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "<Bearer Token>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/plan/:PID/promotion",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plan",
+										":PID",
+										"promotion"
+									],
+									"variable": [
+										{
+											"key": "PID",
+											"value": "<string>",
+											"description": "(Required) Numeric ID of the plan to get"
+										}
+									]
+								},
+								"description": "9.1   As marketing director, I want to promote a plan"
+							},
+							"response": [
+								{
+									"id": "2ac7e8f9-3fa6-4905-a6f4-69c5cf9781b8",
+									"name": "Ok",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID/promotion",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID",
+												"promotion"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+								},
+								{
+									"id": "27660d9b-9bd8-4d56-a670-6eb2ce9cc15a",
+									"name": "Ok",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID/promotion",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID",
+												"promotion"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+								},
+								{
+									"id": "faaa3f2c-b45d-40d7-a250-8fed3b2371b9",
+									"name": "Access token is missing or invalid",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID/promotion",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID",
+												"promotion"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "353d5028-bbee-4bc4-84d9-b3a6f5d76c63",
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID/promotion",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID",
+												"promotion"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "5da678f3-7645-4510-badc-fea3f738b5a7",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID/promotion",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID",
+												"promotion"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "13.2   Price change history of a plan",
+							"id": "24c52787-bce4-4626-af7e-69c94a53c75f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "<Bearer Token>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/plan/:PID/history",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plan",
+										":PID",
+										"history"
+									],
+									"variable": [
+										{
+											"key": "PID",
+											"value": "<string>",
+											"description": "(Required) Numeric ID of the plan to get"
+										}
+									]
+								},
+								"description": "13.2   As marketing director, I want to know the price change history of a plan"
+							},
+							"response": [
+								{
+									"id": "cbbd390f-72fb-4eeb-bd75-c4cc2f62d4d5",
+									"name": "Ok",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID/history",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID",
+												"history"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"PID\": \"<string>\",\n  \"priceHistory\": [\n    {\n      \"oldPrice\": \"<currency>\",\n      \"newPrice\": \"<currency>\",\n      \"changedDate\": \"<date>\"\n    },\n    {\n      \"oldPrice\": \"<currency>\",\n      \"newPrice\": \"<currency>\",\n      \"changedDate\": \"<date>\"\n    }\n  ]\n}"
+								},
+								{
+									"id": "c0ef76dc-ec7e-4884-b487-dcd71f0d1335",
+									"name": "Access token is missing or invalid",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID/history",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID",
+												"history"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "d8c8e0df-d97a-4e4b-9169-ed8b3e364456",
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID/history",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID",
+												"history"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "124952fc-64ec-426e-a589-bc9f4ad63215",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID/history",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID",
+												"history"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "a7f7f4ce-3096-46c2-bdeb-0b2b3a7cf4b1"
+				},
+				{
+					"name": "1.1   Create a new plan",
+					"id": "f7267bc7-7276-494b-8bff-722e7d42dada",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "<Bearer Token>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"PID\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/plan",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plan"
+							]
+						},
+						"description": "1.1 As Marketing Director, I want to define a new plan detailing characteristics such as name, monthly and annual price, among others"
+					},
+					"response": [
+						{
+							"id": "37f1e307-b671-4337-9267-abed43bc2769",
+							"name": "Ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"PID\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/plan",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plan"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+						},
+						{
+							"id": "909a182f-9fc7-4c1b-a5bf-da70d536225b",
+							"name": "Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"PID\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/plan",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plan"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+						},
+						{
+							"id": "5e205ca1-2d14-41e0-b968-e698da23ab21",
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"PID\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/plan",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plan"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "84da803e-4235-4916-85a1-8fdeb4609e4b",
+							"name": "Access token is missing or invalid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"PID\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/plan",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plan"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "eed1b2dc-d51c-477f-bbe5-fe8002c36a80",
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"PID\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/plan",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plan"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "1.4  Shows all available plans",
+					"id": "2ac5504c-5b45-4ce3-98c2-8f5dd2976ff3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/plan",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"plan"
+							]
+						},
+						"description": "1.4. As a new customer, I want to know all available plans"
+					},
+					"response": [
+						{
+							"id": "cb0a4313-f770-4460-a891-8f8dd2ec2101",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/plan",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plan"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  },\n  {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n]"
+						},
+						{
+							"id": "db02db4d-05f4-4b9d-8618-f1ca7ea391a9",
+							"name": "Plans Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/plan",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"plan"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "0391a65e-8c1c-4987-99ef-07d339fc6b37"
+		},
+		{
+			"name": "subscription",
+			"item": [
+				{
+					"name": "plan/{PID}",
+					"item": [
+						{
+							"name": "2.1   Subscribe an existing plan",
+							"id": "d37838f6-29c9-44bd-b5f1-c399f4be585e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "<Bearer Token>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"annual\": \"<boolean>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/subscription/plan/:PID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscription",
+										"plan",
+										":PID"
+									],
+									"variable": [
+										{
+											"key": "PID",
+											"value": "<string>",
+											"description": "(Required) Numeric ID of the plan we want to subscribe"
+										}
+									]
+								},
+								"description": "2.1. As a new customer I want to subscribe to a plan"
+							},
+							"response": [
+								{
+									"id": "4f0e8bef-bcab-4b81-b99e-27b59ce3518f",
+									"name": "Ok",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"annual\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscription/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan we want to subscribe"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"user\": {\n    \"UID\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
+								},
+								{
+									"id": "c57c0843-3d36-415a-b071-4018517bed7a",
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"annual\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscription/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan we want to subscribe"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "b0bd58ff-c714-4f89-b4a9-9b8c9b1652a5",
+									"name": "Access token is missing or invalid",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"annual\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscription/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan we want to subscribe"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "350de57b-3635-41f3-a65f-6e176ed8b041",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"annual\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscription/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan we want to subscribe"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "10.1   Switch plan",
+							"id": "fa533fc6-e000-446e-aaa4-75963591f48b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "<Bearer Token>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"annual\": \"<boolean>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/subscription/plan/:PID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscription",
+										"plan",
+										":PID"
+									],
+									"variable": [
+										{
+											"key": "PID",
+											"value": "<string>",
+											"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
+										}
+									]
+								},
+								"description": "10.1. As subscriber I want to switch my plan (upgrade/downgrade)"
+							},
+							"response": [
+								{
+									"id": "33b1a5c5-eb74-47ff-aa0c-e67817f26698",
+									"name": "Ok",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"annual\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscription/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"user\": {\n    \"UID\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
+								},
+								{
+									"id": "6e777d39-468e-4acf-93f5-18b65c66ed4a",
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"annual\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscription/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "f8bb0e55-a37b-441a-9c65-840e5e98297b",
+									"name": "Access token is missing or invalid",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"annual\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscription/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "a26b097a-76e6-4f06-8e9d-a5e4c3b5ee36",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"annual\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscription/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "495a4728-13ed-40fb-b154-269cd32e8969"
+				},
+				{
+					"name": "{UID}",
+					"item": [
+						{
+							"name": "devices",
+							"item": [
+								{
+									"name": "{DID}",
+									"item": [
+										{
+											"name": "5.2   Subscriber removes devices from subscription ",
+											"id": "613f7c8e-a65a-476a-8c21-6fa2a025a0c0",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "<Bearer Token>",
+															"type": "string"
+														}
+													]
+												},
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/subscription/:UID/devices/:DID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"subscription",
+														":UID",
+														"devices",
+														":DID"
+													],
+													"variable": [
+														{
+															"key": "UID",
+															"value": "<string>",
+															"description": "(Required) Delete a device from a specific username identity"
+														},
+														{
+															"key": "DID",
+															"value": "<string>",
+															"description": "(Required) Delete from a specific identity device"
+														}
+													]
+												},
+												"description": "5.2. As subscriber I want to remove a device from my subscription"
+											},
+											"response": [
+												{
+													"id": "24b93c81-4a10-4701-96fa-00754936f3ab",
+													"name": "OK",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/subscription/:UID/devices/:DID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"subscription",
+																":UID",
+																"devices",
+																":DID"
+															],
+															"variable": [
+																{
+																	"key": "UID",
+																	"value": "<string>",
+																	"description": "(Required) Delete a device from a specific username identity"
+																},
+																{
+																	"key": "DID",
+																	"value": "<string>",
+																	"description": "(Required) Delete from a specific identity device"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"id": "eae50b51-6f21-4b8f-8c79-466da3904a54",
+													"name": "Access token is missing or invalid",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/subscription/:UID/devices/:DID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"subscription",
+																":UID",
+																"devices",
+																":DID"
+															],
+															"variable": [
+																{
+																	"key": "UID",
+																	"value": "<string>",
+																	"description": "(Required) Delete a device from a specific username identity"
+																},
+																{
+																	"key": "DID",
+																	"value": "<string>",
+																	"description": "(Required) Delete from a specific identity device"
+																}
+															]
+														}
+													},
+													"status": "Unauthorized",
+													"code": 401,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"id": "48243a45-2cb3-479d-b6ec-7bf52c88b74e",
+													"name": "Not Found",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/subscription/:UID/devices/:DID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"subscription",
+																":UID",
+																"devices",
+																":DID"
+															],
+															"variable": [
+																{
+																	"key": "UID",
+																	"value": "<string>",
+																	"description": "(Required) Delete a device from a specific username identity"
+																},
+																{
+																	"key": "DID",
+																	"value": "<string>",
+																	"description": "(Required) Delete from a specific identity device"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										},
+										{
+											"name": "5.3   Subscriber updates the details of device  ",
+											"id": "4f931669-f7be-432a-96a8-a4010debaa6d",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "<Bearer Token>",
+															"type": "string"
+														}
+													]
+												},
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/subscription/:UID/devices/:DID",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"subscription",
+														":UID",
+														"devices",
+														":DID"
+													],
+													"variable": [
+														{
+															"key": "UID",
+															"value": "<string>",
+															"description": "(Required) Edit details of a device from a specific username identity"
+														},
+														{
+															"key": "DID",
+															"value": "<string>",
+															"description": "(Required) Edit details from a specific identity device"
+														}
+													]
+												},
+												"description": "5.3. As subscriber I want to update the details of my device (name and description)"
+											},
+											"response": [
+												{
+													"id": "643d36b2-1ccf-4fae-9ab1-a8f87a29f8d8",
+													"name": "OK",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/subscription/:UID/devices/:DID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"subscription",
+																":UID",
+																"devices",
+																":DID"
+															],
+															"variable": [
+																{
+																	"key": "UID",
+																	"value": "<string>",
+																	"description": "(Required) Edit details of a device from a specific username identity"
+																},
+																{
+																	"key": "DID",
+																	"value": "<string>",
+																	"description": "(Required) Edit details from a specific identity device"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"DID\": \"<string>\",\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}"
+												},
+												{
+													"id": "27dc3f35-c173-4e72-b7bc-80cc28dee860",
+													"name": "Created",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/subscription/:UID/devices/:DID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"subscription",
+																":UID",
+																"devices",
+																":DID"
+															],
+															"variable": [
+																{
+																	"key": "UID",
+																	"value": "<string>",
+																	"description": "(Required) Edit details of a device from a specific username identity"
+																},
+																{
+																	"key": "DID",
+																	"value": "<string>",
+																	"description": "(Required) Edit details from a specific identity device"
+																}
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"DID\": \"<string>\",\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}"
+												},
+												{
+													"id": "96ddb429-29b8-4e1c-89e8-8670fdd6bb6b",
+													"name": "Bad Request",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/subscription/:UID/devices/:DID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"subscription",
+																":UID",
+																"devices",
+																":DID"
+															],
+															"variable": [
+																{
+																	"key": "UID",
+																	"value": "<string>",
+																	"description": "(Required) Edit details of a device from a specific username identity"
+																},
+																{
+																	"key": "DID",
+																	"value": "<string>",
+																	"description": "(Required) Edit details from a specific identity device"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"id": "c5609465-6455-469b-9ae6-c36f61c9918b",
+													"name": "Access token is missing or invalid",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/subscription/:UID/devices/:DID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"subscription",
+																":UID",
+																"devices",
+																":DID"
+															],
+															"variable": [
+																{
+																	"key": "UID",
+																	"value": "<string>",
+																	"description": "(Required) Edit details of a device from a specific username identity"
+																},
+																{
+																	"key": "DID",
+																	"value": "<string>",
+																	"description": "(Required) Edit details from a specific identity device"
+																}
+															]
+														}
+													},
+													"status": "Unauthorized",
+													"code": 401,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"id": "eeb119e5-1057-42f3-8da9-0e9a016f04df",
+													"name": "Forbidden",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/subscription/:UID/devices/:DID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"subscription",
+																":UID",
+																"devices",
+																":DID"
+															],
+															"variable": [
+																{
+																	"key": "UID",
+																	"value": "<string>",
+																	"description": "(Required) Edit details of a device from a specific username identity"
+																},
+																{
+																	"key": "DID",
+																	"value": "<string>",
+																	"description": "(Required) Edit details from a specific identity device"
+																}
+															]
+														}
+													},
+													"status": "Forbidden",
+													"code": 403,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												},
+												{
+													"id": "46fe872b-cc98-4771-9777-00a476b88567",
+													"name": "Not Found",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/subscription/:UID/devices/:DID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"subscription",
+																":UID",
+																"devices",
+																":DID"
+															],
+															"variable": [
+																{
+																	"key": "UID",
+																	"value": "<string>",
+																	"description": "(Required) Edit details of a device from a specific username identity"
+																},
+																{
+																	"key": "DID",
+																	"value": "<string>",
+																	"description": "(Required) Edit details from a specific identity device"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									],
+									"id": "396a0dcc-58be-408e-9791-a1587f405cae"
+								},
+								{
+									"name": "5.1   Subscriber adds a new device to subscription ",
+									"id": "88604a9b-6bed-4b1f-a43e-e4c81b88c445",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "<Bearer Token>",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscription/:UID/devices",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												":UID",
+												"devices"
+											],
+											"variable": [
+												{
+													"key": "UID",
+													"value": "<string>",
+													"description": "(Required) Unique identity username device"
+												}
+											]
+										},
+										"description": "5.1   As subscriber I want to add a new device to my subscription"
+									},
+									"response": [
+										{
+											"id": "c2eaa186-e000-4ce1-852a-15c0cb41527c",
+											"name": "Ok",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/subscription/:UID/devices",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"subscription",
+														":UID",
+														"devices"
+													],
+													"variable": [
+														{
+															"key": "UID",
+															"value": "<string>",
+															"description": "(Required) Unique identity username device"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  },\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  }\n]"
+										},
+										{
+											"id": "419b20bf-c14b-4ae4-9518-b3791f09cf7f",
+											"name": "Created",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/subscription/:UID/devices",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"subscription",
+														":UID",
+														"devices"
+													],
+													"variable": [
+														{
+															"key": "UID",
+															"value": "<string>",
+															"description": "(Required) Unique identity username device"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  },\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  }\n]"
+										},
+										{
+											"id": "a8128c5e-4561-4877-9c12-703f45b2a68b",
+											"name": "Access token is missing or invalid",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/subscription/:UID/devices",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"subscription",
+														":UID",
+														"devices"
+													],
+													"variable": [
+														{
+															"key": "UID",
+															"value": "<string>",
+															"description": "(Required) Unique identity username device"
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "8b362950-4404-46e7-886e-f73a70f3e196",
+											"name": "Forbidden",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/subscription/:UID/devices",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"subscription",
+														":UID",
+														"devices"
+													],
+													"variable": [
+														{
+															"key": "UID",
+															"value": "<string>",
+															"description": "(Required) Unique identity username device"
+														}
+													]
+												}
+											},
+											"status": "Forbidden",
+											"code": 403,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										},
+										{
+											"id": "0ec72b47-eda6-424d-b6bc-08099fa4dbb4",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/subscription/:UID/devices",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"subscription",
+														":UID",
+														"devices"
+													],
+													"variable": [
+														{
+															"key": "UID",
+															"value": "<string>",
+															"description": "(Required) Unique identity username device"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "5.4   List of subscriber devices ",
+									"id": "b3b1e930-71c2-4f22-b39b-69e1e6799c65",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "<Bearer Token>",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/subscription/:UID/devices",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												":UID",
+												"devices"
+											],
+											"variable": [
+												{
+													"key": "UID",
+													"value": "<string>",
+													"description": "(Required) All devices affiliated"
+												}
+											]
+										},
+										"description": "5.4   As subscriber I want to list my devices"
+									},
+									"response": [
+										{
+											"id": "a0c6c882-d3cb-4122-a738-d9d66bbac39c",
+											"name": "Ok",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/subscription/:UID/devices",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"subscription",
+														":UID",
+														"devices"
+													],
+													"variable": [
+														{
+															"key": "UID",
+															"value": "<string>",
+															"description": "(Required) All devices affiliated"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  },\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  }\n]"
+										},
+										{
+											"id": "643e31bc-71ce-4446-a292-b2512bf583ee",
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/subscription/:UID/devices",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"subscription",
+														":UID",
+														"devices"
+													],
+													"variable": [
+														{
+															"key": "UID",
+															"value": "<string>",
+															"description": "(Required) All devices affiliated"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							],
+							"id": "0a52f9ae-20f2-4fae-92d2-220f9677c775"
+						},
+						{
+							"name": "2.2   Cancel my subscription",
+							"id": "a4e3f22e-99f8-48a1-94f9-127bbabc71ba",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "<Bearer Token>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/subscription/:UID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscription",
+										":UID"
+									],
+									"variable": [
+										{
+											"key": "UID",
+											"value": "<string>",
+											"description": "(Required) Delete unique identity username"
+										}
+									]
+								},
+								"description": "2.2. As subscriber I want to cancel my subscription"
+							},
+							"response": [
+								{
+									"id": "94614f95-47a3-445c-a858-696b62294509",
+									"name": "OK",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/subscription/:UID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												":UID"
+											],
+											"variable": [
+												{
+													"key": "UID",
+													"value": "<string>",
+													"description": "(Required) Delete unique identity username"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "0dcac44d-3276-4cd1-beb7-b98163066105",
+									"name": "Access token is missing or invalid",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/subscription/:UID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												":UID"
+											],
+											"variable": [
+												{
+													"key": "UID",
+													"value": "<string>",
+													"description": "(Required) Delete unique identity username"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "1069efa2-0e84-4d13-9a01-536e97bd552b",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/subscription/:UID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												":UID"
+											],
+											"variable": [
+												{
+													"key": "UID",
+													"value": "<string>",
+													"description": "(Required) Delete unique identity username"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "2.3   Details of my plan",
+							"id": "3e8ca6d7-ca08-45fc-8700-c575dfb2f7c5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "<Bearer Token>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/subscription/:UID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscription",
+										":UID"
+									],
+									"variable": [
+										{
+											"key": "UID",
+											"value": "<string>",
+											"description": "(Required) Unique identity username"
+										}
+									]
+								},
+								"description": "2.3. As subscriber I want to know the details of my plan"
+							},
+							"response": [
+								{
+									"id": "c4c9b5d0-0097-4934-b0bd-2a5c9661d0d5",
+									"name": "Ok",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/subscription/:UID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												":UID"
+											],
+											"variable": [
+												{
+													"key": "UID",
+													"value": "<string>",
+													"description": "(Required) Unique identity username"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
+								},
+								{
+									"id": "e87934f0-9342-4062-a3dd-db9733821d01",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/subscription/:UID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												":UID"
+											],
+											"variable": [
+												{
+													"key": "UID",
+													"value": "<string>",
+													"description": "(Required) Unique identity username"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "10.2   Renew annual subscription",
+							"id": "7b79f234-d6e3-4029-af0e-207ffe7c7ba7",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "<Bearer Token>",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/subscription/:UID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscription",
+										":UID"
+									],
+									"variable": [
+										{
+											"key": "UID",
+											"value": "<string>",
+											"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
+										}
+									]
+								},
+								"description": "10.2. As subscriber I want to renew my annual subscription"
+							},
+							"response": [
+								{
+									"id": "30b0ed14-dd09-4a31-b016-7ac591a4cada",
+									"name": "Ok",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/subscription/:UID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												":UID"
+											],
+											"variable": [
+												{
+													"key": "UID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"user\": {\n    \"UID\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
+								},
+								{
+									"id": "ac3ee09f-a4a9-4907-9d36-b3bef938928f",
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/subscription/:UID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												":UID"
+											],
+											"variable": [
+												{
+													"key": "UID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "cdf77b6f-dd6f-41c1-9be7-0acf2b128776",
+									"name": "Access token is missing or invalid",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/subscription/:UID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												":UID"
+											],
+											"variable": [
+												{
+													"key": "UID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"id": "ec17bf67-d206-4c7c-97d8-d06694171bc5",
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/subscription/:UID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												":UID"
+											],
+											"variable": [
+												{
+													"key": "UID",
+													"value": "<string>",
+													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "eeadfb9d-dc61-4b67-8a0d-57340a7d69d4"
+				},
+				{
+					"name": "10.3 Migrate all subscribers of a certain plan to another one",
+					"id": "72995a82-9b97-447d-a7be-fe8edfc979c0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "<Bearer Token>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/subscription/:OPID/migration/:NPID",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"subscription",
+								":OPID",
+								"migration",
+								":NPID"
+							],
+							"variable": [
+								{
+									"key": "OPID",
+									"value": "<string>",
+									"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
+								},
+								{
+									"key": "NPID",
+									"value": "<string>",
+									"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
+								}
+							]
+						},
+						"description": "10.3 As marketing director, I want to migrate all subscribers of a certain plan to a different plan"
+					},
+					"response": [
+						{
+							"id": "8603509a-8c78-411e-b0a0-ab8defdf5470",
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/subscription/:OPID/migration/:NPID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscription",
+										":OPID",
+										"migration",
+										":NPID"
+									],
+									"variable": [
+										{
+											"key": "OPID",
+											"value": "<string>",
+											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
+										},
+										{
+											"key": "NPID",
+											"value": "<string>",
+											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  },\n  \"subscriptions\": [\n    {\n      \"SID\": \"<string>\"\n    },\n    {\n      \"SID\": \"<string>\"\n    }\n  ]\n}"
+						},
+						{
+							"id": "3c5bc53a-9469-408d-b45b-619438e2f018",
+							"name": "Created",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/subscription/:OPID/migration/:NPID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscription",
+										":OPID",
+										"migration",
+										":NPID"
+									],
+									"variable": [
+										{
+											"key": "OPID",
+											"value": "<string>",
+											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
+										},
+										{
+											"key": "NPID",
+											"value": "<string>",
+											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  },\n  \"subscriptions\": [\n    {\n      \"SID\": \"<string>\"\n    },\n    {\n      \"SID\": \"<string>\"\n    }\n  ]\n}"
+						},
+						{
+							"id": "02c961a0-ccf2-4728-b7b5-29efb79f46a8",
+							"name": "Access token is missing or invalid",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/subscription/:OPID/migration/:NPID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscription",
+										":OPID",
+										"migration",
+										":NPID"
+									],
+									"variable": [
+										{
+											"key": "OPID",
+											"value": "<string>",
+											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
+										},
+										{
+											"key": "NPID",
+											"value": "<string>",
+											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "80b6f60a-5667-4768-96e7-1e01eef04885",
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/subscription/:OPID/migration/:NPID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscription",
+										":OPID",
+										"migration",
+										":NPID"
+									],
+									"variable": [
+										{
+											"key": "OPID",
+											"value": "<string>",
+											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
+										},
+										{
+											"key": "NPID",
+											"value": "<string>",
+											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "3dc45d06-c6c0-486d-a850-720ae329b03e",
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/subscription/:OPID/migration/:NPID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscription",
+										":OPID",
+										"migration",
+										":NPID"
+									],
+									"variable": [
+										{
+											"key": "OPID",
+											"value": "<string>",
+											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
+										},
+										{
+											"key": "NPID",
+											"value": "<string>",
+											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "b8487233-e235-4be8-a6f7-dc5331065cf1",
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/subscription/:OPID/migration/:NPID",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscription",
+										":OPID",
+										"migration",
+										":NPID"
+									],
+									"variable": [
+										{
+											"key": "OPID",
+											"value": "<string>",
+											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
+										},
+										{
+											"key": "NPID",
+											"value": "<string>",
+											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "117352c0-3e0b-4ccb-8e3b-100ce88eab52"
+		},
+		{
+			"name": "dashboard",
+			"item": [
+				{
+					"name": "3.1/11.2 Monthly churn rate from the past n months filtered/broken down by plan with details on active subscribers, and new and canceled subscriptions",
+					"id": "3b53f977-d1a7-46cb-ad3a-7d33035e2bdc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "<Bearer Token>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/dashboard?nMonths=<number>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"dashboard"
+							],
+							"query": [
+								{
+									"key": "nMonths",
+									"value": "<number>",
+									"description": "(Required) Number of months"
+								}
+							]
+						},
+						"description": "3.1/11.2 As Product Manager I want to know the monthly churn rate from the past n months filtered/broken down by plan with details on active subscribers, and new and canceled subscriptions"
+					},
+					"response": [
+						{
+							"id": "a88885da-a466-473c-8e1a-f5574dba56ee",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/dashboard?nMonths=<number>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dashboard"
+									],
+									"query": [
+										{
+											"key": "nMonths",
+											"value": "<number>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"month\": \"<string>\",\n    \"activeSubscriptions\": \"<int-64>\",\n    \"newSubscriptions\": \"<int-64>\",\n    \"canceledSubscriptions\": \"<int-64>\",\n    \"churnRate\": \"<number>\"\n  },\n  {\n    \"month\": \"<string>\",\n    \"activeSubscriptions\": \"<int-64>\",\n    \"newSubscriptions\": \"<int-64>\",\n    \"canceledSubscriptions\": \"<int-64>\",\n    \"churnRate\": \"<number>\"\n  }\n]"
+						},
+						{
+							"id": "634f4e37-a06d-4603-8470-b368ef6ef6e5",
+							"name": "Accepted",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/dashboard?nMonths=<number>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dashboard"
+									],
+									"query": [
+										{
+											"key": "nMonths",
+											"value": "<number>"
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "f52e4a7b-06a8-4a92-a8fe-9ffe9aaeaa44",
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/dashboard?nMonths=<number>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dashboard"
+									],
+									"query": [
+										{
+											"key": "nMonths",
+											"value": "<number>"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "2085d582-60ea-452b-affb-f69efc716afd",
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/dashboard?nMonths=<number>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dashboard"
+									],
+									"query": [
+										{
+											"key": "nMonths",
+											"value": "<number>"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "11.1 Future cashflows for the upcoming n months filtered/broken down by plan",
+					"id": "19801db0-8ac0-4678-bb17-e2d77cf213ad",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "<Bearer Token>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/dashboard/cashflow?nMonths=<number>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"dashboard",
+								"cashflow"
+							],
+							"query": [
+								{
+									"key": "nMonths",
+									"value": "<number>",
+									"description": "(Required) Number of months"
+								}
+							]
+						},
+						"description": "11.1 As Product Manager or Financial director, I want to know the future cashflows for the upcoming n months filtered/broken down by plan"
+					},
+					"response": [
+						{
+							"id": "0daf10d4-826f-479f-a29e-a9965a7316a1",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/dashboard/cashflow?nMonths=<number>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dashboard",
+										"cashflow"
+									],
+									"query": [
+										{
+											"key": "nMonths",
+											"value": "<number>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"past\": [\n      {\n        \"month\": \"<string>\",\n        \"plans\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"total\": \"<currency>\"\n      },\n      {\n        \"month\": \"<string>\",\n        \"plans\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"total\": \"<currency>\"\n      }\n    ]\n  },\n  {\n    \"past\": [\n      {\n        \"month\": \"<string>\",\n        \"plans\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"total\": \"<currency>\"\n      },\n      {\n        \"month\": \"<string>\",\n        \"plans\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"total\": \"<currency>\"\n      }\n    ]\n  }\n]"
+						},
+						{
+							"id": "48df44c2-d676-47a7-8563-44b3db6cd795",
+							"name": "Accepted",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/dashboard/cashflow?nMonths=<number>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dashboard",
+										"cashflow"
+									],
+									"query": [
+										{
+											"key": "nMonths",
+											"value": "<number>"
+										}
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "7fbf9996-c067-47da-ad18-490a890ec93f",
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/dashboard/cashflow?nMonths=<number>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dashboard",
+										"cashflow"
+									],
+									"query": [
+										{
+											"key": "nMonths",
+											"value": "<number>"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "e0b3e5ff-28b9-482e-ba72-6fd2e7d95412",
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/dashboard/cashflow?nMonths=<number>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dashboard",
+										"cashflow"
+									],
+									"query": [
+										{
+											"key": "nMonths",
+											"value": "<number>"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "14.2 Year-to-date revenue of my company filtered/broken down by plan",
+					"id": "b8b81efa-11d7-4b77-bab7-ddd61941301b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "<Bearer Token>",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/dashboard/revenue",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"dashboard",
+								"revenue"
+							]
+						},
+						"description": "14.2 As Product Manager or Financial director, I want to know the year-to-date revenue of my company filtered/broken down by plan"
+					},
+					"response": [
+						{
+							"id": "ac8bd5f3-8926-4d65-bbdc-381d7ae81966",
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/dashboard/revenue",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dashboard",
+										"revenue"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"month\": \"<string>\",\n    \"plans\": [\n      {\n        \"name\": \"<string>\",\n        \"totalRevenue\": \"<currency>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"totalRevenue\": \"<currency>\"\n      }\n    ],\n    \"totalRevenue\": \"<currency>\"\n  },\n  {\n    \"month\": \"<string>\",\n    \"plans\": [\n      {\n        \"name\": \"<string>\",\n        \"totalRevenue\": \"<currency>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"totalRevenue\": \"<currency>\"\n      }\n    ],\n    \"totalRevenue\": \"<currency>\"\n  }\n]"
+						},
+						{
+							"id": "8ab98657-6169-4144-9e4c-9d1a7ffe4ea0",
+							"name": "Accepted",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/dashboard/revenue",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dashboard",
+										"revenue"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "4d8313ae-2b29-4345-b6a8-a7d366c4640c",
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/dashboard/revenue",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dashboard",
+										"revenue"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"id": "efee1405-de8c-4252-b379-8e1e38babc3e",
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/dashboard/revenue",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dashboard",
+										"revenue"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "37d55f9a-7b15-459d-b352-8c4175e26760"
+		},
+		{
+			"name": "Authenticates a user",
+			"id": "8571375f-bc32-40d7-b748-073ccd40ed92",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "<string>",
+							"type": "text",
+							"description": "(Required) "
+						},
+						{
+							"key": "password",
+							"value": "<string>",
+							"type": "text",
+							"description": "(Required) "
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "returns the authentication ID token (JWT) to use in further API calls"
+			},
+			"response": [
+				{
+					"id": "51bedd07-3ef6-49ce-a1ad-efba9724c927",
+					"name": "a JSON web token (JWT) required to login.",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"description": "(Required) ",
+									"key": "username",
+									"value": "<string>",
+									"type": "text"
+								},
+								{
+									"description": "(Required) ",
+									"key": "password",
+									"value": "<string>",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"id": "1c3610c6-a44a-47c6-8f60-c43a09c3765d",
+					"name": "Access token is missing or invalid",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"description": "(Required) ",
+									"key": "username",
+									"value": "<string>",
+									"type": "text"
+								},
+								{
+									"description": "(Required) ",
+									"key": "password",
+									"value": "<string>",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"id": "3d8367b6-d0af-42d3-8e89-28a3d1b3e003",
+					"name": "Not Found",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"description": "(Required) ",
+									"key": "username",
+									"value": "<string>",
+									"type": "text"
+								},
+								{
+									"description": "(Required) ",
+									"key": "password",
+									"value": "<string>",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"id": "7cf0533b-ea70-4594-b915-1ce03e253178",
+					"name": "Internal Server Error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"description": "(Required) ",
+									"key": "username",
+									"value": "<string>",
+									"type": "text"
+								},
+								{
+									"description": "(Required) ",
+									"key": "password",
+									"value": "<string>",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "73a4cb79-52ec-4cb4-a856-bde52aae451c",
+			"key": "baseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
