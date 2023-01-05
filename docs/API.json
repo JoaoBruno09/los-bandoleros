@@ -197,6 +197,9 @@
           },
           "404": {
             "description": "Plan Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -246,11 +249,11 @@
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
           },
-          "403": {
-            "description": "Forbidden"
-          },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -335,11 +338,11 @@
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
           },
-          "403": {
-            "description": "Forbidden"
-          },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -376,6 +379,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -457,11 +463,11 @@
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
           },
-          "403": {
-            "description": "Forbidden"
-          },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -512,11 +518,11 @@
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
           },
-          "403": {
-            "description": "Forbidden"
-          },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -557,11 +563,11 @@
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
           },
-          "403": {
-            "description": "Forbidden"
-          },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -618,6 +624,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -672,6 +681,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -685,7 +697,7 @@
       "delete": {
         "tags": ["Subscriptions"],
         "summary": "2.2   Cancel my subscription",
-        "operationId": "deleteSubscription",
+        "operationId": "deleteSubscriptionByUID",
         "description": "2.2. As subscriber I want to cancel my subscription",
         "parameters": [
           {
@@ -701,13 +713,39 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "links": {
+              "deleteSubscription": {
+                "operationId": "deleteSubscriptionByUID",
+                "description": "Cancel my subscription with UID",
+                "parameters": {
+                  "UID": "$response.body#/UID"
+                }
+              },
+              "getSubscription": {
+                "operationId": "getDetailsSubscriptionUID",
+                "description": "Get details of my subscription with UID",
+                "parameters": {
+                  "UID": "$response.body#/UID"
+                }
+              },
+              "editSubscription": {
+                "operationId": "putSubscription",
+                "description": "Renew my subscription through the UID",
+                "parameters": {
+                  "UID": "$response.body#/UID"
+                }
+              }
+            }
           },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -720,7 +758,7 @@
         "tags": ["Subscriptions"],
         "summary": "2.3   Details of my plan",
         "description": "2.3. As subscriber I want to know the details of my plan",
-        "operationId": "getDetailsPlan",
+        "operationId": "getDetailsSubscriptionUID",
         "parameters": [
           {
             "name": "UID",
@@ -745,6 +783,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -788,6 +829,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -850,11 +894,11 @@
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
           },
-          "403": {
-            "description": "Forbidden"
-          },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -893,6 +937,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -939,6 +986,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -1012,11 +1062,11 @@
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
           },
-          "403": {
-            "description": "Forbidden"
-          },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         },
         "security": [
@@ -1077,9 +1127,6 @@
           },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "403": {
-            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
@@ -1390,15 +1437,25 @@
         "required": ["SID"],
         "type": "object",
         "properties": {
-          "oldPrice": {
+          "oldMonthlyfee": {
             "type": "number",
             "format": "currency",
             "example": "5.99"
           },
-          "newPrice": {
+          "newMonthlyfee": {
             "type": "number",
             "format": "currency",
             "example": "6.99"
+          },
+          "oldAnnualfee": {
+            "type": "number",
+            "format": "currency",
+            "example": "59.90"
+          },
+          "newAnnualfee": {
+            "type": "number",
+            "format": "currency",
+            "example": "69.90"
           },
           "changedDate": {
             "type": "string",
@@ -1555,10 +1612,6 @@
         "type": "object",
         "required": ["name", "description", "maximumNumberOfDevices"],
         "properties": {
-          "PID": {
-            "type": "string",
-            "example": "P1a2s3d4f5G"
-          },
           "name": {
             "type": "string",
             "example": "Gold"
