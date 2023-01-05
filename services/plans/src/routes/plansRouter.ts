@@ -32,7 +32,7 @@ planRouter.post("/", (req, res) => {
             musicCollections: req.body.musicCollections,
             musicSuggestions: req.body.musicSuggestions,
             monthlyFee: req.body.monthlyFee,
-            anualFee: req.body.anualFee,
+            annualFee: req.body.annualFee,
           };
 
           if (
@@ -43,7 +43,10 @@ planRouter.post("/", (req, res) => {
               planModel.create(newPlan).then(
                 () => {
                   planModel
-                    .find({ PID: newPlan.PID }, { _id: 0, __v: 0 })
+                    .find(
+                      { PID: newPlan.PID },
+                      { _id: 0, __v: 0, priceHistory: 0 }
+                    )
                     .then((plan) => {
                       res.status(201).json(plan);
                     });
@@ -69,20 +72,22 @@ planRouter.post("/", (req, res) => {
 //GET - GET ALL PLANS 1.4
 planRouter.get("/", (req, res) => {
   if (db) {
-    planModel.find({ isActive: true }, { _id: 0, __v: 0 }).then(
-      (plan) => {
-        if (plan.length > 0) {
-          res.status(200).json({
-            plans: plan,
-          });
-        } else {
-          res.status(404).json("Not found. Plans not found or don't exist!");
+    planModel
+      .find({ isActive: true }, { _id: 0, __v: 0, priceHistory: 0 })
+      .then(
+        (plan) => {
+          if (plan.length > 0) {
+            res.status(200).json({
+              plans: plan,
+            });
+          } else {
+            res.status(404).json("Not found. Plans not found or don't exist!");
+          }
+        },
+        (error) => {
+          res.status(500).send("Internal Server Error");
         }
-      },
-      (error) => {
-        res.status(500).send("Internal Server Error");
-      }
-    );
+      );
   } else {
     res.status(500).send();
   }
@@ -92,7 +97,10 @@ planRouter.get("/", (req, res) => {
 planRouter.get("/:PID", (req, res) => {
   if (db) {
     planModel
-      .find({ PID: req.params.PID, isActive: true }, { _id: 0, __v: 0 })
+      .find(
+        { PID: req.params.PID, isActive: true },
+        { _id: 0, __v: 0, priceHistory: 0 }
+      )
       .then(
         (plan) => {
           if (plan.length > 0) {
@@ -128,7 +136,10 @@ planRouter.put("/:PID", (req, res) => {
               (response) => {
                 if (response !== null) {
                   planModel
-                    .find({ PID: req.params.PID }, { _id: 0, __v: 0 })
+                    .find(
+                      { PID: req.params.PID },
+                      { _id: 0, __v: 0, priceHistory: 0 }
+                    )
                     .then((plan) => {
                       res.status(201).json(plan);
                     });
@@ -184,7 +195,10 @@ planRouter.post("/:PID", (req, res) => {
                 (response) => {
                   if (response !== null) {
                     planModel
-                      .find({ PID: req.params.PID }, { _id: 0, __v: 0 })
+                      .find(
+                        { PID: req.params.PID },
+                        { _id: 0, __v: 0, priceHistory: 0 }
+                      )
                       .then((plan) => {
                         res.status(200).json(plan);
                       });
@@ -259,31 +273,52 @@ planRouter.patch("/:PID", (req, res) => {
           .send("Unauthorized. You don't have access to this resource!");
       } else {
         const monthlyFeeIncom: number = req.body.monthlyFee;
-        const anualFeeIncom: number = req.body.anualFee;
+        const annualFeeIncom: number = req.body.annualFee;
         if (db) {
-          planModel
-            .findOneAndUpdate(
-              { PID: req.params.PID },
-              { monthlyFee: monthlyFeeIncom, anualFee: anualFeeIncom }
-            )
-            .then(
-              (response) => {
-                if (response !== null) {
-                  planModel
-                    .find({ PID: req.params.PID }, { _id: 0, __v: 0 })
-                    .then((plan) => {
-                      res.status(200).json(plan);
-                    });
-                } else {
-                  res
-                    .status(404)
-                    .json("Not found. Plan not found or doesn't exist!");
-                }
-              },
-              (error) => {
-                res.status(400).send("Bad Request");
-              }
-            );
+          planModel.findOne({ PID: req.params.PID }).then((plan) => {
+            if (plan !== null) {
+              const dateChangedPrice = new Date();
+              const priceForHistory = {
+                oldMonthlylFee: plan.monthlyFee,
+                newMonthlylFee: monthlyFeeIncom,
+                oldAnnualFee: plan.annualFee,
+                newAnnualFee: annualFeeIncom,
+                changedDate: dateChangedPrice,
+              };
+              planModel
+                .findOneAndUpdate(
+                  { PID: req.params.PID },
+                  {
+                    monthlyFee: monthlyFeeIncom,
+                    annualFee: annualFeeIncom,
+                    $push: { priceHistory: priceForHistory },
+                  }
+                )
+                .then(
+                  (response) => {
+                    if (response !== null) {
+                      planModel
+                        .find(
+                          { PID: req.params.PID },
+                          { _id: 0, __v: 0, priceHistory: 0 }
+                        )
+                        .then((plan) => {
+                          res.status(200).json(plan);
+                        });
+                    } else {
+                      res
+                        .status(404)
+                        .json("Not found. Plan not found or doesn't exist!");
+                    }
+                  },
+                  (error) => {
+                    res.status(400).send("Bad Request");
+                  }
+                );
+            } else {
+              res.status(500).send("Internal Server Error");
+            }
+          });
         } else {
           res.status(500).send("Internal Server Error");
         }
@@ -312,7 +347,10 @@ planRouter.patch("/:PID/promotion", (req, res) => {
               (response) => {
                 if (response !== null) {
                   planModel
-                    .find({ PID: req.params.PID }, { _id: 0, __v: 0 })
+                    .find(
+                      { PID: req.params.PID },
+                      { _id: 0, __v: 0, priceHistory: 0 }
+                    )
                     .then((plan) => {
                       res.status(200).json(plan);
                     });
@@ -337,4 +375,39 @@ planRouter.patch("/:PID/promotion", (req, res) => {
 });
 
 //GET - PRICE CHANGE HISTORY OF A PLAN 13.2
-planRouter.get("/:PID/history", (req, res) => {});
+planRouter.get("/:PID/history", (req, res) => {
+  if (db) {
+    planModel
+      .find(
+        { PID: req.params.PID },
+        {
+          _id: 0,
+          __v: 0,
+          name: 0,
+          description: 0,
+          numberOfMinutes: 0,
+          maximumNumberOfUsersDevices: 0,
+          musicCollections: 0,
+          musicSuggestions: 0,
+          monthlyFee: 0,
+          annualFee: 0,
+          isPromoted: 0,
+          isActive: 0,
+        }
+      )
+      .then(
+        (plan) => {
+          if (plan !== null) {
+            res.status(200).json(plan);
+          } else {
+            res.status(404).json("Not found. Plan not found or doesn't exist!");
+          }
+        },
+        (error) => {
+          res.status(500).send("Internal Server Error");
+        }
+      );
+  } else {
+    res.status(500).send("Internal Server Error");
+  }
+});

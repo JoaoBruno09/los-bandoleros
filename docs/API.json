@@ -1354,7 +1354,7 @@
             "format": "currency",
             "example": "5.99"
           },
-          "anualFee": {
+          "annualFee": {
             "type": "number",
             "format": "currency",
             "example": "59.90"
@@ -1406,7 +1406,7 @@
             "format": "currency",
             "example": "5.99"
           },
-          "anualFee": {
+          "annualFee": {
             "type": "number",
             "format": "currency",
             "example": "59.90"
@@ -1574,7 +1574,7 @@
             "type": "string",
             "example": "Unlimited"
           },
-          "maximumNumberOfDevices": {
+          "maximumNumberOfUsersDevices": {
             "type": "integer",
             "format": "int64",
             "example": "6"
@@ -1595,7 +1595,7 @@
             "format": "currency",
             "example": "5.99"
           },
-          "anualFee": {
+          "annualFee": {
             "type": "number",
             "format": "currency",
             "example": "59.90"
@@ -1610,7 +1610,7 @@
         "description": "The plan form input",
         "additionalProperties": false,
         "type": "object",
-        "required": ["name", "description", "maximumNumberOfDevices"],
+        "required": ["name", "description", "maximumNumberOfUsersDevices"],
         "properties": {
           "name": {
             "type": "string",
@@ -1624,7 +1624,7 @@
             "type": "string",
             "example": "Unlimited"
           },
-          "maximumNumberOfDevices": {
+          "maximumNumberOfUsersDevices": {
             "type": "integer",
             "format": "int64",
             "example": "6"
@@ -1645,7 +1645,7 @@
             "format": "currency",
             "example": "5.99"
           },
-          "anualFee": {
+          "annualFee": {
             "type": "number",
             "format": "currency",
             "example": "59.90"
@@ -1656,14 +1656,14 @@
         "description": "The update price of plan form input",
         "additionalProperties": false,
         "type": "object",
-        "required": ["monthlyFee", "anualFee"],
+        "required": ["monthlyFee", "annualFee"],
         "properties": {
           "monthlyFee": {
             "type": "number",
             "format": "currency",
             "example": "5.99"
           },
-          "anualFee": {
+          "annualFee": {
             "type": "number",
             "format": "currency",
             "example": "59.90"
@@ -1700,7 +1700,7 @@
             "type": "string",
             "example": "Unlimited"
           },
-          "maximumNumberOfDevices": {
+          "maximumNumberOfUsersDevices": {
             "type": "integer",
             "format": "int64",
             "example": 6
@@ -1720,7 +1720,7 @@
             "format": "currency",
             "example": "5.99"
           },
-          "anualFee": {
+          "annualFee": {
             "type": "number",
             "format": "currency",
             "example": "59.90"

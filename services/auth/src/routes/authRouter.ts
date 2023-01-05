@@ -23,14 +23,23 @@ authRouter.post("/login", multer().none(), (req, res) => {
         { username: req.body.username, password: passwordEncripted },
         { _id: 0 }
       )
-      .then((user) => {
-        jwt.sign(JSON.stringify(user), accessTokenSecret, (err, token) => {
-          res.status(200).json({
-            token: token,
-          });
-        });
-      });
+      .then(
+        (user) => {
+          if (user !== null) {
+            jwt.sign(JSON.stringify(user), accessTokenSecret, (err, token) => {
+              res.status(200).json({
+                token: token,
+              });
+            });
+          } else {
+            res.status(404).send("Not Found. User doesn't exist");
+          }
+        },
+        (error) => {
+          res.status(400).send("Bad Request");
+        }
+      );
   } else {
-    res.status(500).send();
+    res.status(500).send("Internal Server Error");
   }
 });

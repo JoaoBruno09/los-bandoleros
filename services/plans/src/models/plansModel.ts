@@ -14,9 +14,10 @@ export interface Plan {
   musicCollections?: number;
   musicSuggestions: musicSuggestionsEnum;
   monthlyFee: number;
-  anualFee: number;
+  annualFee: number;
   isPromoted?: boolean;
   isActive?: boolean;
+  priceHistory?: [];
 }
 
 const planSchema = new mongoose.Schema<Plan>({
@@ -28,9 +29,10 @@ const planSchema = new mongoose.Schema<Plan>({
   musicCollections: { type: Number, required: false, default: 0 },
   musicSuggestions: { type: String, required: true },
   monthlyFee: { type: Number, required: true },
-  anualFee: { type: Number, required: true },
+  annualFee: { type: Number, required: true },
   isPromoted: { type: Boolean, required: false, default: false },
   isActive: { type: Boolean, required: false, default: true },
+  priceHistory: { type: Array, required: false },
 });
 
 export const planModel = mongoose.model<Plan>("Plan", planSchema);
