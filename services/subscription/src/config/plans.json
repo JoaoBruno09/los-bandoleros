@@ -1,0 +1,41 @@
+[
+  {
+    "PID": "P1a2s3d4f5G",
+    "name": "Free",
+    "description": "Brief plan description",
+    "numberOfMinutes": "1000",
+    "maximumNumberOfUsersDevices": 1,
+    "musicCollections": 0,
+    "musicSuggestions": "automatic",
+    "monthlyFee": 0.0,
+    "anualFee": 0.0,
+    "isPromoted": true,
+    "isActive": true
+  },
+  {
+    "PID": "Pf5f6c85825",
+    "name": "Silver",
+    "description": "Brief plan description",
+    "numberOfMinutes": "5000",
+    "maximumNumberOfUsersDevices": 3,
+    "musicCollections": 10,
+    "musicSuggestions": "automatic",
+    "monthlyFee": 4.99,
+    "anualFee": 49.9,
+    "isPromoted": true,
+    "isActive": true
+  },
+  {
+    "PID": "Pcb9d1baf51",
+    "name": "Gold",
+    "description": "Brief plan description",
+    "numberOfMinutes": "Unlimited",
+    "maximumNumberOfUsersDevices": 6,
+    "musicCollections": 25,
+    "musicSuggestions": "personalized",
+    "monthlyFee": 5.99,
+    "anualFee": 59.9,
+    "isPromoted": true,
+    "isActive": true
+  }
+]
