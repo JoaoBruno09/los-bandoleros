@@ -1777,12 +1777,8 @@
             "type": "string",
             "description": "Equipment Serial Number",
             "example": "ESNaojsdf4389LK345345345ZY3"
-          },
-          "affiliatedOn": {
-            "type": "string",
-            "format": "date",
-            "example": "2022-11-28"
           }
+          
         }
       },
       "GetPlanSubscriptions": {
