@@ -1,9 +1,12 @@
-import { Router } from "express";
+import e, { response, Router } from "express";
 import {
   subscriptionModel,
   Subscription,
+  devicesModel,
+  Device,
   musicSuggestionsEnum,
 } from "../models/subscriptionModel";
+/*import { devicesModel, Device } from "../models/devicesModel";*/
 import crypto from "crypto";
 import { db } from "../config/DatabaseConfig";
 import * as jwt from "jsonwebtoken";
@@ -60,20 +63,34 @@ subscriptionRouter.post("/plan/:PID", (req, res) => {
             .then((plan) => {
               //res.status(200).json(plan)
               if (db) {
-                subscriptionModel.create(newSubscription).then(() => {
-                  subscriptionModel.find({ SID: SID }, { _id: 0, __v: 0 }).then(
-                    (rplan) => {
-                      res.status(200).json(rplan);
-                    },
-                    (error) => {
-                      res.status(400).send("Bad Request");
-                    }
-                  );
-                });
+                subscriptionModel.create(newSubscription).then(
+                  () => {
+                    res.send("Criou");
+                    // UPDATE USER ROLE
+                    // --- TERMINAR ---
+                    /*_axios.patch("/auth/:UID", {
+                      params: {
+                        UID: user.UID,
+                      },
+                      headers: {
+                        "Content-type": "application/json",
+                        "Authorization": "Bearer " + token,
+                      },
+                    })   .then((resp)=>{
+                      res.send(resp);
+                    }) */
+                    //res.status(200).json(newSubscription);
+                  }
+                  /*  (erro) => {
+                    res.status(500).send("Internal Server Error");
+                  } */
+                );
               } else {
                 res.status(500).send("Internal Server Error");
-              } 
+              }
             });
+
+          //RESPONSE ERRO DO FAILED DO GET
         });
       } else {
         res.status(401).json("Access token is missing or invalid");
@@ -100,6 +117,7 @@ subscriptionRouter.delete("/:UID", (req, res) => {
 
 // GET - 2.3. As subscriber I want to know the details of my plan
 subscriptionRouter.get("/:UID", (req, res) => {
+  // VALIDAR
   if (db) {
     subscriptionModel.find({ user: { UID: req.params.UID } }).then((sub) => {
       if (sub.length > 0) {
@@ -122,15 +140,81 @@ subscriptionRouter.put("/:UID", (req, res) => {
 
 // POST - 5.1 As subscriber I want to add a new device to my subscription
 subscriptionRouter.post("/:UID/devices", (req, res) => {
-  if (db) {
+  // FALTA VALIDAR A QUANDTIDADE DE DEVICES QUE UM USER PODE INSERIR
+  //res.send(req.params.UID);
+  const authHeader = req.headers.authorization;
+  if (authHeader) {
+    const token = authHeader.split(" ")[1];
+    jwt.verify(token, accessTokenSecret, (err: any, user: any) => {
+      //res.send(req.params.UID+ "-" + user.UID);
+      if (user.UID === req.params.UID && user.role == "Subscriber") {
+        //ADICIONA O DEVICE
+        //res.send(req.body);
+        crypto.generateKey("hmac", { length: 40 }, (err, key) => {
+          const DID = "D" + key.export().toString("hex");
+          const newDevice: Device = {
+            DID: DID,
+            device: req.body.device,
+            esn: req.body.esn,
+            affiliatedOn: moment().format("YYYY-MM-DD"),
+            UID: user.UID,
+          };
+          if (db) {
+            devicesModel.create(newDevice).then(
+              () => {
+                res.status(201).json({
+                  DID: newDevice.DID,
+                  device: newDevice.device,
+                  esn: newDevice.esn,
+                  affiliatedOn: newDevice.affiliatedOn,
+                  UID: newDevice.UID,
+                });
+              },
+              (erro) => {
+                //res.send(erro);
+                res.status(500).send("Internal Server Error");
+              }
+            );
+          } else {
+            res.status(500).send("Internal Server Error");
+          }
+        });
+      } else {
+        res.status(404).send("Not Found");
+      }
+    });
   } else {
+    res.status(401).send("Access token is missing or invalid");
   }
 });
 
 // GET - 5.4 As subscriber I want to list my devices
 subscriptionRouter.get("/:UID/devices", (req, res) => {
-  if (db) {
+  const authHeader = req.headers.authorization;
+  if (authHeader) {
+    const token = authHeader.split(" ")[1];
+    jwt.verify(token, accessTokenSecret, (err: any, user: any) => {
+      //res.send(req.params.UID+ "-" + user.UID);
+      if (user.UID === req.params.UID && user.role == "Subscriber") {
+        //res.send("ENTROU");
+        if (db) {
+          devicesModel.find({ UID: user.UID }, { _id: 0, __v: 0 }).then(
+            (devices) => {
+              res.status(200).json(devices);
+            },
+            (erro) => {
+              res.status(500).json("Internal Server Error");
+            }
+          );
+        } else {
+          res.status(500).json("Internal Server Error");
+        }
+      } else {
+        res.status(400).json("Bad Request");
+      }
+    });
   } else {
+    res.status(401).send("Access token is missing or invalid");
   }
 });
 // DELETE - 5.2. As subscriber I want to remove a device from my subscription

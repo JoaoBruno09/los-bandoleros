@@ -7,7 +7,7 @@ apiEndpoints:
   auth:
     host: localhost
     paths: "/auth*"
-    methods: ["POST"]
+    methods: ["POST","PATCH"]
   plan:
     host: localhost
     paths: ["/plan", "/plan/:id"]
