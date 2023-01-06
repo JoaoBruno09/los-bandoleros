@@ -218,9 +218,36 @@ subscriptionRouter.get("/:UID/devices", (req, res) => {
   }
 });
 // DELETE - 5.2. As subscriber I want to remove a device from my subscription
-subscriptionRouter.delete("/:UID/devices/{DID}", (req, res) => {
-  if (db) {
+subscriptionRouter.delete("/:UID/devices/:DID", (req, res) => {
+
+  // FALTA TESTAR, SÓ ESCREVI
+  const authHeader = req.headers.authorization;
+  if (authHeader) {
+    const token = authHeader.split(" ")[1];
+    jwt.verify(token, accessTokenSecret, (err: any, user: any) => {
+      if (user.UID === req.params.UID && user.role == "Subscriber") {
+        if (db) {
+          devicesModel
+            .deleteOne({ UID: user.UID, DID: req.params.DID })
+            .then((device) => {
+              if (device) {
+                res.status(200).send("Ok");
+              } else {
+                res.status(404).send("Not Found");
+              }
+            },
+            (erro)=>{
+              res.status(500).send("Internal Server Error");
+            });
+        } else {
+          res.status(500).send("Internal Server Error");
+        }
+      } else {
+        res.status(404).send("Not Found"); // ?????? SERÀ O 401
+      }
+    });
   } else {
+    res.status(401).send("Access token is missing or invalid");
   }
 });
 // PUT - 5.3. As subscriber I want to update the details of my device (name and description)
@@ -229,7 +256,7 @@ subscriptionRouter.put("/:UID/devices/{DID}", (req, res) => {
   } else {
   }
 });
-// PUT - 10.3. As subscriber I want to update the details of my device (name and description)
+// PUT - 10.3. As marketing director, I want to migrate all subscribers of a certain plan to a different plan
 subscriptionRouter.put("/:OPI/migration/{NPID}", (req, res) => {
   if (db) {
   } else {
