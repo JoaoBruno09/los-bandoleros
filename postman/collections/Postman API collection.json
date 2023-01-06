@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "00c1fd32-3f8d-4269-80a2-ba2073f729d6",
-		"name": "Postman API Collection",
+		"_postman_id": "8e5ac325-37ce-4d4e-ba2f-818c531e5cb4",
+		"name": "Postman API collection",
 		"description": "A REST API for ACME, Inc. is a SaaS-based music streaming service to manage the subscriptions of the service. The company offers several plans and needs the ability to create new plans to adapt to market.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "24115790-00c1fd32-3f8d-4269-80a2-ba2073f729d6"
+		"_uid": "24115790-8e5ac325-37ce-4d4e-ba2f-818c531e5cb4"
 	},
 	"item": [
 		{
@@ -15,7 +15,7 @@
 					"item": [
 						{
 							"name": "Shows available plans by id",
-							"id": "9dd0ae2d-b26f-4c8c-b934-cc9fbb49b52f",
+							"id": "429e7d8f-4ae3-4028-8ee8-f58c6d5036e8",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -39,7 +39,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Numeric ID of the plan to get"
 										}
 									]
@@ -48,7 +48,7 @@
 							},
 							"response": [
 								{
-									"id": "d9599fe2-ec7d-4306-9d0c-55abeeb86631",
+									"id": "2989ad16-0e23-469a-b864-db961e428e78",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "GET",
@@ -65,7 +65,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -81,10 +81,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 								},
 								{
-									"id": "0b62903d-9429-4863-a159-9936d36cf7ca",
+									"id": "43bf9b7a-bc6f-4351-bba3-abcaad893404",
 									"name": "Invalid PID supplied",
 									"originalRequest": {
 										"method": "GET",
@@ -101,7 +101,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -120,7 +120,7 @@
 									"body": ""
 								},
 								{
-									"id": "1538b05b-fb4a-473c-b080-04201010fc45",
+									"id": "323281da-9646-4e9d-81d6-7b9bdecda66a",
 									"name": "Plan Not Found",
 									"originalRequest": {
 										"method": "GET",
@@ -137,7 +137,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -154,12 +154,48 @@
 									],
 									"cookie": [],
 									"body": ""
+								},
+								{
+									"id": "5613f38d-bf91-4c0c-8a1c-a301477f7383",
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "in minim labore tempo",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
 								}
 							]
 						},
 						{
 							"name": "1.2   Deactivate a plan",
-							"id": "4805554d-b95b-4361-9e2c-6488cf53551f",
+							"id": "19427788-4ede-4cc5-b980-fdb0a1b9b522",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -188,7 +224,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Numeric ID of the plan to get"
 										}
 									]
@@ -197,7 +233,7 @@
 							},
 							"response": [
 								{
-									"id": "f82b8e5b-2c72-4114-9ba5-420dd12efda3",
+									"id": "8ca98450-063d-4790-8916-bb64630c7268",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "PUT",
@@ -220,7 +256,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -239,7 +275,7 @@
 									"body": ""
 								},
 								{
-									"id": "23479302-44a7-47b2-87d5-81b4acae351b",
+									"id": "c04bcf4c-c003-4b62-b1f2-685a1f973171",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "PUT",
@@ -262,7 +298,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -281,49 +317,7 @@
 									"body": ""
 								},
 								{
-									"id": "3daaad8d-d574-4bc4-b81a-e40319ef8b77",
-									"name": "Forbidden",
-									"originalRequest": {
-										"method": "PUT",
-										"header": [
-											{
-												"description": "Added as a part of security scheme: bearer",
-												"key": "Authorization",
-												"value": "Bearer <token>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/plan/:PID",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"plan",
-												":PID"
-											],
-											"variable": [
-												{
-													"key": "PID",
-													"value": "<string>",
-													"description": "(Required) Numeric ID of the plan to get"
-												}
-											]
-										}
-									},
-									"status": "Forbidden",
-									"code": 403,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								},
-								{
-									"id": "d1dbc933-4b0d-4ba5-82b2-84313adb4f79",
+									"id": "735f2da6-3304-4d05-9850-32001ee29374",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "PUT",
@@ -346,7 +340,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -363,12 +357,54 @@
 									],
 									"cookie": [],
 									"body": ""
+								},
+								{
+									"id": "19633bdd-8c8c-4822-a902-05994bf31c90",
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "in minim labore tempo",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
 								}
 							]
 						},
 						{
 							"name": "1.3   Update details of a existing plan",
-							"id": "65d4dbca-4fc7-45fa-9731-e8ea876da251",
+							"id": "cd804bdd-1c8a-4b3c-9ed2-b3542f0518c0",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -396,7 +432,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+									"raw": "{\n  \"name\": \"NEW Gold\",\n  \"description\": \"Change plan description\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -415,7 +451,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Numeric ID of the plan to get"
 										}
 									]
@@ -424,7 +460,7 @@
 							},
 							"response": [
 								{
-									"id": "eb47378c-e051-4c33-b361-77ca1e7f8006",
+									"id": "94a86a4e-e57f-42ae-be72-05d52efb055b",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "POST",
@@ -456,7 +492,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -472,10 +508,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"idPlan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+									"body": "{\n  \"idPlan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 								},
 								{
-									"id": "d203ab5d-8ae8-4419-80d2-533e6127f744",
+									"id": "b52ec9fa-87d8-40ab-abcd-e9021c8be2fa",
 									"name": "Created",
 									"originalRequest": {
 										"method": "POST",
@@ -507,7 +543,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -523,10 +559,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"idPlan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+									"body": "{\n  \"idPlan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 								},
 								{
-									"id": "3278dd41-a64f-4c63-85f7-ce50f06f4b82",
+									"id": "f165c98c-6386-41bf-8182-24e7aa2176f7",
 									"name": "Bad Request",
 									"originalRequest": {
 										"method": "POST",
@@ -558,7 +594,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -577,7 +613,7 @@
 									"body": ""
 								},
 								{
-									"id": "0dd62406-0c37-428f-bc4b-793180c01669",
+									"id": "07b784fa-51a7-4673-8c61-46835e38078e",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "POST",
@@ -609,7 +645,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -628,58 +664,7 @@
 									"body": ""
 								},
 								{
-									"id": "c4464b18-843b-454b-b8bb-278298d3e73d",
-									"name": "Forbidden",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"description": "Added as a part of security scheme: bearer",
-												"key": "Authorization",
-												"value": "Bearer <token>"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{baseUrl}}/plan/:PID",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"plan",
-												":PID"
-											],
-											"variable": [
-												{
-													"key": "PID",
-													"value": "<string>",
-													"description": "(Required) Numeric ID of the plan to get"
-												}
-											]
-										}
-									},
-									"status": "Forbidden",
-									"code": 403,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								},
-								{
-									"id": "deb5ea30-b363-430d-8a75-d3479037b735",
+									"id": "ed65319e-bcef-4d27-9879-ca88a235b350",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "POST",
@@ -711,7 +696,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -728,12 +713,63 @@
 									],
 									"cookie": [],
 									"body": ""
+								},
+								{
+									"id": "2456d763-fa6b-45e7-9469-467eefd17b0d",
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "in minim labore tempo",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
 								}
 							]
 						},
 						{
 							"name": "9.2   Cease a plan",
-							"id": "3ebc9ee2-9894-4706-b929-989cda3beb42",
+							"id": "dbe24973-2b37-4f4f-a0fe-6bae63bd2b50",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -762,7 +798,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Numeric ID of the plan to get"
 										}
 									]
@@ -771,7 +807,7 @@
 							},
 							"response": [
 								{
-									"id": "e7c3f6f2-0e7a-4f6f-abcf-b6b6871a1733",
+									"id": "dd9645a6-2d6a-4752-8a16-9164f3184ee2",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "DELETE",
@@ -794,7 +830,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -813,7 +849,7 @@
 									"body": ""
 								},
 								{
-									"id": "52f6cb81-beb9-4721-9c95-ee21d4d44f21",
+									"id": "737b431d-843b-4434-b05f-d3ccffc58f4a",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "DELETE",
@@ -836,7 +872,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -855,7 +891,7 @@
 									"body": ""
 								},
 								{
-									"id": "9c481d45-22d5-49eb-9fa5-958a89fc8f45",
+									"id": "30208940-f4ee-45ae-9910-cdddbbf5aca7",
 									"name": "Forbidden",
 									"originalRequest": {
 										"method": "DELETE",
@@ -878,7 +914,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -897,7 +933,7 @@
 									"body": ""
 								},
 								{
-									"id": "e235edef-a597-4d4a-ab7c-45dd026ee413",
+									"id": "83670094-c2a4-48fc-a3a4-1ae5cd7cdfa3",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "DELETE",
@@ -920,7 +956,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -937,12 +973,54 @@
 									],
 									"cookie": [],
 									"body": ""
+								},
+								{
+									"id": "a9c4887e-c76b-40ba-9337-83060030e168",
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "in minim labore tempo",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
 								}
 							]
 						},
 						{
 							"name": "9.3   Change the price of a plan",
-							"id": "ee2ccb8e-ecc5-4423-a5f7-5d2d070fdf1a",
+							"id": "2bb2a671-f362-4c60-bdfd-93c7887882e2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -970,7 +1048,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+									"raw": "{\n  \"monthlyFee\": 76996397.67871815,\n  \"annualFee\": 17125347.528134197\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -989,7 +1067,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Numeric ID of the plan to get"
 										}
 									]
@@ -998,7 +1076,7 @@
 							},
 							"response": [
 								{
-									"id": "e3588c03-dc95-4d82-a5a0-aac25a8833ea",
+									"id": "cce8cea2-1a30-49af-b405-d6d8b6cd5cfd",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1011,7 +1089,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1030,7 +1108,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1046,10 +1124,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 								},
 								{
-									"id": "d68b837d-d439-4ab1-b466-f31005bc1178",
+									"id": "8385df6d-0594-4de1-a4f9-bf38fb8909cf",
 									"name": "Created",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1062,7 +1140,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1081,7 +1159,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1097,10 +1175,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 								},
 								{
-									"id": "eec6d263-f726-45c5-97e9-5b741ff620a1",
+									"id": "0d9ba902-eeb7-44f9-a21c-c654edd4418d",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1113,7 +1191,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1132,7 +1210,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1151,58 +1229,7 @@
 									"body": ""
 								},
 								{
-									"id": "0558d0e6-9b46-4f79-b22f-491194ea76a0",
-									"name": "Forbidden",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [
-											{
-												"description": "Added as a part of security scheme: bearer",
-												"key": "Authorization",
-												"value": "Bearer <token>"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "{{baseUrl}}/plan/:PID",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"plan",
-												":PID"
-											],
-											"variable": [
-												{
-													"key": "PID",
-													"value": "<string>",
-													"description": "(Required) Numeric ID of the plan to get"
-												}
-											]
-										}
-									},
-									"status": "Forbidden",
-									"code": 403,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								},
-								{
-									"id": "c3d4a682-660e-4d86-bad1-5bae26ebc91d",
+									"id": "6e08a166-48e2-46e1-bebe-a439980464df",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1215,7 +1242,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -1234,7 +1261,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1251,12 +1278,63 @@
 									],
 									"cookie": [],
 									"body": ""
+								},
+								{
+									"id": "6f590641-9000-4e31-98ec-58df1f533802",
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "in minim labore tempo",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
 								}
 							]
 						},
 						{
 							"name": "9.1   Promote a plan",
-							"id": "d25b3552-8f70-4401-89e9-4dc7d94f6a51",
+							"id": "3e1db4f2-d4b3-46c2-9c73-9417a3defda0",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1291,7 +1369,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Numeric ID of the plan to get"
 										}
 									]
@@ -1300,7 +1378,7 @@
 							},
 							"response": [
 								{
-									"id": "2ac7e8f9-3fa6-4905-a6f4-69c5cf9781b8",
+									"id": "48f21f36-c433-462c-91d2-9d78fc1dcf72",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1324,7 +1402,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1340,10 +1418,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 								},
 								{
-									"id": "27660d9b-9bd8-4d56-a670-6eb2ce9cc15a",
+									"id": "e1850a52-8a5e-4ed3-ba0e-4062bf168732",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1367,7 +1445,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1383,10 +1461,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 								},
 								{
-									"id": "faaa3f2c-b45d-40d7-a250-8fed3b2371b9",
+									"id": "121a8eb4-7e6f-4504-afa2-933a3e5c4886",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1410,7 +1488,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1429,50 +1507,7 @@
 									"body": ""
 								},
 								{
-									"id": "353d5028-bbee-4bc4-84d9-b3a6f5d76c63",
-									"name": "Forbidden",
-									"originalRequest": {
-										"method": "PATCH",
-										"header": [
-											{
-												"description": "Added as a part of security scheme: bearer",
-												"key": "Authorization",
-												"value": "Bearer <token>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/plan/:PID/promotion",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"plan",
-												":PID",
-												"promotion"
-											],
-											"variable": [
-												{
-													"key": "PID",
-													"value": "<string>",
-													"description": "(Required) Numeric ID of the plan to get"
-												}
-											]
-										}
-									},
-									"status": "Forbidden",
-									"code": 403,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								},
-								{
-									"id": "5da678f3-7645-4510-badc-fea3f738b5a7",
+									"id": "6ef6c261-0000-44c6-8490-6f25029f1ab0",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1496,7 +1531,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1513,12 +1548,55 @@
 									],
 									"cookie": [],
 									"body": ""
+								},
+								{
+									"id": "ab28ad93-f9ef-495a-8a26-4678b82ddb3c",
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID/promotion",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID",
+												"promotion"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "in minim labore tempo",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
 								}
 							]
 						},
 						{
 							"name": "13.2   Price change history of a plan",
-							"id": "24c52787-bce4-4626-af7e-69c94a53c75f",
+							"id": "9f944faf-e67b-430b-860a-7106b1d6a2c0",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1553,7 +1631,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Numeric ID of the plan to get"
 										}
 									]
@@ -1562,7 +1640,7 @@
 							},
 							"response": [
 								{
-									"id": "cbbd390f-72fb-4eeb-bd75-c4cc2f62d4d5",
+									"id": "0514d06e-cec5-4477-811e-afdbcc0ec44a",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "GET",
@@ -1586,7 +1664,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1602,10 +1680,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"PID\": \"<string>\",\n  \"priceHistory\": [\n    {\n      \"oldPrice\": \"<currency>\",\n      \"newPrice\": \"<currency>\",\n      \"changedDate\": \"<date>\"\n    },\n    {\n      \"oldPrice\": \"<currency>\",\n      \"newPrice\": \"<currency>\",\n      \"changedDate\": \"<date>\"\n    }\n  ]\n}"
+									"body": "{\n  \"PID\": \"<string>\",\n  \"priceHistory\": [\n    {\n      \"oldMonthlyfee\": \"<currency>\",\n      \"newMonthlyfee\": \"<currency>\",\n      \"oldAnnualfee\": \"<currency>\",\n      \"newAnnualfee\": \"<currency>\",\n      \"changedDate\": \"<date>\"\n    },\n    {\n      \"oldMonthlyfee\": \"<currency>\",\n      \"newMonthlyfee\": \"<currency>\",\n      \"oldAnnualfee\": \"<currency>\",\n      \"newAnnualfee\": \"<currency>\",\n      \"changedDate\": \"<date>\"\n    }\n  ]\n}"
 								},
 								{
-									"id": "c0ef76dc-ec7e-4884-b487-dcd71f0d1335",
+									"id": "d1a696c1-9c08-4854-89e2-50a75a9d435f",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "GET",
@@ -1629,7 +1707,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1648,50 +1726,7 @@
 									"body": ""
 								},
 								{
-									"id": "d8c8e0df-d97a-4e4b-9169-ed8b3e364456",
-									"name": "Forbidden",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"description": "Added as a part of security scheme: bearer",
-												"key": "Authorization",
-												"value": "Bearer <token>"
-											}
-										],
-										"url": {
-											"raw": "{{baseUrl}}/plan/:PID/history",
-											"host": [
-												"{{baseUrl}}"
-											],
-											"path": [
-												"plan",
-												":PID",
-												"history"
-											],
-											"variable": [
-												{
-													"key": "PID",
-													"value": "<string>",
-													"description": "(Required) Numeric ID of the plan to get"
-												}
-											]
-										}
-									},
-									"status": "Forbidden",
-									"code": 403,
-									"_postman_previewlanguage": "text",
-									"header": [
-										{
-											"key": "Content-Type",
-											"value": "text/plain"
-										}
-									],
-									"cookie": [],
-									"body": ""
-								},
-								{
-									"id": "124952fc-64ec-426e-a589-bc9f4ad63215",
+									"id": "7610abe7-7824-4d75-a4df-403d2aaa793d",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "GET",
@@ -1715,7 +1750,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1732,15 +1767,58 @@
 									],
 									"cookie": [],
 									"body": ""
+								},
+								{
+									"id": "053440f1-3311-42ef-93e1-8240a6c95f05",
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/plan/:PID/history",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"plan",
+												":PID",
+												"history"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "in minim labore tempo",
+													"description": "(Required) Numeric ID of the plan to get"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
 								}
 							]
 						}
 					],
-					"id": "a7f7f4ce-3096-46c2-bdeb-0b2b3a7cf4b1"
+					"id": "970aaa64-5483-4abf-9f67-437568cd10e7"
 				},
 				{
 					"name": "1.1   Create a new plan",
-					"id": "f7267bc7-7276-494b-8bff-722e7d42dada",
+					"id": "312639d2-3c6f-489a-91b6-a0575d94fe7e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1768,7 +1846,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"PID\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+							"raw": "{\n  \"name\": \"Gold\",\n  \"description\": \"Breve descrição do Plano\",\n  \"maximumNumberOfUsersDevices\": 30892381,\n  \"numberOfMinutes\": \"Unlimited\",\n  \"musicColections\": 78235842,\n  \"musicSuggestions\": \"personalized\",\n  \"monthlyFee\": -92061361.44532451,\n  \"annualFee\": -12841449.248999476\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1788,7 +1866,7 @@
 					},
 					"response": [
 						{
-							"id": "37f1e307-b671-4337-9267-abed43bc2769",
+							"id": "77ab1a79-8c39-41bd-9ce4-3726380927bd",
 							"name": "Ok",
 							"originalRequest": {
 								"method": "POST",
@@ -1801,7 +1879,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"PID\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1828,10 +1906,10 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+							"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 						},
 						{
-							"id": "909a182f-9fc7-4c1b-a5bf-da70d536225b",
+							"id": "7a28ce6f-f25f-425e-b08e-9fad11056eae",
 							"name": "Created",
 							"originalRequest": {
 								"method": "POST",
@@ -1844,7 +1922,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"PID\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1871,10 +1949,10 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
+							"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 						},
 						{
-							"id": "5e205ca1-2d14-41e0-b968-e698da23ab21",
+							"id": "7260da19-9bf3-4aa7-b19e-600b74035084",
 							"name": "Bad Request",
 							"originalRequest": {
 								"method": "POST",
@@ -1887,7 +1965,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"PID\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1917,7 +1995,7 @@
 							"body": ""
 						},
 						{
-							"id": "84da803e-4235-4916-85a1-8fdeb4609e4b",
+							"id": "e962d2c0-b199-4637-be6b-b732eded2124",
 							"name": "Access token is missing or invalid",
 							"originalRequest": {
 								"method": "POST",
@@ -1930,7 +2008,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"PID\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1960,7 +2038,7 @@
 							"body": ""
 						},
 						{
-							"id": "eed1b2dc-d51c-477f-bbe5-fe8002c36a80",
+							"id": "2cdd45ad-1e1f-4d37-af13-b25bf426cc6b",
 							"name": "Not Found",
 							"originalRequest": {
 								"method": "POST",
@@ -1973,7 +2051,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfDevices\": \"<long>\",\n  \"PID\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"anualFee\": \"<currency>\"\n}",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2006,7 +2084,7 @@
 				},
 				{
 					"name": "1.4  Shows all available plans",
-					"id": "2ac5504c-5b45-4ce3-98c2-8f5dd2976ff3",
+					"id": "3031154f-9b30-44d0-b3f2-fda50dc76859",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2031,7 +2109,7 @@
 					},
 					"response": [
 						{
-							"id": "cb0a4313-f770-4460-a891-8f8dd2ec2101",
+							"id": "db4b12a1-7711-48bd-8ff3-ccd8835e79b9",
 							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
@@ -2056,10 +2134,10 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n  {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  },\n  {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n]"
+							"body": "[\n  {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  },\n  {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n]"
 						},
 						{
-							"id": "db02db4d-05f4-4b9d-8618-f1ca7ea391a9",
+							"id": "4f6f5f0d-f602-4c06-a2bb-24cf50dd0d68",
 							"name": "Plans Not Found",
 							"originalRequest": {
 								"method": "GET",
@@ -2089,7 +2167,7 @@
 					]
 				}
 			],
-			"id": "0391a65e-8c1c-4987-99ef-07d339fc6b37"
+			"id": "bbe383c0-17a4-40bc-8c67-960731054c05"
 		},
 		{
 			"name": "subscription",
@@ -2099,7 +2177,7 @@
 					"item": [
 						{
 							"name": "2.1   Subscribe an existing plan",
-							"id": "d37838f6-29c9-44bd-b5f1-c399f4be585e",
+							"id": "56005a60-23dc-4861-b0bc-9924506f0389",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -2127,7 +2205,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"annual\": \"<boolean>\"\n}",
+									"raw": "{\n  \"annual\": true\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2147,7 +2225,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Numeric ID of the plan we want to subscribe"
 										}
 									]
@@ -2156,7 +2234,7 @@
 							},
 							"response": [
 								{
-									"id": "4f0e8bef-bcab-4b81-b99e-27b59ce3518f",
+									"id": "d51afdac-6703-4af5-8c49-b0e1f9473ee1",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "POST",
@@ -2189,7 +2267,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan we want to subscribe"
 												}
 											]
@@ -2205,10 +2283,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"user\": {\n    \"UID\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
+									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"user\": {\n    \"UID\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
 								},
 								{
-									"id": "c57c0843-3d36-415a-b071-4018517bed7a",
+									"id": "1d8ad613-862b-4972-ba5d-baa32a4b9bca",
 									"name": "Bad Request",
 									"originalRequest": {
 										"method": "POST",
@@ -2241,7 +2319,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan we want to subscribe"
 												}
 											]
@@ -2260,7 +2338,7 @@
 									"body": ""
 								},
 								{
-									"id": "b0bd58ff-c714-4f89-b4a9-9b8c9b1652a5",
+									"id": "0ad22b14-a00d-4022-bbdd-ea9efce0c42c",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "POST",
@@ -2293,7 +2371,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan we want to subscribe"
 												}
 											]
@@ -2312,7 +2390,7 @@
 									"body": ""
 								},
 								{
-									"id": "350de57b-3635-41f3-a65f-6e176ed8b041",
+									"id": "10ff6d79-ad79-48ef-be9d-f0e1182142e3",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "POST",
@@ -2345,7 +2423,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan we want to subscribe"
 												}
 											]
@@ -2362,12 +2440,64 @@
 									],
 									"cookie": [],
 									"body": ""
+								},
+								{
+									"id": "4fbacb74-0fe4-4fc5-b6e8-d9b2b39c3e18",
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"annual\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscription/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "in minim labore tempo",
+													"description": "(Required) Numeric ID of the plan we want to subscribe"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
 								}
 							]
 						},
 						{
 							"name": "10.1   Switch plan",
-							"id": "fa533fc6-e000-446e-aaa4-75963591f48b",
+							"id": "dc029ed3-eddc-4ab5-a7a1-a182d3beed56",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -2415,7 +2545,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 										}
 									]
@@ -2424,7 +2554,7 @@
 							},
 							"response": [
 								{
-									"id": "33b1a5c5-eb74-47ff-aa0c-e67817f26698",
+									"id": "b5c9c47f-8f43-4628-837a-d2c6a613582e",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "PUT",
@@ -2457,7 +2587,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -2473,10 +2603,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"user\": {\n    \"UID\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
+									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"user\": {\n    \"UID\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
 								},
 								{
-									"id": "6e777d39-468e-4acf-93f5-18b65c66ed4a",
+									"id": "0c2cc3a9-555c-4636-95e1-5c5ef605fd37",
 									"name": "Bad Request",
 									"originalRequest": {
 										"method": "PUT",
@@ -2509,7 +2639,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -2528,7 +2658,7 @@
 									"body": ""
 								},
 								{
-									"id": "f8bb0e55-a37b-441a-9c65-840e5e98297b",
+									"id": "abc99516-f497-42ed-8aad-02f266930d18",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "PUT",
@@ -2561,7 +2691,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -2580,7 +2710,7 @@
 									"body": ""
 								},
 								{
-									"id": "a26b097a-76e6-4f06-8e9d-a5e4c3b5ee36",
+									"id": "9d6c144f-f1a2-4653-a5a4-db636faed771",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "PUT",
@@ -2613,7 +2743,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -2630,11 +2760,63 @@
 									],
 									"cookie": [],
 									"body": ""
+								},
+								{
+									"id": "8c9e37e9-5b74-4598-8a0e-fd5e1bf3feec",
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"annual\": \"<boolean>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscription/plan/:PID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												"plan",
+												":PID"
+											],
+											"variable": [
+												{
+													"key": "PID",
+													"value": "in minim labore tempo",
+													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
 								}
 							]
 						}
 					],
-					"id": "495a4728-13ed-40fb-b154-269cd32e8969"
+					"id": "7398956b-7133-4efd-a16e-27fd4bf0f67b"
 				},
 				{
 					"name": "{UID}",
@@ -2647,7 +2829,7 @@
 									"item": [
 										{
 											"name": "5.2   Subscriber removes devices from subscription ",
-											"id": "613f7c8e-a65a-476a-8c21-6fa2a025a0c0",
+											"id": "dc3426da-7d4e-41a5-bf48-cd5fb8ffe18b",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -2678,12 +2860,12 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "<string>",
+															"value": "in minim labore tempo",
 															"description": "(Required) Delete a device from a specific username identity"
 														},
 														{
 															"key": "DID",
-															"value": "<string>",
+															"value": "in minim labore tempo",
 															"description": "(Required) Delete from a specific identity device"
 														}
 													]
@@ -2692,7 +2874,7 @@
 											},
 											"response": [
 												{
-													"id": "24b93c81-4a10-4701-96fa-00754936f3ab",
+													"id": "48015928-0038-485d-9710-0748552a6405",
 													"name": "OK",
 													"originalRequest": {
 														"method": "DELETE",
@@ -2717,12 +2899,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Delete a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Delete from a specific identity device"
 																}
 															]
@@ -2741,7 +2923,7 @@
 													"body": ""
 												},
 												{
-													"id": "eae50b51-6f21-4b8f-8c79-466da3904a54",
+													"id": "8d8b0b74-7c70-46af-b46b-532df0457baa",
 													"name": "Access token is missing or invalid",
 													"originalRequest": {
 														"method": "DELETE",
@@ -2766,12 +2948,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Delete a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Delete from a specific identity device"
 																}
 															]
@@ -2790,7 +2972,7 @@
 													"body": ""
 												},
 												{
-													"id": "48243a45-2cb3-479d-b6ec-7bf52c88b74e",
+													"id": "b4726b6f-c566-465b-a45e-a6da5e700200",
 													"name": "Not Found",
 													"originalRequest": {
 														"method": "DELETE",
@@ -2815,12 +2997,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Delete a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Delete from a specific identity device"
 																}
 															]
@@ -2837,12 +3019,61 @@
 													],
 													"cookie": [],
 													"body": ""
+												},
+												{
+													"id": "2a46bea9-7c05-4068-87fe-d2ae0c8b4f89",
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/subscription/:UID/devices/:DID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"subscription",
+																":UID",
+																"devices",
+																":DID"
+															],
+															"variable": [
+																{
+																	"key": "UID",
+																	"value": "in minim labore tempo",
+																	"description": "(Required) Delete a device from a specific username identity"
+																},
+																{
+																	"key": "DID",
+																	"value": "in minim labore tempo",
+																	"description": "(Required) Delete from a specific identity device"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
 												}
 											]
 										},
 										{
 											"name": "5.3   Subscriber updates the details of device  ",
-											"id": "4f931669-f7be-432a-96a8-a4010debaa6d",
+											"id": "29d30004-551c-450a-bb60-3c393476e4cf",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -2870,7 +3101,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+													"raw": "{\n  \"device\": \"Hp 850\",\n  \"esn\": \"ESNaojsdf4389LK345345345ZY3\",\n  \"affiliatedOn\": \"2022-11-28\"\n}",
 													"options": {
 														"raw": {
 															"language": "json"
@@ -2891,12 +3122,12 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "<string>",
+															"value": "in minim labore tempo",
 															"description": "(Required) Edit details of a device from a specific username identity"
 														},
 														{
 															"key": "DID",
-															"value": "<string>",
+															"value": "in minim labore tempo",
 															"description": "(Required) Edit details from a specific identity device"
 														}
 													]
@@ -2905,7 +3136,7 @@
 											},
 											"response": [
 												{
-													"id": "643d36b2-1ccf-4fae-9ab1-a8f87a29f8d8",
+													"id": "a040f58c-a088-41e3-82f0-a544851cbcf9",
 													"name": "OK",
 													"originalRequest": {
 														"method": "PUT",
@@ -2939,12 +3170,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Edit details of a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Edit details from a specific identity device"
 																}
 															]
@@ -2963,7 +3194,7 @@
 													"body": "{\n  \"DID\": \"<string>\",\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}"
 												},
 												{
-													"id": "27dc3f35-c173-4e72-b7bc-80cc28dee860",
+													"id": "e53dbdf9-2bc5-41f2-abd9-04feec2213d1",
 													"name": "Created",
 													"originalRequest": {
 														"method": "PUT",
@@ -2997,12 +3228,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Edit details of a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Edit details from a specific identity device"
 																}
 															]
@@ -3021,7 +3252,7 @@
 													"body": "{\n  \"DID\": \"<string>\",\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}"
 												},
 												{
-													"id": "96ddb429-29b8-4e1c-89e8-8670fdd6bb6b",
+													"id": "e3b1e4f4-e782-4ca6-9a25-3e49748eb84b",
 													"name": "Bad Request",
 													"originalRequest": {
 														"method": "PUT",
@@ -3055,12 +3286,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Edit details of a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Edit details from a specific identity device"
 																}
 															]
@@ -3079,7 +3310,7 @@
 													"body": ""
 												},
 												{
-													"id": "c5609465-6455-469b-9ae6-c36f61c9918b",
+													"id": "0997ada9-9da9-4c1d-b3e2-9f356e7e878b",
 													"name": "Access token is missing or invalid",
 													"originalRequest": {
 														"method": "PUT",
@@ -3113,12 +3344,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Edit details of a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Edit details from a specific identity device"
 																}
 															]
@@ -3137,65 +3368,7 @@
 													"body": ""
 												},
 												{
-													"id": "eeb119e5-1057-42f3-8da9-0e9a016f04df",
-													"name": "Forbidden",
-													"originalRequest": {
-														"method": "PUT",
-														"header": [
-															{
-																"description": "Added as a part of security scheme: bearer",
-																"key": "Authorization",
-																"value": "Bearer <token>"
-															}
-														],
-														"body": {
-															"mode": "raw",
-															"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
-															"options": {
-																"raw": {
-																	"language": "json"
-																}
-															}
-														},
-														"url": {
-															"raw": "{{baseUrl}}/subscription/:UID/devices/:DID",
-															"host": [
-																"{{baseUrl}}"
-															],
-															"path": [
-																"subscription",
-																":UID",
-																"devices",
-																":DID"
-															],
-															"variable": [
-																{
-																	"key": "UID",
-																	"value": "<string>",
-																	"description": "(Required) Edit details of a device from a specific username identity"
-																},
-																{
-																	"key": "DID",
-																	"value": "<string>",
-																	"description": "(Required) Edit details from a specific identity device"
-																}
-															]
-														}
-													},
-													"status": "Forbidden",
-													"code": 403,
-													"_postman_previewlanguage": "text",
-													"header": [
-														{
-															"key": "Content-Type",
-															"value": "text/plain"
-														}
-													],
-													"cookie": [],
-													"body": ""
-												},
-												{
-													"id": "46fe872b-cc98-4771-9777-00a476b88567",
+													"id": "5b7a092d-ceee-4d07-a782-387aa02d3eb4",
 													"name": "Not Found",
 													"originalRequest": {
 														"method": "PUT",
@@ -3229,12 +3402,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Edit details of a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "<string>",
+																	"value": "in minim labore tempo",
 																	"description": "(Required) Edit details from a specific identity device"
 																}
 															]
@@ -3251,15 +3424,73 @@
 													],
 													"cookie": [],
 													"body": ""
+												},
+												{
+													"id": "762d4983-76b5-44e8-8dab-8aa5c564afc5",
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"description": "Added as a part of security scheme: bearer",
+																"key": "Authorization",
+																"value": "Bearer <token>"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/subscription/:UID/devices/:DID",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"subscription",
+																":UID",
+																"devices",
+																":DID"
+															],
+															"variable": [
+																{
+																	"key": "UID",
+																	"value": "in minim labore tempo",
+																	"description": "(Required) Edit details of a device from a specific username identity"
+																},
+																{
+																	"key": "DID",
+																	"value": "in minim labore tempo",
+																	"description": "(Required) Edit details from a specific identity device"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "text/plain"
+														}
+													],
+													"cookie": [],
+													"body": ""
 												}
 											]
 										}
 									],
-									"id": "396a0dcc-58be-408e-9791-a1587f405cae"
+									"id": "c4397fce-ffdb-401f-bc94-301c6bd5aeb7"
 								},
 								{
 									"name": "5.1   Subscriber adds a new device to subscription ",
-									"id": "88604a9b-6bed-4b1f-a43e-e4c81b88c445",
+									"id": "0d7ef0a7-ad66-44ed-86e8-2ff0082626e8",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -3287,7 +3518,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+											"raw": "{\n  \"device\": \"Hp 850\",\n  \"esn\": \"ESNaojsdf4389LK345345345ZY3\",\n  \"affiliatedOn\": \"2022-11-28\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -3307,7 +3538,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Unique identity username device"
 												}
 											]
@@ -3316,7 +3547,7 @@
 									},
 									"response": [
 										{
-											"id": "c2eaa186-e000-4ce1-852a-15c0cb41527c",
+											"id": "a69ffce3-cad1-4d04-8aae-a41a199fecab",
 											"name": "Ok",
 											"originalRequest": {
 												"method": "POST",
@@ -3349,7 +3580,7 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "<string>",
+															"value": "in minim labore tempo",
 															"description": "(Required) Unique identity username device"
 														}
 													]
@@ -3368,7 +3599,7 @@
 											"body": "[\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  },\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  }\n]"
 										},
 										{
-											"id": "419b20bf-c14b-4ae4-9518-b3791f09cf7f",
+											"id": "173e0bb1-ff18-4676-af33-0984201c6e98",
 											"name": "Created",
 											"originalRequest": {
 												"method": "POST",
@@ -3401,7 +3632,7 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "<string>",
+															"value": "in minim labore tempo",
 															"description": "(Required) Unique identity username device"
 														}
 													]
@@ -3420,7 +3651,7 @@
 											"body": "[\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  },\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  }\n]"
 										},
 										{
-											"id": "a8128c5e-4561-4877-9c12-703f45b2a68b",
+											"id": "b6ce9784-1cc2-42cf-b2aa-8e66dc041f70",
 											"name": "Access token is missing or invalid",
 											"originalRequest": {
 												"method": "POST",
@@ -3453,7 +3684,7 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "<string>",
+															"value": "in minim labore tempo",
 															"description": "(Required) Unique identity username device"
 														}
 													]
@@ -3472,59 +3703,7 @@
 											"body": ""
 										},
 										{
-											"id": "8b362950-4404-46e7-886e-f73a70f3e196",
-											"name": "Forbidden",
-											"originalRequest": {
-												"method": "POST",
-												"header": [
-													{
-														"description": "Added as a part of security scheme: bearer",
-														"key": "Authorization",
-														"value": "Bearer <token>"
-													}
-												],
-												"body": {
-													"mode": "raw",
-													"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
-													"options": {
-														"raw": {
-															"language": "json"
-														}
-													}
-												},
-												"url": {
-													"raw": "{{baseUrl}}/subscription/:UID/devices",
-													"host": [
-														"{{baseUrl}}"
-													],
-													"path": [
-														"subscription",
-														":UID",
-														"devices"
-													],
-													"variable": [
-														{
-															"key": "UID",
-															"value": "<string>",
-															"description": "(Required) Unique identity username device"
-														}
-													]
-												}
-											},
-											"status": "Forbidden",
-											"code": 403,
-											"_postman_previewlanguage": "text",
-											"header": [
-												{
-													"key": "Content-Type",
-													"value": "text/plain"
-												}
-											],
-											"cookie": [],
-											"body": ""
-										},
-										{
-											"id": "0ec72b47-eda6-424d-b6bc-08099fa4dbb4",
+											"id": "4658d9e3-6026-493e-bc76-1fcde460535f",
 											"name": "Not Found",
 											"originalRequest": {
 												"method": "POST",
@@ -3557,7 +3736,7 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "<string>",
+															"value": "in minim labore tempo",
 															"description": "(Required) Unique identity username device"
 														}
 													]
@@ -3574,12 +3753,64 @@
 											],
 											"cookie": [],
 											"body": ""
+										},
+										{
+											"id": "34c5bad8-a7a9-4e8d-bd53-5a2a0b8ca937",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/subscription/:UID/devices",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"subscription",
+														":UID",
+														"devices"
+													],
+													"variable": [
+														{
+															"key": "UID",
+															"value": "in minim labore tempo",
+															"description": "(Required) Unique identity username device"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
 										}
 									]
 								},
 								{
 									"name": "5.4   List of subscriber devices ",
-									"id": "b3b1e930-71c2-4f22-b39b-69e1e6799c65",
+									"id": "df1f7fe5-7097-4383-9370-08918952e5f2",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -3614,7 +3845,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) All devices affiliated"
 												}
 											]
@@ -3623,7 +3854,7 @@
 									},
 									"response": [
 										{
-											"id": "a0c6c882-d3cb-4122-a738-d9d66bbac39c",
+											"id": "c1fc9527-c3e0-480d-873e-9856b2a575e2",
 											"name": "Ok",
 											"originalRequest": {
 												"method": "GET",
@@ -3647,7 +3878,7 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "<string>",
+															"value": "in minim labore tempo",
 															"description": "(Required) All devices affiliated"
 														}
 													]
@@ -3666,7 +3897,7 @@
 											"body": "[\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  },\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  }\n]"
 										},
 										{
-											"id": "643e31bc-71ce-4446-a292-b2512bf583ee",
+											"id": "2292036e-319a-4174-baa4-a47582d1df85",
 											"name": "Not Found",
 											"originalRequest": {
 												"method": "GET",
@@ -3690,7 +3921,7 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "<string>",
+															"value": "in minim labore tempo",
 															"description": "(Required) All devices affiliated"
 														}
 													]
@@ -3707,15 +3938,58 @@
 											],
 											"cookie": [],
 											"body": ""
+										},
+										{
+											"id": "4acf0ec2-f71e-4e7f-8329-a2cd26b4a995",
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"description": "Added as a part of security scheme: bearer",
+														"key": "Authorization",
+														"value": "Bearer <token>"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/subscription/:UID/devices",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"subscription",
+														":UID",
+														"devices"
+													],
+													"variable": [
+														{
+															"key": "UID",
+															"value": "in minim labore tempo",
+															"description": "(Required) All devices affiliated"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
 										}
 									]
 								}
 							],
-							"id": "0a52f9ae-20f2-4fae-92d2-220f9677c775"
+							"id": "15831cfd-d253-4715-a9cb-72c9a265cf69"
 						},
 						{
 							"name": "2.2   Cancel my subscription",
-							"id": "a4e3f22e-99f8-48a1-94f9-127bbabc71ba",
+							"id": "f6c203a4-d56d-45ce-aa9f-baff0ce2cd82",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -3744,7 +4018,7 @@
 									"variable": [
 										{
 											"key": "UID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Delete unique identity username"
 										}
 									]
@@ -3753,7 +4027,7 @@
 							},
 							"response": [
 								{
-									"id": "94614f95-47a3-445c-a858-696b62294509",
+									"id": "2f5aadd4-25c0-46c9-906c-64f330fc6917",
 									"name": "OK",
 									"originalRequest": {
 										"method": "DELETE",
@@ -3776,7 +4050,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Delete unique identity username"
 												}
 											]
@@ -3795,7 +4069,7 @@
 									"body": ""
 								},
 								{
-									"id": "0dcac44d-3276-4cd1-beb7-b98163066105",
+									"id": "96c850a1-2552-4ce5-bf62-1cf791372b94",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "DELETE",
@@ -3818,7 +4092,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Delete unique identity username"
 												}
 											]
@@ -3837,7 +4111,7 @@
 									"body": ""
 								},
 								{
-									"id": "1069efa2-0e84-4d13-9a01-536e97bd552b",
+									"id": "7c33c4fc-7bdd-446d-954a-105292c2135e",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "DELETE",
@@ -3860,7 +4134,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Delete unique identity username"
 												}
 											]
@@ -3877,12 +4151,54 @@
 									],
 									"cookie": [],
 									"body": ""
+								},
+								{
+									"id": "b5241122-5ba0-47a4-b9d7-dca1ed6562d6",
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/subscription/:UID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												":UID"
+											],
+											"variable": [
+												{
+													"key": "UID",
+													"value": "in minim labore tempo",
+													"description": "(Required) Delete unique identity username"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
 								}
 							]
 						},
 						{
 							"name": "2.3   Details of my plan",
-							"id": "3e8ca6d7-ca08-45fc-8700-c575dfb2f7c5",
+							"id": "3cc3251f-1d93-43d7-8e86-9bbd9f8efda1",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -3916,7 +4232,7 @@
 									"variable": [
 										{
 											"key": "UID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Unique identity username"
 										}
 									]
@@ -3925,7 +4241,7 @@
 							},
 							"response": [
 								{
-									"id": "c4c9b5d0-0097-4934-b0bd-2a5c9661d0d5",
+									"id": "3d25bc72-8ebe-4413-90a4-9ec6a9c4260d",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "GET",
@@ -3948,7 +4264,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Unique identity username"
 												}
 											]
@@ -3964,10 +4280,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
+									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
 								},
 								{
-									"id": "e87934f0-9342-4062-a3dd-db9733821d01",
+									"id": "fbf609f7-d546-4edc-a8b5-87890e9bafcc",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "GET",
@@ -3990,7 +4306,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Unique identity username"
 												}
 											]
@@ -4007,12 +4323,54 @@
 									],
 									"cookie": [],
 									"body": ""
+								},
+								{
+									"id": "c75e21a7-3a62-4324-98c7-804313151af9",
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/subscription/:UID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												":UID"
+											],
+											"variable": [
+												{
+													"key": "UID",
+													"value": "in minim labore tempo",
+													"description": "(Required) Unique identity username"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
 								}
 							]
 						},
 						{
 							"name": "10.2   Renew annual subscription",
-							"id": "7b79f234-d6e3-4029-af0e-207ffe7c7ba7",
+							"id": "124e1092-34d0-41ce-b79d-9972721bedb2",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -4046,7 +4404,7 @@
 									"variable": [
 										{
 											"key": "UID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 										}
 									]
@@ -4055,7 +4413,7 @@
 							},
 							"response": [
 								{
-									"id": "30b0ed14-dd09-4a31-b016-7ac591a4cada",
+									"id": "b422bc5d-8ae9-46a3-aff9-4754be227af7",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "PUT",
@@ -4078,7 +4436,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -4094,10 +4452,10 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"user\": {\n    \"UID\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
+									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"user\": {\n    \"UID\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
 								},
 								{
-									"id": "ac3ee09f-a4a9-4907-9d36-b3bef938928f",
+									"id": "8e4f91b0-e300-4445-bc95-51d4053863a6",
 									"name": "Bad Request",
 									"originalRequest": {
 										"method": "PUT",
@@ -4120,7 +4478,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -4139,7 +4497,7 @@
 									"body": ""
 								},
 								{
-									"id": "cdf77b6f-dd6f-41c1-9be7-0acf2b128776",
+									"id": "de61c701-801b-4a7a-abd2-1e5cd87e9ca0",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "PUT",
@@ -4162,7 +4520,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -4181,7 +4539,7 @@
 									"body": ""
 								},
 								{
-									"id": "ec17bf67-d206-4c7c-97d8-d06694171bc5",
+									"id": "953038ee-671b-4b05-8a66-99f164975972",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "PUT",
@@ -4204,7 +4562,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "<string>",
+													"value": "in minim labore tempo",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -4221,15 +4579,57 @@
 									],
 									"cookie": [],
 									"body": ""
+								},
+								{
+									"id": "7cfe0c36-9c58-4de3-ac3f-b566f8c28eea",
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/subscription/:UID",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscription",
+												":UID"
+											],
+											"variable": [
+												{
+													"key": "UID",
+													"value": "in minim labore tempo",
+													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
 								}
 							]
 						}
 					],
-					"id": "eeadfb9d-dc61-4b67-8a0d-57340a7d69d4"
+					"id": "2fded198-35f5-4bc6-9cfb-8f238be56a53"
 				},
 				{
 					"name": "10.3 Migrate all subscribers of a certain plan to another one",
-					"id": "72995a82-9b97-447d-a7be-fe8edfc979c0",
+					"id": "b66e1584-5b97-46ea-b1e7-e190d8965b5e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -4265,12 +4665,12 @@
 							"variable": [
 								{
 									"key": "OPID",
-									"value": "<string>",
+									"value": "in minim labore tempo",
 									"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
 								},
 								{
 									"key": "NPID",
-									"value": "<string>",
+									"value": "in minim labore tempo",
 									"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
 								}
 							]
@@ -4279,7 +4679,7 @@
 					},
 					"response": [
 						{
-							"id": "8603509a-8c78-411e-b0a0-ab8defdf5470",
+							"id": "227a95c7-8547-4742-9443-27010026c75e",
 							"name": "OK",
 							"originalRequest": {
 								"method": "PUT",
@@ -4304,12 +4704,12 @@
 									"variable": [
 										{
 											"key": "OPID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
 										},
 										{
 											"key": "NPID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
 										}
 									]
@@ -4325,10 +4725,10 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  },\n  \"subscriptions\": [\n    {\n      \"SID\": \"<string>\"\n    },\n    {\n      \"SID\": \"<string>\"\n    }\n  ]\n}"
+							"body": "{\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  },\n  \"subscriptions\": [\n    {\n      \"SID\": \"<string>\"\n    },\n    {\n      \"SID\": \"<string>\"\n    }\n  ]\n}"
 						},
 						{
-							"id": "3c5bc53a-9469-408d-b45b-619438e2f018",
+							"id": "18968219-2dde-4abd-9f30-d5e112882e0b",
 							"name": "Created",
 							"originalRequest": {
 								"method": "PUT",
@@ -4353,12 +4753,12 @@
 									"variable": [
 										{
 											"key": "OPID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
 										},
 										{
 											"key": "NPID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
 										}
 									]
@@ -4374,10 +4774,10 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"anualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  },\n  \"subscriptions\": [\n    {\n      \"SID\": \"<string>\"\n    },\n    {\n      \"SID\": \"<string>\"\n    }\n  ]\n}"
+							"body": "{\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  },\n  \"subscriptions\": [\n    {\n      \"SID\": \"<string>\"\n    },\n    {\n      \"SID\": \"<string>\"\n    }\n  ]\n}"
 						},
 						{
-							"id": "02c961a0-ccf2-4728-b7b5-29efb79f46a8",
+							"id": "f414afe5-c3c0-4295-b523-b789f84218eb",
 							"name": "Access token is missing or invalid",
 							"originalRequest": {
 								"method": "PUT",
@@ -4402,12 +4802,12 @@
 									"variable": [
 										{
 											"key": "OPID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
 										},
 										{
 											"key": "NPID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
 										}
 									]
@@ -4426,56 +4826,7 @@
 							"body": ""
 						},
 						{
-							"id": "80b6f60a-5667-4768-96e7-1e01eef04885",
-							"name": "Forbidden",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"description": "Added as a part of security scheme: bearer",
-										"key": "Authorization",
-										"value": "Bearer <token>"
-									}
-								],
-								"url": {
-									"raw": "{{baseUrl}}/subscription/:OPID/migration/:NPID",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"subscription",
-										":OPID",
-										"migration",
-										":NPID"
-									],
-									"variable": [
-										{
-											"key": "OPID",
-											"value": "<string>",
-											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
-										},
-										{
-											"key": "NPID",
-											"value": "<string>",
-											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
-										}
-									]
-								}
-							},
-							"status": "Forbidden",
-							"code": 403,
-							"_postman_previewlanguage": "text",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "text/plain"
-								}
-							],
-							"cookie": [],
-							"body": ""
-						},
-						{
-							"id": "3dc45d06-c6c0-486d-a850-720ae329b03e",
+							"id": "25943ed2-fad2-43f1-8c53-ac1af5b60d86",
 							"name": "Not Found",
 							"originalRequest": {
 								"method": "PUT",
@@ -4500,12 +4851,12 @@
 									"variable": [
 										{
 											"key": "OPID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
 										},
 										{
 											"key": "NPID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
 										}
 									]
@@ -4524,7 +4875,7 @@
 							"body": ""
 						},
 						{
-							"id": "b8487233-e235-4be8-a6f7-dc5331065cf1",
+							"id": "40224a50-6a0a-4e65-badb-4d87744c4a52",
 							"name": "Internal Server Error",
 							"originalRequest": {
 								"method": "PUT",
@@ -4549,12 +4900,12 @@
 									"variable": [
 										{
 											"key": "OPID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
 										},
 										{
 											"key": "NPID",
-											"value": "<string>",
+											"value": "in minim labore tempo",
 											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
 										}
 									]
@@ -4575,14 +4926,14 @@
 					]
 				}
 			],
-			"id": "117352c0-3e0b-4ccb-8e3b-100ce88eab52"
+			"id": "fc7b4329-b13d-41ac-9277-4c6fcb264eae"
 		},
 		{
 			"name": "dashboard",
 			"item": [
 				{
 					"name": "3.1/11.2 Monthly churn rate from the past n months filtered/broken down by plan with details on active subscribers, and new and canceled subscriptions",
-					"id": "3b53f977-d1a7-46cb-ad3a-7d33035e2bdc",
+					"id": "f928ae2b-b8b1-4c59-bc04-a75c94002367",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -4605,7 +4956,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/dashboard?nMonths=<number>",
+							"raw": "{{baseUrl}}/dashboard?nMonths=10802773.825978518",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -4615,7 +4966,7 @@
 							"query": [
 								{
 									"key": "nMonths",
-									"value": "<number>",
+									"value": "10802773.825978518",
 									"description": "(Required) Number of months"
 								}
 							]
@@ -4624,7 +4975,7 @@
 					},
 					"response": [
 						{
-							"id": "a88885da-a466-473c-8e1a-f5574dba56ee",
+							"id": "15a81eba-0a20-4f54-bcbf-b8d520a03359",
 							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
@@ -4664,7 +5015,7 @@
 							"body": "[\n  {\n    \"month\": \"<string>\",\n    \"activeSubscriptions\": \"<int-64>\",\n    \"newSubscriptions\": \"<int-64>\",\n    \"canceledSubscriptions\": \"<int-64>\",\n    \"churnRate\": \"<number>\"\n  },\n  {\n    \"month\": \"<string>\",\n    \"activeSubscriptions\": \"<int-64>\",\n    \"newSubscriptions\": \"<int-64>\",\n    \"canceledSubscriptions\": \"<int-64>\",\n    \"churnRate\": \"<number>\"\n  }\n]"
 						},
 						{
-							"id": "634f4e37-a06d-4603-8470-b368ef6ef6e5",
+							"id": "f2e94b78-0168-4216-93b7-492538316cf8",
 							"name": "Accepted",
 							"originalRequest": {
 								"method": "GET",
@@ -4704,7 +5055,7 @@
 							"body": ""
 						},
 						{
-							"id": "f52e4a7b-06a8-4a92-a8fe-9ffe9aaeaa44",
+							"id": "04323db3-fb34-4ee1-8532-438e7d71aa7c",
 							"name": "Not Found",
 							"originalRequest": {
 								"method": "GET",
@@ -4744,7 +5095,7 @@
 							"body": ""
 						},
 						{
-							"id": "2085d582-60ea-452b-affb-f69efc716afd",
+							"id": "b3937c91-9967-44b5-a03a-9f608cd66828",
 							"name": "Internal Server Error",
 							"originalRequest": {
 								"method": "GET",
@@ -4787,7 +5138,7 @@
 				},
 				{
 					"name": "11.1 Future cashflows for the upcoming n months filtered/broken down by plan",
-					"id": "19801db0-8ac0-4678-bb17-e2d77cf213ad",
+					"id": "e9c38c54-8463-4043-a026-440273cd32a1",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -4810,7 +5161,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/dashboard/cashflow?nMonths=<number>",
+							"raw": "{{baseUrl}}/dashboard/cashflow?nMonths=10802773.825978518",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -4821,7 +5172,7 @@
 							"query": [
 								{
 									"key": "nMonths",
-									"value": "<number>",
+									"value": "10802773.825978518",
 									"description": "(Required) Number of months"
 								}
 							]
@@ -4830,7 +5181,7 @@
 					},
 					"response": [
 						{
-							"id": "0daf10d4-826f-479f-a29e-a9965a7316a1",
+							"id": "f194d55c-8fc7-4db3-b1aa-06696ea9add4",
 							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
@@ -4871,7 +5222,7 @@
 							"body": "[\n  {\n    \"past\": [\n      {\n        \"month\": \"<string>\",\n        \"plans\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"total\": \"<currency>\"\n      },\n      {\n        \"month\": \"<string>\",\n        \"plans\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"total\": \"<currency>\"\n      }\n    ]\n  },\n  {\n    \"past\": [\n      {\n        \"month\": \"<string>\",\n        \"plans\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"total\": \"<currency>\"\n      },\n      {\n        \"month\": \"<string>\",\n        \"plans\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"total\": \"<currency>\"\n      }\n    ]\n  }\n]"
 						},
 						{
-							"id": "48df44c2-d676-47a7-8563-44b3db6cd795",
+							"id": "820cef95-47c2-4164-992c-223c52dc1017",
 							"name": "Accepted",
 							"originalRequest": {
 								"method": "GET",
@@ -4912,7 +5263,7 @@
 							"body": ""
 						},
 						{
-							"id": "7fbf9996-c067-47da-ad18-490a890ec93f",
+							"id": "a9b80c3b-e24d-47e1-a3e9-71ae90e87686",
 							"name": "Not Found",
 							"originalRequest": {
 								"method": "GET",
@@ -4953,7 +5304,7 @@
 							"body": ""
 						},
 						{
-							"id": "e0b3e5ff-28b9-482e-ba72-6fd2e7d95412",
+							"id": "211a9939-522a-453d-b17b-00bbef7fc53a",
 							"name": "Internal Server Error",
 							"originalRequest": {
 								"method": "GET",
@@ -4997,7 +5348,7 @@
 				},
 				{
 					"name": "14.2 Year-to-date revenue of my company filtered/broken down by plan",
-					"id": "b8b81efa-11d7-4b77-bab7-ddd61941301b",
+					"id": "6340ffe8-b11f-4a25-9eea-c331fd618a92",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -5033,7 +5384,7 @@
 					},
 					"response": [
 						{
-							"id": "ac8bd5f3-8926-4d65-bbdc-381d7ae81966",
+							"id": "b6aa3c99-4e71-4e57-ba84-30ef1791a7f0",
 							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
@@ -5068,7 +5419,7 @@
 							"body": "[\n  {\n    \"month\": \"<string>\",\n    \"plans\": [\n      {\n        \"name\": \"<string>\",\n        \"totalRevenue\": \"<currency>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"totalRevenue\": \"<currency>\"\n      }\n    ],\n    \"totalRevenue\": \"<currency>\"\n  },\n  {\n    \"month\": \"<string>\",\n    \"plans\": [\n      {\n        \"name\": \"<string>\",\n        \"totalRevenue\": \"<currency>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"totalRevenue\": \"<currency>\"\n      }\n    ],\n    \"totalRevenue\": \"<currency>\"\n  }\n]"
 						},
 						{
-							"id": "8ab98657-6169-4144-9e4c-9d1a7ffe4ea0",
+							"id": "6cc460d8-a141-428d-9d64-c0052e8ade60",
 							"name": "Accepted",
 							"originalRequest": {
 								"method": "GET",
@@ -5103,7 +5454,7 @@
 							"body": ""
 						},
 						{
-							"id": "4d8313ae-2b29-4345-b6a8-a7d366c4640c",
+							"id": "8982a3b8-1b61-4490-8c4c-4b0e5722d970",
 							"name": "Not Found",
 							"originalRequest": {
 								"method": "GET",
@@ -5138,7 +5489,7 @@
 							"body": ""
 						},
 						{
-							"id": "efee1405-de8c-4252-b379-8e1e38babc3e",
+							"id": "b6f40fdb-d7c9-4bd5-972c-a88224c8782e",
 							"name": "Internal Server Error",
 							"originalRequest": {
 								"method": "GET",
@@ -5175,11 +5526,11 @@
 					]
 				}
 			],
-			"id": "37d55f9a-7b15-459d-b352-8c4175e26760"
+			"id": "741a8184-8c91-4a26-b414-fa9a393f2f64"
 		},
 		{
 			"name": "Authenticates a user",
-			"id": "8571375f-bc32-40d7-b748-073ccd40ed92",
+			"id": "6e33d7b2-471c-44d5-b317-9e0630242640",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -5196,13 +5547,13 @@
 					"formdata": [
 						{
 							"key": "username",
-							"value": "<string>",
+							"value": "Mary Ann Smith",
 							"type": "text",
 							"description": "(Required) "
 						},
 						{
 							"key": "password",
-							"value": "<string>",
+							"value": "pr@ga!98",
 							"type": "text",
 							"description": "(Required) "
 						}
@@ -5222,7 +5573,7 @@
 			},
 			"response": [
 				{
-					"id": "51bedd07-3ef6-49ce-a1ad-efba9724c927",
+					"id": "df7c3f90-4daf-4c36-bf0e-1e6761b110a0",
 					"name": "a JSON web token (JWT) required to login.",
 					"originalRequest": {
 						"method": "POST",
@@ -5268,7 +5619,7 @@
 					"body": ""
 				},
 				{
-					"id": "1c3610c6-a44a-47c6-8f60-c43a09c3765d",
+					"id": "6ffba431-1ecc-433c-81a6-5568127f4df7",
 					"name": "Access token is missing or invalid",
 					"originalRequest": {
 						"method": "POST",
@@ -5314,7 +5665,7 @@
 					"body": ""
 				},
 				{
-					"id": "3d8367b6-d0af-42d3-8e89-28a3d1b3e003",
+					"id": "8d8a5be0-1835-44a4-a259-ea347372605b",
 					"name": "Not Found",
 					"originalRequest": {
 						"method": "POST",
@@ -5360,7 +5711,7 @@
 					"body": ""
 				},
 				{
-					"id": "7cf0533b-ea70-4594-b915-1ce03e253178",
+					"id": "284f8108-dce2-4eb1-89ae-ebb4db59c038",
 					"name": "Internal Server Error",
 					"originalRequest": {
 						"method": "POST",
@@ -5410,7 +5761,7 @@
 	],
 	"variable": [
 		{
-			"id": "73a4cb79-52ec-4cb4-a856-bde52aae451c",
+			"id": "4ca1a41c-8a54-4a8d-9d86-d84bdd3f00dd",
 			"key": "baseUrl",
 			"value": "http://localhost:3000",
 			"type": "string"
