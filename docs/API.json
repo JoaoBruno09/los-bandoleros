@@ -783,6 +783,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/planSubscribedDetails"
                 }
+              },
+              "application/vnd.los-bandoleros.hyper+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/mediaTypePlanSubscribedDetails"
+                }
               }
             }
           },
@@ -822,6 +827,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/planSubscribed"
+                }
+              },
+              "application/vnd.los-bandoleros.hyper+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/mediaTypePlanSubscribed"
                 }
               }
             }
@@ -883,15 +893,10 @@
                 "schema": {
                   "$ref": "#/components/schemas/allDevices"
                 }
-              }
-            }
-          },
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
+              },
+              "application/vnd.los-bandoleros.hyper+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/allDevices"
+                  "$ref": "#/components/schemas/mediaTypePlanAddDevices"
                 }
               }
             }
@@ -936,6 +941,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/allDevices"
+                }
+              },
+              "application/vnd.los-bandoleros.hyper+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/mediaTypePlanAddDevices"
                 }
               }
             }
@@ -1048,15 +1058,10 @@
                 "schema": {
                   "$ref": "#/components/schemas/Devices"
                 }
-              }
-            }
-          },
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
+              },
+              "application/vnd.los-bandoleros.hyper+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Devices"
+                  "$ref": "#/components/schemas/mediaTypePlanDevices"
                 }
               }
             }
@@ -1066,9 +1071,6 @@
           },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "404": {
-            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -1117,15 +1119,10 @@
                 "schema": {
                   "$ref": "#/components/schemas/GetPlanSubscriptions"
                 }
-              }
-            }
-          },
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
+              },
+              "application/vnd.los-bandoleros.hyper+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/GetPlanSubscriptions"
+                  "$ref": "#/components/schemas/mediaTypePlanGetSubscriptions"
                 }
               }
             }
@@ -1172,6 +1169,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/dashboardStatistics"
                 }
+              },
+              "application/vnd.los-bandoleros.hyper+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/mediaTypeDashboardStatistics"
+                }
               }
             }
           },
@@ -1217,6 +1219,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/dashboardCashflowStatistics"
                 }
+              },
+              "application/vnd.los-bandoleros.hyper+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/mediaTypeDashboardCashflowStatistics"
+                }
               }
             }
           },
@@ -1250,6 +1257,11 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/dashboardRevenue"
+                }
+              },
+              "application/vnd.los-bandoleros.hyper+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/mediaTypeDashboardRevenue"
                 }
               }
             }
@@ -1326,7 +1338,7 @@
           "href": {
               "type": "string",
               "format": "uri",
-              "example": "https://aboard4u.herokuapp.com/api/message?first=20&after=asd-345"
+              "example": "http://localhost:3000/plan/Pf5f6c85825"
           }
         }
       },
@@ -1573,6 +1585,18 @@
           }
         }
       },
+      "mediaTypePlanSubscribedDetails": {
+        "description": "a plan",
+        "type": "object",
+        "properties": {
+          "subscription": {
+              "$ref": "#/components/schemas/planSubscribedDetails"
+          },
+          "links": {
+              "$ref": "#/components/schemas/links"
+          }
+        }
+      },
       "planSubscribedDetails": {
         "required": ["UID"],
         "type": "object",
@@ -1634,7 +1658,6 @@
         }
       },
       "mediaTypeChangePlans":{
-        "description": "a plan through PID",
         "type": "object",
         "properties": {
           "plan": {
@@ -1828,10 +1851,32 @@
           }
         }
       },
+      "mediaTypePlanAddDevices":{
+        "type": "object",
+        "properties": {
+          "devices": {
+              "$ref": "#/components/schemas/allDevices"
+          },
+          "links": {
+              "$ref": "#/components/schemas/links"
+          }
+        }
+      },
       "allDevices": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/Devices"
+        }
+      },
+      "mediaTypePlanDevices":{
+        "type": "object",
+        "properties": {
+          "devices": {
+              "$ref": "#/components/schemas/Devices"
+          },
+          "links": {
+              "$ref": "#/components/schemas/links"
+          }
         }
       },
       "Devices": {
@@ -1872,6 +1917,17 @@
           
         }
       },
+      "mediaTypePlanGetSubscriptions":{
+        "type": "object",
+        "properties": {
+          "migration": {
+              "$ref": "#/components/schemas/GetPlanSubscriptions"
+          },
+          "links": {
+              "$ref": "#/components/schemas/links"
+          }
+        }
+      },
       "GetPlanSubscriptions": {
         "type": "object",
         "properties": {
@@ -1894,6 +1950,17 @@
           "SID": {
             "type": "string",
             "example": "S1a2s3d4f5"
+          }
+        }
+      },
+      "mediaTypeDashboardStatistics":{
+        "type": "object",
+        "properties": {
+          "metrics": {
+              "$ref": "#/components/schemas/dashboardStatistics"
+          },
+          "links": {
+              "$ref": "#/components/schemas/links"
           }
         }
       },
@@ -1928,6 +1995,17 @@
           "churnRate": {
             "type": "number",
             "example": "-3.50"
+          }
+        }
+      },
+      "mediaTypeDashboardCashflowStatistics":{
+        "type": "object",
+        "properties": {
+          "cashflows": {
+              "$ref": "#/components/schemas/dashboardCashflowStatistics"
+          },
+          "links": {
+              "$ref": "#/components/schemas/links"
           }
         }
       },
@@ -1997,6 +2075,17 @@
             "type": "number",
             "format": "currency",
             "example": "12000.00"
+          }
+        }
+      },
+      "mediaTypeDashboardRevenue":{
+        "type": "object",
+        "properties": {
+          "revenues": {
+              "$ref": "#/components/schemas/dashboardRevenue"
+          },
+          "links": {
+              "$ref": "#/components/schemas/links"
           }
         }
       },
