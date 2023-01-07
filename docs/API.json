@@ -111,6 +111,9 @@
           },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
@@ -137,6 +140,9 @@
           },
           "404": {
             "description": "Plans Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -387,9 +393,6 @@
           },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
-          },
-          "403": {
-            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
@@ -1727,7 +1730,7 @@
             "format": "int64",
             "example": "6"
           },
-          "musicColections": {
+          "musicCollections": {
             "type": "integer",
             "format": "int64",
             "nullable": true,
@@ -1777,7 +1780,7 @@
             "format": "int64",
             "example": "6"
           },
-          "musicColections": {
+          "musicCollections": {
             "type": "integer",
             "format": "int64",
             "nullable": true,
@@ -1853,7 +1856,7 @@
             "format": "int64",
             "example": 6
           },
-          "musicColections": {
+          "musicCollections": {
             "type": "integer",
             "format": "int64",
             "nullable": true,
