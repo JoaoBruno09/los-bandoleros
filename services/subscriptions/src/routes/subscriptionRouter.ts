@@ -228,7 +228,7 @@ subscriptionRouter.delete("/:UID/devices/:DID", (req, res) => {
       if (user.UID === req.params.UID && user.role == "Subscriber") {
         if (db) {
           devicesModel
-            .deleteOne({ UID: user.UID, DID: req.params.DID })
+            .findOneAndDelete({ UID: user.UID, DID: req.params.DID })
             .then((device) => {
               if (device) {
                 res.status(200).send("Ok");
