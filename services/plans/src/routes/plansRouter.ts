@@ -53,7 +53,7 @@ planRouter.post("/", (req, res) => {
                     )
                     .then((plan) => {
                       if (plan !== null) {
-                        if (isHyperMedia(req.headers["content-type"])) {
+                        if (isHyperMedia(req.headers.accept)) {
                           const linksHypermedia = [
                             {
                               rel: "collection",
@@ -92,24 +92,25 @@ planRouter.post("/", (req, res) => {
                             },
                           ];
                           res
-                            .status(200)
+                            .status(201)
                             .json({ plan: plan, links: linksHypermedia });
                         } else {
-                          res.status(200).json(plan);
+                          res.status(201).json(plan);
                         }
                       } else {
-                        res.status(400).send("Bad Request");
+                        res.status(500).send("Internal Server Error");
                       }
                     });
                 },
                 (error) => {
-                  res.status(400).send("Bad Request");
+                  res.status(404).send("Not Found");
                 }
               );
             } else {
               res.status(500).send("Internal Server Error");
             }
           } else {
+            console.log(newPlan);
             res.status(400).send("Bad Request");
           }
         });
@@ -120,7 +121,7 @@ planRouter.post("/", (req, res) => {
   }
 });
 
-//GET - GET ALL PLANS 1. CORRIGIR
+//GET - GET ALL PLANS 1.4 CORRIGIR
 planRouter.get("/", (req, res) => {
   if (db) {
     planModel
@@ -128,7 +129,7 @@ planRouter.get("/", (req, res) => {
       .then(
         (plansDB) => {
           if (plansDB.length > 0) {
-            if (isHyperMedia(req.headers["content-type"])) {
+            if (isHyperMedia(req.headers.accept)) {
               const plans: any = [];
               plansDB.map((plan) => {
                 const planHyperMedia: any = [];
@@ -170,7 +171,7 @@ planRouter.get("/:PID", (req, res) => {
       .then(
         (plan) => {
           if (plan !== null) {
-            if (isHyperMedia(req.headers["content-type"])) {
+            if (isHyperMedia(req.headers.accept)) {
               const linksHypermedia = [
                 {
                   rel: "collection",
@@ -238,7 +239,7 @@ planRouter.put("/:PID", (req, res) => {
                     )
                     .then((plan) => {
                       if (plan !== null) {
-                        if (isHyperMedia(req.headers["content-type"])) {
+                        if (isHyperMedia(req.headers.accept)) {
                           const linksHypermedia = [
                             {
                               rel: "collection",
@@ -281,17 +282,15 @@ planRouter.put("/:PID", (req, res) => {
                           res.status(200).json("OK");
                         }
                       } else {
-                        res.status(400).send("Bad Request");
+                        res.status(500).send("Internal Server Error");
                       }
                     });
                 } else {
-                  res
-                    .status(404)
-                    .json("Not found. Plan not found or doesn't exist!");
+                  res.status(500).send("Internal Server Error");
                 }
               },
               (error) => {
-                res.status(400).send("Bad Request");
+                res.status(404).send("Not Found");
               }
             );
         } else {
@@ -342,7 +341,7 @@ planRouter.post("/:PID", (req, res) => {
                       )
                       .then((plan) => {
                         if (plan !== null) {
-                          if (isHyperMedia(req.headers["content-type"])) {
+                          if (isHyperMedia(req.headers.accept)) {
                             const linksHypermedia = [
                               {
                                 rel: "collection",
@@ -387,17 +386,15 @@ planRouter.post("/:PID", (req, res) => {
                             res.status(200).json(plan);
                           }
                         } else {
-                          res.status(400).send("Bad Request");
+                          res.status(500).send("Internal Server Error");
                         }
                       });
                   } else {
-                    res
-                      .status(404)
-                      .json("Not found. Plan not found or doesn't exist!");
+                    res.status(500).send("Internal Server Error");
                   }
                 },
                 (error) => {
-                  res.status(400).send("Bad Request");
+                  res.status(404).send("Not Found");
                 }
               );
           } else {
@@ -428,7 +425,7 @@ planRouter.delete("/:PID", (req, res) => {
           planModel.findOneAndDelete({ PID: req.params.PID }).then(
             (plan) => {
               if (plan !== null) {
-                if (isHyperMedia(req.headers["content-type"])) {
+                if (isHyperMedia(req.headers.accept)) {
                   const linksHypermedia = [
                     {
                       rel: "collection",
@@ -459,13 +456,11 @@ planRouter.delete("/:PID", (req, res) => {
                   res.status(200).json("OK");
                 }
               } else {
-                res
-                  .status(404)
-                  .json("Not found. Plan not found or doesn't exist!");
+                res.status(500).send("Internal Server Error");
               }
             },
             (error) => {
-              res.status(500).send("Internal Server Error");
+              res.status(404).send("Not Found");
             }
           );
         } else {
@@ -521,7 +516,7 @@ planRouter.patch("/:PID", (req, res) => {
                         )
                         .then((plan) => {
                           if (plan !== null) {
-                            if (isHyperMedia(req.headers["content-type"])) {
+                            if (isHyperMedia(req.headers.accept)) {
                               const linksHypermedia = {
                                 rel: "prev",
                                 href: env.BASE_URL + "/plan/" + req.params.PID,
@@ -533,21 +528,19 @@ planRouter.patch("/:PID", (req, res) => {
                               res.status(200).json(plan);
                             }
                           } else {
-                            res.status(400).send("Bad Request");
+                            res.status(500).send("Internal Server Error");
                           }
                         });
                     } else {
-                      res
-                        .status(404)
-                        .json("Not found. Plan not found or doesn't exist!");
+                      res.status(500).send("Internal Server Error");
                     }
                   },
                   (error) => {
-                    res.status(400).send("Bad Request");
+                    res.status(404).send("Not Found");
                   }
                 );
             } else {
-              res.status(500).send("Internal Server Error");
+              res.status(404).send("Not Found");
             }
           });
         } else {
@@ -584,7 +577,7 @@ planRouter.patch("/:PID/promotion", (req, res) => {
                     )
                     .then((plan) => {
                       if (plan !== null) {
-                        if (isHyperMedia(req.headers["content-type"])) {
+                        if (isHyperMedia(req.headers.accept)) {
                           const linksHypermedia = {
                             rel: "prev",
                             href: env.BASE_URL + "/plan/" + req.params.PID,
@@ -596,17 +589,15 @@ planRouter.patch("/:PID/promotion", (req, res) => {
                           res.status(200).json(plan);
                         }
                       } else {
-                        res.status(400).send("Bad Request");
+                        res.status(500).send("Internal Server Error");
                       }
                     });
                 } else {
-                  res
-                    .status(404)
-                    .json("Not found. Plan not found or doesn't exist!");
+                  res.status(500).send("Internal Server Error");
                 }
               },
               (error) => {
-                res.status(500).send("Internal Server Error");
+                res.status(404).send("Not Found");
               }
             );
         } else {
@@ -621,47 +612,63 @@ planRouter.patch("/:PID/promotion", (req, res) => {
 
 //GET - PRICE CHANGE HISTORY OF A PLAN 13.2
 planRouter.get("/:PID/history", (req, res) => {
-  if (db) {
-    planModel
-      .find(
-        { PID: req.params.PID },
-        {
-          _id: 0,
-          __v: 0,
-          name: 0,
-          description: 0,
-          numberOfMinutes: 0,
-          maximumNumberOfUsersDevices: 0,
-          musicCollections: 0,
-          musicSuggestions: 0,
-          monthlyFee: 0,
-          annualFee: 0,
-          isPromoted: 0,
-          isActive: 0,
-        }
-      )
-      .then(
-        (plan) => {
-          if (plan !== null) {
-            if (isHyperMedia(req.headers["content-type"])) {
-              const linksHypermedia = {
-                rel: "prev",
-                href: env.BASE_URL + "/plan/" + req.params.PID,
-              };
-              res.status(200).json({ plan: plan, links: linksHypermedia });
-            } else {
-              res.status(200).json(plan);
-            }
-          } else {
-            res.status(404).json("Not found. Plan not found or doesn't exist!");
-          }
-        },
-        (error) => {
+  const authHeader = req.headers.authorization;
+  if (authHeader) {
+    const token = authHeader.split(" ")[1];
+    jwt.verify(token, accessTokenSecret, (err: any, user: any) => {
+      if (user.role !== "Marketing Director") {
+        res
+          .status(401)
+          .send("Unauthorized. You don't have access to this resource!");
+      } else {
+        if (db) {
+          planModel
+            .find(
+              { PID: req.params.PID },
+              {
+                _id: 0,
+                __v: 0,
+                name: 0,
+                description: 0,
+                numberOfMinutes: 0,
+                maximumNumberOfUsersDevices: 0,
+                musicCollections: 0,
+                musicSuggestions: 0,
+                monthlyFee: 0,
+                annualFee: 0,
+                isPromoted: 0,
+                isActive: 0,
+              }
+            )
+            .then(
+              (plan) => {
+                if (plan !== null) {
+                  if (isHyperMedia(req.headers.accept)) {
+                    const linksHypermedia = {
+                      rel: "prev",
+                      href: env.BASE_URL + "/plan/" + req.params.PID,
+                    };
+                    res
+                      .status(200)
+                      .json({ plan: plan, links: linksHypermedia });
+                  } else {
+                    res.status(200).json(plan);
+                  }
+                } else {
+                  res.status(500).send("Internal Server Error");
+                }
+              },
+              (error) => {
+                res.status(404).send("Not Found");
+              }
+            );
+        } else {
           res.status(500).send("Internal Server Error");
         }
-      );
+      }
+    });
   } else {
-    res.status(500).send("Internal Server Error");
+    res.status(401).send("Unauthorized. Access token is missing!");
   }
 });
 
