@@ -10,7 +10,7 @@ export interface Plan {
   name: string;
   description?: string;
   numberOfMinutes?: String;
-  maximumNumberOfDevices: number;
+  maximumNumberOfUsersDevices: number;
   musicCollections?: number;
   musicSuggestions: musicSuggestionsEnum;
   monthlyFee: number;
@@ -25,7 +25,7 @@ const planSchema = new mongoose.Schema<Plan>({
   name: { type: String, required: true },
   description: { type: String, required: false, default: "" },
   numberOfMinutes: { type: String, required: false, default: "Unlimited" },
-  maximumNumberOfDevices: { type: Number, required: true },
+  maximumNumberOfUsersDevices: { type: Number, required: true },
   musicCollections: { type: Number, required: false, default: 0 },
   musicSuggestions: { type: String, required: true },
   monthlyFee: { type: Number, required: true },

@@ -4,6 +4,7 @@ import { planRouter } from "./routes/plansRouter";
 
 const env = load({
   PORT: Number,
+  BASE_URL: String,
 });
 
 const app: Express = express();

@@ -3,9 +3,13 @@ import { planModel, Plan, musicSuggestionsEnum } from "../models/plansModel";
 import crypto from "crypto";
 import { db } from "../config/DatabaseConfig";
 import * as jwt from "jsonwebtoken";
+import { load } from "ts-dotenv";
 
 const accessTokenSecret: string = "the-secret-key";
 export const planRouter = Router();
+const env = load({
+  BASE_URL: String,
+});
 
 //PLANS ROUTES
 
@@ -27,7 +31,7 @@ planRouter.post("/", (req, res) => {
             PID: PID,
             name: req.body.name,
             description: req.body.description,
-            maximumNumberOfDevices: req.body.maximumNumberOfDevices,
+            maximumNumberOfUsersDevices: req.body.maximumNumberOfUsersDevices,
             numberOfMinutes: req.body.numberOfMinutes,
             musicCollections: req.body.musicCollections,
             musicSuggestions: req.body.musicSuggestions,
@@ -43,12 +47,59 @@ planRouter.post("/", (req, res) => {
               planModel.create(newPlan).then(
                 () => {
                   planModel
-                    .find(
+                    .findOne(
                       { PID: newPlan.PID },
                       { _id: 0, __v: 0, priceHistory: 0 }
                     )
                     .then((plan) => {
-                      res.status(201).json(plan);
+                      if (plan !== null) {
+                        if (isHyperMedia(req.headers["content-type"])) {
+                          const linksHypermedia = [
+                            {
+                              rel: "collection",
+                              href: env.BASE_URL + "/plan",
+                            },
+                            {
+                              rel: "item",
+                              href: env.BASE_URL + "/plan/" + newPlan.PID,
+                            },
+                            {
+                              rel: "edit",
+                              href: env.BASE_URL + "/plan/" + newPlan.PID,
+                            },
+                            {
+                              rel: "collection",
+                              href:
+                                env.BASE_URL +
+                                "/plan/" +
+                                newPlan.PID +
+                                "/history",
+                            },
+                            {
+                              rel: "edit",
+                              href:
+                                env.BASE_URL +
+                                "/plan/" +
+                                newPlan.PID +
+                                "/promotion",
+                            },
+                            {
+                              rel: "subscribe",
+                              href:
+                                env.BASE_URL +
+                                "/subscription/plan/" +
+                                newPlan.PID,
+                            },
+                          ];
+                          res
+                            .status(200)
+                            .json({ plan: plan, links: linksHypermedia });
+                        } else {
+                          res.status(200).json(plan);
+                        }
+                      } else {
+                        res.status(400).send("Bad Request");
+                      }
                     });
                 },
                 (error) => {
@@ -69,17 +120,32 @@ planRouter.post("/", (req, res) => {
   }
 });
 
-//GET - GET ALL PLANS 1.4
+//GET - GET ALL PLANS 1. CORRIGIR
 planRouter.get("/", (req, res) => {
   if (db) {
     planModel
       .find({ isActive: true }, { _id: 0, __v: 0, priceHistory: 0 })
       .then(
-        (plan) => {
-          if (plan.length > 0) {
-            res.status(200).json({
-              plans: plan,
-            });
+        (plansDB) => {
+          if (plansDB.length > 0) {
+            if (isHyperMedia(req.headers["content-type"])) {
+              const plans: any = [];
+              plansDB.map((plan) => {
+                const planHyperMedia: any = [];
+                planHyperMedia.push(plan);
+                const linkHypermedia = {
+                  rel: "item",
+                  href: env.BASE_URL + "/plan/" + plan.PID,
+                };
+                planHyperMedia.push(linkHypermedia);
+                plans.push(planHyperMedia);
+              });
+              res.status(200).json({ plans });
+            } else {
+              res.status(200).json({
+                plans: plansDB,
+              });
+            }
           } else {
             res.status(404).json("Not found. Plans not found or don't exist!");
           }
@@ -97,14 +163,44 @@ planRouter.get("/", (req, res) => {
 planRouter.get("/:PID", (req, res) => {
   if (db) {
     planModel
-      .find(
+      .findOne(
         { PID: req.params.PID, isActive: true },
         { _id: 0, __v: 0, priceHistory: 0 }
       )
       .then(
         (plan) => {
-          if (plan.length > 0) {
-            res.status(200).json(plan);
+          if (plan !== null) {
+            if (isHyperMedia(req.headers["content-type"])) {
+              const linksHypermedia = [
+                {
+                  rel: "collection",
+                  href: env.BASE_URL + "/plan",
+                },
+                {
+                  rel: "item",
+                  href: env.BASE_URL + "/plan/" + req.params.PID,
+                },
+                {
+                  rel: "edit",
+                  href: env.BASE_URL + "/plan/" + req.params.PID,
+                },
+                {
+                  rel: "collection",
+                  href: env.BASE_URL + "/plan/" + req.params.PID + "/history",
+                },
+                {
+                  rel: "edit",
+                  href: env.BASE_URL + "/plan/" + req.params.PID + "/promotion",
+                },
+                {
+                  rel: "subscribe",
+                  href: env.BASE_URL + "/subscription/plan/" + req.params.PID,
+                },
+              ];
+              res.status(200).json({ plan: plan, links: linksHypermedia });
+            } else {
+              res.status(200).json(plan);
+            }
           } else {
             res.status(404).json("Not found. Plan not found or doesn't exist!");
           }
@@ -136,12 +232,57 @@ planRouter.put("/:PID", (req, res) => {
               (response) => {
                 if (response !== null) {
                   planModel
-                    .find(
+                    .findOne(
                       { PID: req.params.PID },
                       { _id: 0, __v: 0, priceHistory: 0 }
                     )
                     .then((plan) => {
-                      res.status(201).json(plan);
+                      if (plan !== null) {
+                        if (isHyperMedia(req.headers["content-type"])) {
+                          const linksHypermedia = [
+                            {
+                              rel: "collection",
+                              href: env.BASE_URL + "/plan",
+                            },
+                            {
+                              rel: "item",
+                              href: env.BASE_URL + "/plan/" + req.params.PID,
+                            },
+                            {
+                              rel: "edit",
+                              href: env.BASE_URL + "/plan/" + req.params.PID,
+                            },
+                            {
+                              rel: "collection",
+                              href:
+                                env.BASE_URL +
+                                "/plan/" +
+                                req.params.PID +
+                                "/history",
+                            },
+                            {
+                              rel: "edit",
+                              href:
+                                env.BASE_URL +
+                                "/plan/" +
+                                req.params.PID +
+                                "/promotion",
+                            },
+                            {
+                              rel: "subscribe",
+                              href:
+                                env.BASE_URL +
+                                "/subscription/plan/" +
+                                req.params.PID,
+                            },
+                          ];
+                          res.status(200).json({ links: linksHypermedia });
+                        } else {
+                          res.status(200).json("OK");
+                        }
+                      } else {
+                        res.status(400).send("Bad Request");
+                      }
                     });
                 } else {
                   res
@@ -195,12 +336,59 @@ planRouter.post("/:PID", (req, res) => {
                 (response) => {
                   if (response !== null) {
                     planModel
-                      .find(
+                      .findOne(
                         { PID: req.params.PID },
                         { _id: 0, __v: 0, priceHistory: 0 }
                       )
                       .then((plan) => {
-                        res.status(200).json(plan);
+                        if (plan !== null) {
+                          if (isHyperMedia(req.headers["content-type"])) {
+                            const linksHypermedia = [
+                              {
+                                rel: "collection",
+                                href: env.BASE_URL + "/plan",
+                              },
+                              {
+                                rel: "item",
+                                href: env.BASE_URL + "/plan/" + req.params.PID,
+                              },
+                              {
+                                rel: "edit",
+                                href: env.BASE_URL + "/plan/" + req.params.PID,
+                              },
+                              {
+                                rel: "collection",
+                                href:
+                                  env.BASE_URL +
+                                  "/plan/" +
+                                  req.params.PID +
+                                  "/history",
+                              },
+                              {
+                                rel: "edit",
+                                href:
+                                  env.BASE_URL +
+                                  "/plan/" +
+                                  req.params.PID +
+                                  "/promotion",
+                              },
+                              {
+                                rel: "subscribe",
+                                href:
+                                  env.BASE_URL +
+                                  "/subscription/plan/" +
+                                  req.params.PID,
+                              },
+                            ];
+                            res
+                              .status(200)
+                              .json({ plan: plan, links: linksHypermedia });
+                          } else {
+                            res.status(200).json(plan);
+                          }
+                        } else {
+                          res.status(400).send("Bad Request");
+                        }
                       });
                   } else {
                     res
@@ -238,9 +426,38 @@ planRouter.delete("/:PID", (req, res) => {
       } else {
         if (db) {
           planModel.findOneAndDelete({ PID: req.params.PID }).then(
-            (response) => {
-              if (response !== null) {
-                res.status(2010);
+            (plan) => {
+              if (plan !== null) {
+                if (isHyperMedia(req.headers["content-type"])) {
+                  const linksHypermedia = [
+                    {
+                      rel: "collection",
+                      href: env.BASE_URL + "/plan",
+                    },
+                    {
+                      rel: "edit",
+                      href: env.BASE_URL + "/plan/" + req.params.PID,
+                    },
+                    {
+                      rel: "collection",
+                      href:
+                        env.BASE_URL + "/plan/" + req.params.PID + "/history",
+                    },
+                    {
+                      rel: "edit",
+                      href:
+                        env.BASE_URL + "/plan/" + req.params.PID + "/promotion",
+                    },
+                    {
+                      rel: "subscribe",
+                      href:
+                        env.BASE_URL + "/subscription/plan/" + req.params.PID,
+                    },
+                  ];
+                  res.status(200).json({ links: linksHypermedia });
+                } else {
+                  res.status(200).json("OK");
+                }
               } else {
                 res
                   .status(404)
@@ -303,7 +520,21 @@ planRouter.patch("/:PID", (req, res) => {
                           { _id: 0, __v: 0, priceHistory: 0 }
                         )
                         .then((plan) => {
-                          res.status(200).json(plan);
+                          if (plan !== null) {
+                            if (isHyperMedia(req.headers["content-type"])) {
+                              const linksHypermedia = {
+                                rel: "prev",
+                                href: env.BASE_URL + "/plan/" + req.params.PID,
+                              };
+                              res
+                                .status(200)
+                                .json({ plan: plan, links: linksHypermedia });
+                            } else {
+                              res.status(200).json(plan);
+                            }
+                          } else {
+                            res.status(400).send("Bad Request");
+                          }
                         });
                     } else {
                       res
@@ -352,7 +583,21 @@ planRouter.patch("/:PID/promotion", (req, res) => {
                       { _id: 0, __v: 0, priceHistory: 0 }
                     )
                     .then((plan) => {
-                      res.status(200).json(plan);
+                      if (plan !== null) {
+                        if (isHyperMedia(req.headers["content-type"])) {
+                          const linksHypermedia = {
+                            rel: "prev",
+                            href: env.BASE_URL + "/plan/" + req.params.PID,
+                          };
+                          res
+                            .status(200)
+                            .json({ plan: plan, links: linksHypermedia });
+                        } else {
+                          res.status(200).json(plan);
+                        }
+                      } else {
+                        res.status(400).send("Bad Request");
+                      }
                     });
                 } else {
                   res
@@ -398,7 +643,15 @@ planRouter.get("/:PID/history", (req, res) => {
       .then(
         (plan) => {
           if (plan !== null) {
-            res.status(200).json(plan);
+            if (isHyperMedia(req.headers["content-type"])) {
+              const linksHypermedia = {
+                rel: "prev",
+                href: env.BASE_URL + "/plan/" + req.params.PID,
+              };
+              res.status(200).json({ plan: plan, links: linksHypermedia });
+            } else {
+              res.status(200).json(plan);
+            }
           } else {
             res.status(404).json("Not found. Plan not found or doesn't exist!");
           }
@@ -411,3 +664,8 @@ planRouter.get("/:PID/history", (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+function isHyperMedia(reqHeaders: any) {
+  if (reqHeaders === "application/json") return false;
+  if (reqHeaders === "application/vnd.los-bandoleros.hyper+json") return true;
+}
