@@ -130,7 +130,7 @@
               },
               "application/vnd.los-bandoleros.hyper+json": {
                 "schema": {
-                  "$ref": "#/components/schemas/mediaTypePlans"
+                  "$ref": "#/components/schemas/allPlanss"
                 }
               }
             }
@@ -227,6 +227,13 @@
         "responses": {
           "200": {
             "description": "Ok",
+            "content": {
+              "application/vnd.los-bandoleros.hyper+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/link"
+                }
+              }
+            },
             "links": {
               "idOfPlan": {
                 "operationId": "getPlanById",
@@ -369,7 +376,14 @@
         ],
         "responses": {
           "200": {
-            "description": "Ok"
+            "description": "Ok",
+            "content": {             
+              "application/vnd.los-bandoleros.hyper+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/link"
+                }
+              }
+            }
           },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
@@ -719,6 +733,13 @@
         "responses": {
           "200": {
             "description": "OK",
+            "content": {             
+              "application/vnd.los-bandoleros.hyper+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/link"
+                }
+              }
+            },
             "links": {
               "deleteSubscription": {
                 "operationId": "deleteSubscriptionByUID",
@@ -994,7 +1015,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {             
+              "application/vnd.los-bandoleros.hyper+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/link"
+                }
+              }
+            }
           },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
@@ -1354,6 +1382,12 @@
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/plans"
+        }
+      },
+      "allPlanss": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/mediaTypePlans"
         }
       },
       "mediaTypePlans": {
