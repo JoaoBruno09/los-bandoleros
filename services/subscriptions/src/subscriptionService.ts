@@ -2,13 +2,10 @@ import express, { Express, Request, Response } from "express";
 import { load } from "ts-dotenv";
 //import { db } from "./src/config/DatabaseConfig";
 import { subscriptionRouter } from "./routes/subscriptionRouter";
-import { authRouter } from "./middlewares/Auth";
 
 const env = load({
   PORT: Number,
 });
-
-
 
 const app: Express = express();
 const port = env.PORT || 3003;

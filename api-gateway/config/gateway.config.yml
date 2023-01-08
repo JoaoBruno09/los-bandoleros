@@ -62,11 +62,6 @@ pipelines:
           - action:
               secretOrPublicKey: 'the-secret-key'
               checkCredentialExistence: false
-      - request-transformer:
-          - action:
-              body:
-                add:
-                  user: req.user
       - proxy:
           - action:
               serviceEndpoint: httpplans
@@ -78,11 +73,6 @@ pipelines:
           - action:
               secretOrPublicKey: 'the-secret-key'
               checkCredentialExistence: false
-      - request-transformer:
-          - action:
-              body:
-                add:
-                  user: req.user
       - proxy:
           - action:
               serviceEndpoint: httpsubscriptions
@@ -97,11 +87,6 @@ pipelines:
           - action:
               secretOrPublicKey: 'the-secret-key'
               checkCredentialExistence: false
-      - request-transformer:
-          - action:
-              body:
-                add:
-                  user: req.user
       - proxy:
           - action:
               serviceEndpoint: httpdashboard                                

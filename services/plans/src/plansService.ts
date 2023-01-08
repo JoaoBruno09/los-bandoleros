@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express } from "express";
 import { load } from "ts-dotenv";
 import { planRouter } from "./routes/plansRouter";
 
@@ -9,7 +9,11 @@ const env = load({
 
 const app: Express = express();
 const port = env.PORT || 3001;
-app.use(express.json());
+app.use(
+  express.json({
+    type: ["application/json", "application/vnd.los-bandoleros.hyper+json"],
+  })
+);
 app.use("/plan", planRouter);
 
 app.listen(port, () => {

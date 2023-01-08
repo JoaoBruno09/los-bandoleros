@@ -38,7 +38,6 @@ planRouter.post("/", (req, res) => {
             monthlyFee: req.body.monthlyFee,
             annualFee: req.body.annualFee,
           };
-
           if (
             newPlan.musicSuggestions === musicSuggestionsEnum.automatic ||
             newPlan.musicSuggestions === musicSuggestionsEnum.personalized
@@ -53,7 +52,7 @@ planRouter.post("/", (req, res) => {
                     )
                     .then((plan) => {
                       if (plan !== null) {
-                        if (isHyperMedia(req.headers.accept)) {
+                        if (isHyperMedia(req.headers["content-type"])) {
                           const linksHypermedia = [
                             {
                               rel: "collection",
@@ -110,7 +109,6 @@ planRouter.post("/", (req, res) => {
               res.status(500).send("Internal Server Error");
             }
           } else {
-            console.log(newPlan);
             res.status(400).send("Bad Request");
           }
         });
@@ -129,7 +127,7 @@ planRouter.get("/", (req, res) => {
       .then(
         (plansDB) => {
           if (plansDB.length > 0) {
-            if (isHyperMedia(req.headers.accept)) {
+            if (isHyperMedia(req.headers["content-type"])) {
               const plans: any = [];
               plansDB.map((plan) => {
                 const planHyperMedia: any = [];
@@ -171,7 +169,7 @@ planRouter.get("/:PID", (req, res) => {
       .then(
         (plan) => {
           if (plan !== null) {
-            if (isHyperMedia(req.headers.accept)) {
+            if (isHyperMedia(req.headers["content-type"])) {
               const linksHypermedia = [
                 {
                   rel: "collection",
@@ -239,7 +237,7 @@ planRouter.put("/:PID", (req, res) => {
                     )
                     .then((plan) => {
                       if (plan !== null) {
-                        if (isHyperMedia(req.headers.accept)) {
+                        if (isHyperMedia(req.headers["content-type"])) {
                           const linksHypermedia = [
                             {
                               rel: "collection",
@@ -341,7 +339,7 @@ planRouter.post("/:PID", (req, res) => {
                       )
                       .then((plan) => {
                         if (plan !== null) {
-                          if (isHyperMedia(req.headers.accept)) {
+                          if (isHyperMedia(req.headers["content-type"])) {
                             const linksHypermedia = [
                               {
                                 rel: "collection",
@@ -425,7 +423,7 @@ planRouter.delete("/:PID", (req, res) => {
           planModel.findOneAndDelete({ PID: req.params.PID }).then(
             (plan) => {
               if (plan !== null) {
-                if (isHyperMedia(req.headers.accept)) {
+                if (isHyperMedia(req.headers["content-type"])) {
                   const linksHypermedia = [
                     {
                       rel: "collection",
@@ -516,7 +514,7 @@ planRouter.patch("/:PID", (req, res) => {
                         )
                         .then((plan) => {
                           if (plan !== null) {
-                            if (isHyperMedia(req.headers.accept)) {
+                            if (isHyperMedia(req.headers["content-type"])) {
                               const linksHypermedia = {
                                 rel: "prev",
                                 href: env.BASE_URL + "/plan/" + req.params.PID,
@@ -577,7 +575,7 @@ planRouter.patch("/:PID/promotion", (req, res) => {
                     )
                     .then((plan) => {
                       if (plan !== null) {
-                        if (isHyperMedia(req.headers.accept)) {
+                        if (isHyperMedia(req.headers["content-type"])) {
                           const linksHypermedia = {
                             rel: "prev",
                             href: env.BASE_URL + "/plan/" + req.params.PID,
@@ -643,7 +641,7 @@ planRouter.get("/:PID/history", (req, res) => {
             .then(
               (plan) => {
                 if (plan !== null) {
-                  if (isHyperMedia(req.headers.accept)) {
+                  if (isHyperMedia(req.headers["content-type"])) {
                     const linksHypermedia = {
                       rel: "prev",
                       href: env.BASE_URL + "/plan/" + req.params.PID,
