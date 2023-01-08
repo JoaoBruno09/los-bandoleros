@@ -1,24 +1,26 @@
 import e, { response, Router } from "express";
+import { load } from "ts-dotenv";
 import {
   subscriptionModel,
   Subscription,
   devicesModel,
   Device,
-  musicSuggestionsEnum,
 } from "../models/subscriptionModel";
-/*import { devicesModel, Device } from "../models/devicesModel";*/
 import crypto from "crypto";
 import { db } from "../config/DatabaseConfig";
 import * as jwt from "jsonwebtoken";
 import moment from "moment";
 import axios from "axios";
-import { send } from "process";
 
 const _axios = axios.create({
   baseURL: "http://localhost:3000",
   headers: {
     "Content-type": "application/json",
   },
+});
+
+const env = load({
+  BASE_URL: String,
 });
 
 console.log("----------------------------------------something");
@@ -28,7 +30,6 @@ export const subscriptionRouter = Router();
 // POST - 2.1. As a new customer I want to subscribe to a plan
 subscriptionRouter.post("/plan/:PID", (req, res) => {
   const authHeader = req.headers.authorization;
-
   if (authHeader) {
     const token = authHeader.split(" ")[1];
     jwt.verify(token, accessTokenSecret, (err: any, user: any) => {
@@ -81,30 +82,94 @@ subscriptionRouter.post("/plan/:PID", (req, res) => {
               if (db) {
                 subscriptionModel.create(newSubscription).then(
                   () => {
-                    //console.log(ok);
-                    res.status(200).json({
-                      SID: newSubscription.SID,
-                      isYear: newSubscription.isYear,
-                      startDate: newSubscription.isYear,
-                      endDate: newSubscription.endDate,
-                      user: {
-                        UID: newSubscription.user.UID,
-                        username: newSubscription.user.username,
-                        email: newSubscription.user.email,
-                      },
-                      plan: {
-                        PID: newSubscription.plan.PID,
-                        name: newSubscription.plan.name,
-                        description: newSubscription.plan.description,
-                        numberOfMinutes: newSubscription.plan.numberOfMinutes,
-                        maximumNumberOfDevices:
-                          newSubscription.plan.maximumNumberOfDevices,
-                        musicCollections: newSubscription.plan.musicCollections,
-                        musicSuggestions: newSubscription.plan.musicSuggestions,
-                        monthlyFee: newSubscription.plan.monthlyFee,
-                        anualFee: newSubscription.plan.anualFee,
-                      },
-                    });
+                    if (isHyperMedia(req.headers["content-type"])) {
+                      res.status(200).json({
+                        SID: newSubscription.SID,
+                        isYear: newSubscription.isYear,
+                        startDate: newSubscription.isYear,
+                        endDate: newSubscription.endDate,
+                        user: {
+                          UID: newSubscription.user.UID,
+                          username: newSubscription.user.username,
+                          email: newSubscription.user.email,
+                        },
+                        plan: {
+                          PID: newSubscription.plan.PID,
+                          name: newSubscription.plan.name,
+                          description: newSubscription.plan.description,
+                          numberOfMinutes: newSubscription.plan.numberOfMinutes,
+                          maximumNumberOfDevices:
+                            newSubscription.plan.maximumNumberOfDevices,
+                          musicCollections:
+                            newSubscription.plan.musicCollections,
+                          musicSuggestions:
+                            newSubscription.plan.musicSuggestions,
+                          monthlyFee: newSubscription.plan.monthlyFee,
+                          anualFee: newSubscription.plan.anualFee,
+                        },
+                        links: [
+                          {
+                            rel: "prev",
+                            href: env.BASE_URL + "/subscription/" + user.UID,
+                          },
+                          {
+                            rel: "contents",
+                            href:
+                              env.BASE_URL +
+                              "/plan/" +
+                              newSubscription.plan.PID,
+                          },
+                          {
+                            rel: "renew",
+                            href:
+                              env.BASE_URL +
+                              "/subscription/" +
+                              newSubscription.user.UID,
+                          },
+                          {
+                            rel: "delete",
+                            href:
+                              env.BASE_URL +
+                              "/subscription/" +
+                              newSubscription.user.UID,
+                          },
+                          {
+                            rel: "collection",
+                            href:
+                              env.BASE_URL +
+                              "/subscription/" +
+                              newSubscription.user.UID +
+                              "/devices",
+                          },
+                        ],
+                      });
+                    } else {
+                      res.status(200).json({
+                        SID: newSubscription.SID,
+                        isYear: newSubscription.isYear,
+                        startDate: newSubscription.isYear,
+                        endDate: newSubscription.endDate,
+                        user: {
+                          UID: newSubscription.user.UID,
+                          username: newSubscription.user.username,
+                          email: newSubscription.user.email,
+                        },
+                        plan: {
+                          PID: newSubscription.plan.PID,
+                          name: newSubscription.plan.name,
+                          description: newSubscription.plan.description,
+                          numberOfMinutes: newSubscription.plan.numberOfMinutes,
+                          maximumNumberOfDevices:
+                            newSubscription.plan.maximumNumberOfDevices,
+                          musicCollections:
+                            newSubscription.plan.musicCollections,
+                          musicSuggestions:
+                            newSubscription.plan.musicSuggestions,
+                          monthlyFee: newSubscription.plan.monthlyFee,
+                          anualFee: newSubscription.plan.anualFee,
+                        },
+                      });
+                    }
                   },
                   (erro) => {
                     res.status(500).send("Internal Server Error");
@@ -210,33 +275,98 @@ subscriptionRouter.put("/plan/:PID", (req, res) => {
                   if (db) {
                     subscriptionModel.create(newSubscription).then(
                       () => {
+                        if (isHyperMedia(req.headers["content-type"])) {
+                          res.status(200).json({
+                            SID: newSubscription.SID,
+                            isYear: newSubscription.isYear,
+                            startDate: newSubscription.startDate,
+                            endDate: newSubscription.endDate,
+                            user: {
+                              UID: newSubscription.user.UID,
+                              username: newSubscription.user.username,
+                              email: newSubscription.user.email,
+                            },
+                            plan: {
+                              PID: newSubscription.plan.PID,
+                              name: newSubscription.plan.name,
+                              description: newSubscription.plan.description,
+                              numberOfMinutes:
+                                newSubscription.plan.numberOfMinutes,
+                              maximumNumberOfDevices:
+                                newSubscription.plan.maximumNumberOfDevices,
+                              musicCollections:
+                                newSubscription.plan.musicCollections,
+                              musicSuggestions:
+                                newSubscription.plan.musicSuggestions,
+                              monthlyFee: newSubscription.plan.monthlyFee,
+                              anualFee: newSubscription.plan.anualFee,
+                            },
+                            links: [
+                              {
+                                rel: "prev",
+                                href:
+                                  env.BASE_URL + "/subscription/" + user.UID,
+                              },
+                              {
+                                rel: "contents",
+                                href:
+                                  env.BASE_URL +
+                                  "/plan/" +
+                                  newSubscription.plan.PID,
+                              },
+                              {
+                                rel: "renew",
+                                href:
+                                  env.BASE_URL +
+                                  "/subscription/" +
+                                  newSubscription.user.UID,
+                              },
+                              {
+                                rel: "delete",
+                                href:
+                                  env.BASE_URL +
+                                  "/subscription/" +
+                                  newSubscription.user.UID,
+                              },
+                              {
+                                rel: "collection",
+                                href:
+                                  env.BASE_URL +
+                                  "/subscription/" +
+                                  newSubscription.user.UID +
+                                  "/devices",
+                              },
+                            ],
+                          });
+                        } else {
+                          res.status(200).json({
+                            SID: newSubscription.SID,
+                            isYear: newSubscription.isYear,
+                            startDate: newSubscription.startDate,
+                            endDate: newSubscription.endDate,
+                            user: {
+                              UID: newSubscription.user.UID,
+                              username: newSubscription.user.username,
+                              email: newSubscription.user.email,
+                            },
+                            plan: {
+                              PID: newSubscription.plan.PID,
+                              name: newSubscription.plan.name,
+                              description: newSubscription.plan.description,
+                              numberOfMinutes:
+                                newSubscription.plan.numberOfMinutes,
+                              maximumNumberOfDevices:
+                                newSubscription.plan.maximumNumberOfDevices,
+                              musicCollections:
+                                newSubscription.plan.musicCollections,
+                              musicSuggestions:
+                                newSubscription.plan.musicSuggestions,
+                              monthlyFee: newSubscription.plan.monthlyFee,
+                              anualFee: newSubscription.plan.anualFee,
+                            },
+                          });
+                        }
                         //console.log(ok);
-                        res.status(200).json({
-                          SID: newSubscription.SID,
-                          isYear: newSubscription.isYear,
-                          startDate: newSubscription.startDate,
-                          endDate: newSubscription.endDate,
-                          user: {
-                            UID: newSubscription.user.UID,
-                            username: newSubscription.user.username,
-                            email: newSubscription.user.email,
-                          },
-                          plan: {
-                            PID: newSubscription.plan.PID,
-                            name: newSubscription.plan.name,
-                            description: newSubscription.plan.description,
-                            numberOfMinutes:
-                              newSubscription.plan.numberOfMinutes,
-                            maximumNumberOfDevices:
-                              newSubscription.plan.maximumNumberOfDevices,
-                            musicCollections:
-                              newSubscription.plan.musicCollections,
-                            musicSuggestions:
-                              newSubscription.plan.musicSuggestions,
-                            monthlyFee: newSubscription.plan.monthlyFee,
-                            anualFee: newSubscription.plan.anualFee,
-                          },
-                        });
                       },
                       (erro) => {
                         res.status(500).send("Internal Server Error");
@@ -254,7 +384,7 @@ subscriptionRouter.put("/plan/:PID", (req, res) => {
         });
       } else {
         // QUANDO NÃO É UM SBSCRIBER
-        res.status(400).send("Bad Request");
+        res.status(401).send("Access token is missing or invalid");
       }
     });
   } else {
@@ -298,7 +428,23 @@ subscriptionRouter.delete("/:UID", (req, res) => {
                   )
                   .then(
                     () => {
-                      res.status(200).send("OK");
+                      if (isHyperMedia(req.headers["content-type"])) {
+                        res.status(200).json({
+                          links: [
+                            {
+                              rel: "contents",
+                              href:
+                                env.BASE_URL + "/plan/" + update_data?.plan.PID,
+                            },
+                            {
+                              rel: "renew",
+                              href: env.BASE_URL + "/subscription/" + user.UID,
+                            },
+                          ],
+                        });
+                      } else {
+                        res.status(200).send("OK");
+                      }
                     },
                     (erro) => {
                       subscriptionModel.findOneAndUpdate(
@@ -315,7 +461,7 @@ subscriptionRouter.delete("/:UID", (req, res) => {
             );
         });
       } else {
-        res.send(404).send("Not Found");
+        res.status(401).send("Access token is missing or invalid");
       }
     });
   } else {
@@ -340,7 +486,39 @@ subscriptionRouter.get("/:UID", (req, res) => {
             .then(
               (plan) => {
                 if (plan) {
-                  res.status(200).json(plan);
+                  if (isHyperMedia(req.headers["content-type"])) {
+                    res.status(200).json({
+                      plan: plan,
+                      links: [
+                        {
+                          rel: "prev",
+                          href: env.BASE_URL + "/subscription/" + user.UID,
+                        },
+                        {
+                          rel: "contents",
+                          href: env.BASE_URL + "/plan/" + plan.plan.PID,
+                        },
+                        {
+                          rel: "renew",
+                          href: env.BASE_URL + "/subscription/" + user.UID,
+                        },
+                        {
+                          rel: "delete",
+                          href: env.BASE_URL + "/subscription/" + user.UID,
+                        },
+                        {
+                          rel: "collection",
+                          href:
+                            env.BASE_URL +
+                            "/subscription/" +
+                            user.UID +
+                            "/devices",
+                        },
+                      ],
+                    });
+                  } else {
+                    res.status(200).json(plan);
+                  }
                 } else {
                   res.status(404).send("Not Found");
                   //res.status(404).json("Not found. Plan not found or doesn't exist!");
@@ -354,7 +532,7 @@ subscriptionRouter.get("/:UID", (req, res) => {
           res.status(500).send("Internal Server Error");
         }
       } else {
-        res.status(404).send("Not Found");
+        res.status(401).send("Access token is missing or invalid");
       }
     });
   } else {
@@ -403,32 +581,90 @@ subscriptionRouter.put("/:UID", (req, res) => {
                     )
                     .then((newSubscription) => {
                       if (newSubscription) {
-                        res.status(200).send({
-                          SID: newSubscription.SID,
-                          isYear: newSubscription.isYear,
-                          startDate: newSubscription.isYear,
-                          endDate: newSubscription.endDate,
-                          user: {
-                            UID: newSubscription.user.UID,
-                            username: newSubscription.user.username,
-                            email: newSubscription.user.email,
-                          },
-                          plan: {
-                            PID: newSubscription.plan.PID,
-                            name: newSubscription.plan.name,
-                            description: newSubscription.plan.description,
-                            numberOfMinutes:
-                              newSubscription.plan.numberOfMinutes,
-                            maximumNumberOfDevices:
-                              newSubscription.plan.maximumNumberOfDevices,
-                            musicCollections:
-                              newSubscription.plan.musicCollections,
-                            musicSuggestions:
-                              newSubscription.plan.musicSuggestions,
-                            monthlyFee: newSubscription.plan.monthlyFee,
-                            anualFee: newSubscription.plan.anualFee,
-                          },
-                        });
+                        if (isHyperMedia(req.headers["content-type"])) {
+                          res.status(200).send({
+                            SID: newSubscription.SID,
+                            isYear: newSubscription.isYear,
+                            startDate: newSubscription.isYear,
+                            endDate: newSubscription.endDate,
+                            user: {
+                              UID: newSubscription.user.UID,
+                              username: newSubscription.user.username,
+                              email: newSubscription.user.email,
+                            },
+                            plan: {
+                              PID: newSubscription.plan.PID,
+                              name: newSubscription.plan.name,
+                              description: newSubscription.plan.description,
+                              numberOfMinutes:
+                                newSubscription.plan.numberOfMinutes,
+                              maximumNumberOfDevices:
+                                newSubscription.plan.maximumNumberOfDevices,
+                              musicCollections:
+                                newSubscription.plan.musicCollections,
+                              musicSuggestions:
+                                newSubscription.plan.musicSuggestions,
+                              monthlyFee: newSubscription.plan.monthlyFee,
+                              anualFee: newSubscription.plan.anualFee,
+                            },
+                            links: [
+                              {
+                                rel: "prev",
+                                href:
+                                  env.BASE_URL + "/subscription/" + user.UID,
+                              },
+                              {
+                                rel: "contents",
+                                href:
+                                  env.BASE_URL +
+                                  "/plan/" +
+                                  newSubscription.plan.PID,
+                              },
+                              {
+                                rel: "delete",
+                                href:
+                                  env.BASE_URL +
+                                  "/subscription/" +
+                                  newSubscription.user.UID,
+                              },
+                              {
+                                rel: "collection",
+                                href:
+                                  env.BASE_URL +
+                                  "/subscription/" +
+                                  newSubscription.user.UID +
+                                  "/devices",
+                              },
+                            ],
+                          });
+                        } else {
+                          res.status(200).send({
+                            SID: newSubscription.SID,
+                            isYear: newSubscription.isYear,
+                            startDate: newSubscription.isYear,
+                            endDate: newSubscription.endDate,
+                            user: {
+                              UID: newSubscription.user.UID,
+                              username: newSubscription.user.username,
+                              email: newSubscription.user.email,
+                            },
+                            plan: {
+                              PID: newSubscription.plan.PID,
+                              name: newSubscription.plan.name,
+                              description: newSubscription.plan.description,
+                              numberOfMinutes:
+                                newSubscription.plan.numberOfMinutes,
+                              maximumNumberOfDevices:
+                                newSubscription.plan.maximumNumberOfDevices,
+                              musicCollections:
+                                newSubscription.plan.musicCollections,
+                              musicSuggestions:
+                                newSubscription.plan.musicSuggestions,
+                              monthlyFee: newSubscription.plan.monthlyFee,
+                              anualFee: newSubscription.plan.anualFee,
+                            },
+                          });
+                        }
                       } else {
                         res.status(500).send("Internal Server Error");
                       }
@@ -445,7 +681,7 @@ subscriptionRouter.put("/:UID", (req, res) => {
           res.status(500).send("Internal Server Error");
         }
       } else {
-        res.status(404).send("Not Found");
+        res.status(401).send("Access token is missing or invalid");
       }
     });
   } else {
@@ -477,13 +713,38 @@ subscriptionRouter.post("/:UID/devices", (req, res) => {
           if (db) {
             devicesModel.create(newDevice).then(
               () => {
-                res.status(201).json({
-                  DID: newDevice.DID,
-                  device: newDevice.device,
-                  esn: newDevice.esn,
-                  affiliatedOn: newDevice.affiliatedOn,
-                  UID: newDevice.UID,
-                });
+                if (isHyperMedia(req.headers["content-type"])) {
+                  res.status(201).json({
+                    DID: newDevice.DID,
+                    device: newDevice.device,
+                    esn: newDevice.esn,
+                    affiliatedOn: newDevice.affiliatedOn,
+                    UID: newDevice.UID,
+                    links: [
+                      {
+                        rel: "prev",
+                        href: env.BASE_URL + "/subscription/" + req.params.UID,
+                      },
+                      {
+                        rel: "item",
+                        href:
+                          env.BASE_URL +
+                          "/subscription/" +
+                          req.params.UID +
+                          "/devices/" +
+                          newDevice.DID,
+                      },
+                    ],
+                  });
+                } else {
+                  res.status(201).json({
+                    DID: newDevice.DID,
+                    device: newDevice.device,
+                    esn: newDevice.esn,
+                    affiliatedOn: newDevice.affiliatedOn,
+                    UID: newDevice.UID,
+                  });
+                }
               },
               (erro) => {
                 //res.send(erro);
@@ -495,7 +756,7 @@ subscriptionRouter.post("/:UID/devices", (req, res) => {
           }
         });
       } else {
-        res.status(404).send("Not Found");
+        res.status(401).send("Access token is missing or invalid");
       }
     });
   } else {
@@ -515,7 +776,27 @@ subscriptionRouter.get("/:UID/devices", (req, res) => {
         if (db) {
           devicesModel.find({ UID: user.UID }, { _id: 0, __v: 0 }).then(
             (devices) => {
-              res.status(200).json(devices);
+              if (isHyperMedia(req.headers["content-type"])) {
+                const devicesFinal: any = [];
+                devices.map((device) => {
+                  const deviceHyperMedia: any = [];
+                  deviceHyperMedia.push(device);
+                  const linkHypermedia = {
+                    rel: "item",
+                    href:
+                      env.BASE_URL +
+                      "/subscription/" +
+                      req.params.UID +
+                      "/devices/" +
+                      device.DID,
+                  };
+                  deviceHyperMedia.push(linkHypermedia);
+                  devicesFinal.push(deviceHyperMedia);
+                });
+                res.status(200).json({ devicesFinal });
+              } else {
+                res.status(200).json(devices);
+              }
             },
             (erro) => {
               res.status(500).json("Internal Server Error");
@@ -525,7 +806,7 @@ subscriptionRouter.get("/:UID/devices", (req, res) => {
           res.status(500).json("Internal Server Error");
         }
       } else {
-        res.status(400).json("Bad Request");
+        res.status(401).send("Access token is missing or invalid");
       }
     });
   } else {
@@ -545,7 +826,19 @@ subscriptionRouter.delete("/:UID/devices/:DID", (req, res) => {
             .then(
               (device) => {
                 if (device) {
-                  res.status(200).send("Ok");
+                  if (isHyperMedia(req.headers["content-type"])) {
+                    res.status(200).send({
+                      links: [
+                        {
+                          rel: "prev",
+                          href:
+                            env.BASE_URL + "/subscription/" + req.params.UID,
+                        },
+                      ],
+                    });
+                  } else {
+                    res.status(200).send("Ok");
+                  }
                 } else {
                   res.status(404).send("Not Found");
                 }
@@ -558,7 +851,7 @@ subscriptionRouter.delete("/:UID/devices/:DID", (req, res) => {
           res.status(500).send("Internal Server Error");
         }
       } else {
-        res.status(404).send("Not Found"); // ?????? SERÀ O 401
+        res.status(401).send("Access token is missing or invalid");
       }
     });
   } else {
@@ -584,12 +877,37 @@ subscriptionRouter.put("/:UID/devices/:DID", (req, res) => {
               (device) => {
                 //res.send(device);
                 if (device) {
-                  res.status(200).send({
-                    DID: device.DID,
-                    device: device.device,
-                    esn: device.esn,
-                    affiliatedOn: device.affiliatedOn,
-                  });
+                  if (isHyperMedia(req.headers["content-type"])) {
+                    res.status(200).send({
+                      DID: device.DID,
+                      device: device.device,
+                      esn: device.esn,
+                      affiliatedOn: device.affiliatedOn,
+                      links: [
+                        {
+                          rel: "prev",
+                          href:
+                            env.BASE_URL + "/subscription/" + req.params.UID,
+                        },
+                        {
+                          rel: "delete",
+                          href:
+                            env.BASE_URL +
+                            "/subscription/" +
+                            req.params.UID +
+                            "/devices" +
+                            req.params.DID,
+                        },
+                      ],
+                    });
+                  } else {
+                    res.status(200).send({
+                      DID: device.DID,
+                      device: device.device,
+                      esn: device.esn,
+                      affiliatedOn: device.affiliatedOn,
+                    });
+                  }
                 } else {
                   res.status(500).send("Internal Server Error");
                 }
@@ -619,7 +937,7 @@ subscriptionRouter.put("/:OPID/migration/:NPID", (req, res) => {
       //res.send(req.params.UID+ "-" + user.UID);
       if (user.role == "Marketing Director") {
         _axios.get("/plan/" + req.params.NPID).then((payload) => {
-          console.log(payload.data);
+          //console.log(payload.data);
 
           if (db) {
             subscriptionModel
@@ -639,8 +957,18 @@ subscriptionRouter.put("/:OPID/migration/:NPID", (req, res) => {
                 }
               )
               .then(
-                () => {
-                  res.status(200).send("Ok");
+                (response) => {
+                  if (isHyperMedia(req.headers["content-type"])) {
+                    res.status(200).send({
+                      plan: payload.data,
+                      links: {
+                        rel: "prev",
+                        href: env.BASE_URL + "/subscription/",
+                      },
+                    });
+                  } else {
+                    res.status(200).send(payload.data);
+                  }
                 },
                 (erro) => {
                   res.status(404).send("Not Found");
@@ -651,10 +979,15 @@ subscriptionRouter.put("/:OPID/migration/:NPID", (req, res) => {
           }
         });
       } else {
-        res.status(404).send("Not Found");
+        res.status(401).send("Access token is missing or invalid");
       }
     });
   } else {
     res.status(401).send("Access token is missing or invalid");
   }
 });
+
+function isHyperMedia(reqHeaders: any) {
+  if (reqHeaders === "application/json") return false;
+  if (reqHeaders === "application/vnd.los-bandoleros.hyper+json") return true;
+}

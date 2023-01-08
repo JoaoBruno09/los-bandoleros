@@ -383,7 +383,7 @@
         "responses": {
           "200": {
             "description": "Ok",
-            "content": {             
+            "content": {
               "application/vnd.los-bandoleros.hyper+json": {
                 "schema": {
                   "$ref": "#/components/schemas/link"
@@ -736,7 +736,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {             
+            "content": {
               "application/vnd.los-bandoleros.hyper+json": {
                 "schema": {
                   "$ref": "#/components/schemas/link"
@@ -1019,7 +1019,7 @@
         "responses": {
           "200": {
             "description": "OK",
-            "content": {             
+            "content": {
               "application/vnd.los-bandoleros.hyper+json": {
                 "schema": {
                   "$ref": "#/components/schemas/link"
@@ -1362,14 +1362,14 @@
         "required": ["rel", "href"],
         "properties": {
           "rel": {
-              "type": "string",
-              "format": "uri",
-              "example": "next"
+            "type": "string",
+            "format": "uri",
+            "example": "next"
           },
           "href": {
-              "type": "string",
-              "format": "uri",
-              "example": "http://localhost:3000/plan/Pf5f6c85825"
+            "type": "string",
+            "format": "uri",
+            "example": "http://localhost:3000/plan/Pf5f6c85825"
           }
         }
       },
@@ -1378,7 +1378,7 @@
         "type": "array",
         "maxItems": 100,
         "items": {
-            "$ref": "#/components/schemas/link"
+          "$ref": "#/components/schemas/link"
         }
       },
       "allPlans": {
@@ -1398,10 +1398,10 @@
         "type": "object",
         "properties": {
           "plan": {
-              "$ref": "#/components/schemas/plans"
+            "$ref": "#/components/schemas/plans"
           },
           "links": {
-              "$ref": "#/components/schemas/links"
+            "$ref": "#/components/schemas/links"
           }
         }
       },
@@ -1462,10 +1462,10 @@
         "type": "object",
         "properties": {
           "planPromoted": {
-              "$ref": "#/components/schemas/planPromoted"
+            "$ref": "#/components/schemas/planPromoted"
           },
           "links": {
-              "$ref": "#/components/schemas/links"
+            "$ref": "#/components/schemas/links"
           }
         }
       },
@@ -1526,10 +1526,10 @@
         "type": "object",
         "properties": {
           "planHistory": {
-              "$ref": "#/components/schemas/planHistory"
+            "$ref": "#/components/schemas/planHistory"
           },
           "links": {
-              "$ref": "#/components/schemas/links"
+            "$ref": "#/components/schemas/links"
           }
         }
       },
@@ -1585,10 +1585,10 @@
         "type": "object",
         "properties": {
           "subscription": {
-              "$ref": "#/components/schemas/planSubscribed"
+            "$ref": "#/components/schemas/planSubscribed"
           },
           "links": {
-              "$ref": "#/components/schemas/links"
+            "$ref": "#/components/schemas/links"
           }
         }
       },
@@ -1627,10 +1627,10 @@
         "type": "object",
         "properties": {
           "subscription": {
-              "$ref": "#/components/schemas/planSubscribedDetails"
+            "$ref": "#/components/schemas/planSubscribedDetails"
           },
           "links": {
-              "$ref": "#/components/schemas/links"
+            "$ref": "#/components/schemas/links"
           }
         }
       },
@@ -1694,14 +1694,14 @@
           }
         }
       },
-      "mediaTypeChangePlans":{
+      "mediaTypeChangePlans": {
         "type": "object",
         "properties": {
           "plan": {
-              "$ref": "#/components/schemas/changePlans"
+            "$ref": "#/components/schemas/changePlans"
           },
           "links": {
-              "$ref": "#/components/schemas/links"
+            "$ref": "#/components/schemas/links"
           }
         }
       },
@@ -1888,14 +1888,14 @@
           }
         }
       },
-      "mediaTypePlanAddDevices":{
+      "mediaTypePlanAddDevices": {
         "type": "object",
         "properties": {
           "devices": {
-              "$ref": "#/components/schemas/allDevices"
+            "$ref": "#/components/schemas/allDevices"
           },
           "links": {
-              "$ref": "#/components/schemas/links"
+            "$ref": "#/components/schemas/links"
           }
         }
       },
@@ -1905,14 +1905,14 @@
           "$ref": "#/components/schemas/Devices"
         }
       },
-      "mediaTypePlanDevices":{
+      "mediaTypePlanDevices": {
         "type": "object",
         "properties": {
           "devices": {
-              "$ref": "#/components/schemas/Devices"
+            "$ref": "#/components/schemas/Devices"
           },
           "links": {
-              "$ref": "#/components/schemas/links"
+            "$ref": "#/components/schemas/links"
           }
         }
       },
@@ -1951,17 +1951,16 @@
             "description": "Equipment Serial Number",
             "example": "ESNaojsdf4389LK345345345ZY3"
           }
-          
         }
       },
-      "mediaTypePlanGetSubscriptions":{
+      "mediaTypePlanGetSubscriptions": {
         "type": "object",
         "properties": {
           "migration": {
-              "$ref": "#/components/schemas/GetPlanSubscriptions"
+            "$ref": "#/components/schemas/GetPlanSubscriptions"
           },
           "links": {
-              "$ref": "#/components/schemas/links"
+            "$ref": "#/components/schemas/links"
           }
         }
       },
@@ -1971,12 +1970,6 @@
           "plan": {
             "type": "object",
             "$ref": "#/components/schemas/plans"
-          },
-          "subscriptions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/migratedSubscriptions"
-            }
           }
         }
       },
@@ -1990,14 +1983,14 @@
           }
         }
       },
-      "mediaTypeDashboardStatistics":{
+      "mediaTypeDashboardStatistics": {
         "type": "object",
         "properties": {
           "metrics": {
-              "$ref": "#/components/schemas/dashboardStatistics"
+            "$ref": "#/components/schemas/dashboardStatistics"
           },
           "links": {
-              "$ref": "#/components/schemas/links"
+            "$ref": "#/components/schemas/links"
           }
         }
       },
@@ -2035,14 +2028,14 @@
           }
         }
       },
-      "mediaTypeDashboardCashflowStatistics":{
+      "mediaTypeDashboardCashflowStatistics": {
         "type": "object",
         "properties": {
           "cashflows": {
-              "$ref": "#/components/schemas/dashboardCashflowStatistics"
+            "$ref": "#/components/schemas/dashboardCashflowStatistics"
           },
           "links": {
-              "$ref": "#/components/schemas/links"
+            "$ref": "#/components/schemas/links"
           }
         }
       },
@@ -2115,14 +2108,14 @@
           }
         }
       },
-      "mediaTypeDashboardRevenue":{
+      "mediaTypeDashboardRevenue": {
         "type": "object",
         "properties": {
           "revenues": {
-              "$ref": "#/components/schemas/dashboardRevenue"
+            "$ref": "#/components/schemas/dashboardRevenue"
           },
           "links": {
-              "$ref": "#/components/schemas/links"
+            "$ref": "#/components/schemas/links"
           }
         }
       },
