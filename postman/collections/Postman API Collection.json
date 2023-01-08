@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "8e5ac325-37ce-4d4e-ba2f-818c531e5cb4",
-		"name": "Postman API collection",
+		"_postman_id": "831a00c7-eafc-4e4f-8cd5-4651b3750276",
+		"name": "Postman API Collection",
 		"description": "A REST API for ACME, Inc. is a SaaS-based music streaming service to manage the subscriptions of the service. The company offers several plans and needs the ability to create new plans to adapt to market.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_uid": "24115790-8e5ac325-37ce-4d4e-ba2f-818c531e5cb4"
+		"_uid": "24115790-831a00c7-eafc-4e4f-8cd5-4651b3750276"
 	},
 	"item": [
 		{
@@ -15,7 +15,7 @@
 					"item": [
 						{
 							"name": "Shows available plans by id",
-							"id": "429e7d8f-4ae3-4028-8ee8-f58c6d5036e8",
+							"id": "18321f14-431b-481d-bf61-babd583fb523",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -39,7 +39,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Numeric ID of the plan to get"
 										}
 									]
@@ -48,7 +48,7 @@
 							},
 							"response": [
 								{
-									"id": "2989ad16-0e23-469a-b864-db961e428e78",
+									"id": "14708056-ff73-4985-9ab4-534de83e1544",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "GET",
@@ -65,7 +65,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -84,7 +84,7 @@
 									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 								},
 								{
-									"id": "43bf9b7a-bc6f-4351-bba3-abcaad893404",
+									"id": "cc747b30-7d84-4714-b243-545333dfafa2",
 									"name": "Invalid PID supplied",
 									"originalRequest": {
 										"method": "GET",
@@ -101,7 +101,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -120,7 +120,7 @@
 									"body": ""
 								},
 								{
-									"id": "323281da-9646-4e9d-81d6-7b9bdecda66a",
+									"id": "3854b414-f943-4b71-8ee8-b1da2a89159e",
 									"name": "Plan Not Found",
 									"originalRequest": {
 										"method": "GET",
@@ -137,7 +137,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -156,7 +156,7 @@
 									"body": ""
 								},
 								{
-									"id": "5613f38d-bf91-4c0c-8a1c-a301477f7383",
+									"id": "98f82ed6-7e2d-4559-b9fc-5e91630ad8b1",
 									"name": "Internal Server Error",
 									"originalRequest": {
 										"method": "GET",
@@ -173,7 +173,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -195,7 +195,7 @@
 						},
 						{
 							"name": "1.2   Deactivate a plan",
-							"id": "19427788-4ede-4cc5-b980-fdb0a1b9b522",
+							"id": "a8b2387d-541f-485a-8a36-42309bd85982",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -224,7 +224,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Numeric ID of the plan to get"
 										}
 									]
@@ -233,7 +233,7 @@
 							},
 							"response": [
 								{
-									"id": "8ca98450-063d-4790-8916-bb64630c7268",
+									"id": "3a2ea3da-7689-4237-b988-b480335dad94",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "PUT",
@@ -256,7 +256,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -275,7 +275,7 @@
 									"body": ""
 								},
 								{
-									"id": "c04bcf4c-c003-4b62-b1f2-685a1f973171",
+									"id": "61eeaed6-bf1b-4607-8060-46a7b25e0fbb",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "PUT",
@@ -298,7 +298,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -317,7 +317,7 @@
 									"body": ""
 								},
 								{
-									"id": "735f2da6-3304-4d05-9850-32001ee29374",
+									"id": "1b377f02-c5f6-413e-a565-c4a2c6556179",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "PUT",
@@ -340,7 +340,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -359,7 +359,7 @@
 									"body": ""
 								},
 								{
-									"id": "19633bdd-8c8c-4822-a902-05994bf31c90",
+									"id": "6b0fa0fc-3bf7-4fd0-a2b2-65439ff188fe",
 									"name": "Internal Server Error",
 									"originalRequest": {
 										"method": "PUT",
@@ -382,7 +382,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -404,7 +404,7 @@
 						},
 						{
 							"name": "1.3   Update details of a existing plan",
-							"id": "cd804bdd-1c8a-4b3c-9ed2-b3542f0518c0",
+							"id": "f894fa77-549b-46ee-bf06-385bb16a7e8d",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -451,7 +451,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Numeric ID of the plan to get"
 										}
 									]
@@ -460,7 +460,7 @@
 							},
 							"response": [
 								{
-									"id": "94a86a4e-e57f-42ae-be72-05d52efb055b",
+									"id": "d2140850-ad62-4a68-9992-29e0c1de1ec7",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "POST",
@@ -492,7 +492,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -511,7 +511,7 @@
 									"body": "{\n  \"idPlan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 								},
 								{
-									"id": "b52ec9fa-87d8-40ab-abcd-e9021c8be2fa",
+									"id": "dbf04655-52de-46b7-954c-0ceb4398b5b2",
 									"name": "Created",
 									"originalRequest": {
 										"method": "POST",
@@ -543,7 +543,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -562,7 +562,7 @@
 									"body": "{\n  \"idPlan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicColections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 								},
 								{
-									"id": "f165c98c-6386-41bf-8182-24e7aa2176f7",
+									"id": "83d8a827-e09a-4cd7-958c-a58ca4b550f5",
 									"name": "Bad Request",
 									"originalRequest": {
 										"method": "POST",
@@ -594,7 +594,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -613,7 +613,7 @@
 									"body": ""
 								},
 								{
-									"id": "07b784fa-51a7-4673-8c61-46835e38078e",
+									"id": "6f4edbfc-4f41-40d3-9aa2-f1a5a3fdfd3e",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "POST",
@@ -645,7 +645,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -664,7 +664,7 @@
 									"body": ""
 								},
 								{
-									"id": "ed65319e-bcef-4d27-9879-ca88a235b350",
+									"id": "6d7e617d-61ef-4a50-868b-255a26418207",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "POST",
@@ -696,7 +696,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -715,7 +715,7 @@
 									"body": ""
 								},
 								{
-									"id": "2456d763-fa6b-45e7-9469-467eefd17b0d",
+									"id": "79c6c1e5-f846-4b8c-86be-26e7e5a9b639",
 									"name": "Internal Server Error",
 									"originalRequest": {
 										"method": "POST",
@@ -747,7 +747,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -769,7 +769,7 @@
 						},
 						{
 							"name": "9.2   Cease a plan",
-							"id": "dbe24973-2b37-4f4f-a0fe-6bae63bd2b50",
+							"id": "12bcefef-0df9-49f2-8bf4-d2aed669a5e7",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -798,7 +798,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Numeric ID of the plan to get"
 										}
 									]
@@ -807,7 +807,7 @@
 							},
 							"response": [
 								{
-									"id": "dd9645a6-2d6a-4752-8a16-9164f3184ee2",
+									"id": "e8f6f813-2744-40e7-b1df-c0e624afb3ed",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "DELETE",
@@ -830,7 +830,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -849,7 +849,7 @@
 									"body": ""
 								},
 								{
-									"id": "737b431d-843b-4434-b05f-d3ccffc58f4a",
+									"id": "ddde2b5d-920c-466d-8c63-7b670b4e317d",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "DELETE",
@@ -872,7 +872,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -891,7 +891,7 @@
 									"body": ""
 								},
 								{
-									"id": "30208940-f4ee-45ae-9910-cdddbbf5aca7",
+									"id": "8f79fa3d-a776-49de-8891-e6434c324dc5",
 									"name": "Forbidden",
 									"originalRequest": {
 										"method": "DELETE",
@@ -914,7 +914,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -933,7 +933,7 @@
 									"body": ""
 								},
 								{
-									"id": "83670094-c2a4-48fc-a3a4-1ae5cd7cdfa3",
+									"id": "56e75b62-9509-4ca2-ac6b-8bc1de240657",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "DELETE",
@@ -956,7 +956,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -975,7 +975,7 @@
 									"body": ""
 								},
 								{
-									"id": "a9c4887e-c76b-40ba-9337-83060030e168",
+									"id": "b5239079-3ac3-4385-91c9-5d9e1d3fccb0",
 									"name": "Internal Server Error",
 									"originalRequest": {
 										"method": "DELETE",
@@ -998,7 +998,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1020,7 +1020,7 @@
 						},
 						{
 							"name": "9.3   Change the price of a plan",
-							"id": "2bb2a671-f362-4c60-bdfd-93c7887882e2",
+							"id": "cf2b5e65-1220-4820-a007-cb2ed283329b",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1048,7 +1048,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"monthlyFee\": 76996397.67871815,\n  \"annualFee\": 17125347.528134197\n}",
+									"raw": "{\n  \"monthlyFee\": 69799022.25213248,\n  \"annualFee\": 5549861.053505018\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1067,7 +1067,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Numeric ID of the plan to get"
 										}
 									]
@@ -1076,7 +1076,7 @@
 							},
 							"response": [
 								{
-									"id": "cce8cea2-1a30-49af-b405-d6d8b6cd5cfd",
+									"id": "d6ceddcd-e4d6-4f3d-864e-bdbb927b53b1",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1108,7 +1108,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1127,7 +1127,7 @@
 									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 								},
 								{
-									"id": "8385df6d-0594-4de1-a4f9-bf38fb8909cf",
+									"id": "30394bcc-5d37-47e6-a4dc-be16a30fcd3d",
 									"name": "Created",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1159,7 +1159,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1178,7 +1178,7 @@
 									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 								},
 								{
-									"id": "0d9ba902-eeb7-44f9-a21c-c654edd4418d",
+									"id": "2f593389-f9f5-4038-9f6f-2bc848c469e0",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1210,7 +1210,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1229,7 +1229,7 @@
 									"body": ""
 								},
 								{
-									"id": "6e08a166-48e2-46e1-bebe-a439980464df",
+									"id": "5eaa8815-65c0-4849-8263-03d4ae23f65e",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1261,7 +1261,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1280,7 +1280,7 @@
 									"body": ""
 								},
 								{
-									"id": "6f590641-9000-4e31-98ec-58df1f533802",
+									"id": "6b6b1966-d5f3-4a72-820a-c9354acb6463",
 									"name": "Internal Server Error",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1312,7 +1312,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1334,7 +1334,7 @@
 						},
 						{
 							"name": "9.1   Promote a plan",
-							"id": "3e1db4f2-d4b3-46c2-9c73-9417a3defda0",
+							"id": "e6f6a79b-3030-4d53-b4f7-60a6beb2c1d3",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1369,7 +1369,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Numeric ID of the plan to get"
 										}
 									]
@@ -1378,7 +1378,7 @@
 							},
 							"response": [
 								{
-									"id": "48f21f36-c433-462c-91d2-9d78fc1dcf72",
+									"id": "4ec0fa5e-1961-410f-b4d5-49e33f1ef1cc",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1402,7 +1402,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1421,7 +1421,7 @@
 									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 								},
 								{
-									"id": "e1850a52-8a5e-4ed3-ba0e-4062bf168732",
+									"id": "07e2adbd-0b80-4e6b-ae7c-f47281bde55a",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1445,7 +1445,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1464,7 +1464,7 @@
 									"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 								},
 								{
-									"id": "121a8eb4-7e6f-4504-afa2-933a3e5c4886",
+									"id": "f871e370-3d55-4752-851b-961428a0c785",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1488,7 +1488,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1507,7 +1507,7 @@
 									"body": ""
 								},
 								{
-									"id": "6ef6c261-0000-44c6-8490-6f25029f1ab0",
+									"id": "1fa2a7dd-b92b-4947-a9d2-5a86a7ff9b3c",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1531,7 +1531,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1550,7 +1550,7 @@
 									"body": ""
 								},
 								{
-									"id": "ab28ad93-f9ef-495a-8a26-4678b82ddb3c",
+									"id": "bae258c6-fd92-4aa7-aa7a-75d4233774fb",
 									"name": "Internal Server Error",
 									"originalRequest": {
 										"method": "PATCH",
@@ -1574,7 +1574,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1596,7 +1596,7 @@
 						},
 						{
 							"name": "13.2   Price change history of a plan",
-							"id": "9f944faf-e67b-430b-860a-7106b1d6a2c0",
+							"id": "1a39394a-542d-47c4-8046-81045e1bc6d4",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -1631,7 +1631,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Numeric ID of the plan to get"
 										}
 									]
@@ -1640,7 +1640,7 @@
 							},
 							"response": [
 								{
-									"id": "0514d06e-cec5-4477-811e-afdbcc0ec44a",
+									"id": "7123e0b8-9e89-45d6-b899-27047da68881",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "GET",
@@ -1664,7 +1664,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1683,7 +1683,7 @@
 									"body": "{\n  \"PID\": \"<string>\",\n  \"priceHistory\": [\n    {\n      \"oldMonthlyfee\": \"<currency>\",\n      \"newMonthlyfee\": \"<currency>\",\n      \"oldAnnualfee\": \"<currency>\",\n      \"newAnnualfee\": \"<currency>\",\n      \"changedDate\": \"<date>\"\n    },\n    {\n      \"oldMonthlyfee\": \"<currency>\",\n      \"newMonthlyfee\": \"<currency>\",\n      \"oldAnnualfee\": \"<currency>\",\n      \"newAnnualfee\": \"<currency>\",\n      \"changedDate\": \"<date>\"\n    }\n  ]\n}"
 								},
 								{
-									"id": "d1a696c1-9c08-4854-89e2-50a75a9d435f",
+									"id": "0f844c03-ed79-4e44-a3f0-87d922826baa",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "GET",
@@ -1707,7 +1707,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1726,7 +1726,7 @@
 									"body": ""
 								},
 								{
-									"id": "7610abe7-7824-4d75-a4df-403d2aaa793d",
+									"id": "0f5ef444-7f96-4055-a930-80b352764ef4",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "GET",
@@ -1750,7 +1750,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1769,7 +1769,7 @@
 									"body": ""
 								},
 								{
-									"id": "053440f1-3311-42ef-93e1-8240a6c95f05",
+									"id": "b058f203-f35a-463e-9406-bc832f484c83",
 									"name": "Internal Server Error",
 									"originalRequest": {
 										"method": "GET",
@@ -1793,7 +1793,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan to get"
 												}
 											]
@@ -1814,11 +1814,11 @@
 							]
 						}
 					],
-					"id": "970aaa64-5483-4abf-9f67-437568cd10e7"
+					"id": "182a7bca-d0ee-4410-a1f8-14855f75f929"
 				},
 				{
 					"name": "1.1   Create a new plan",
-					"id": "312639d2-3c6f-489a-91b6-a0575d94fe7e",
+					"id": "6529afef-ef10-452d-ba1e-50313ee4fbdf",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1846,7 +1846,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Gold\",\n  \"description\": \"Breve descrição do Plano\",\n  \"maximumNumberOfUsersDevices\": 30892381,\n  \"numberOfMinutes\": \"Unlimited\",\n  \"musicColections\": 78235842,\n  \"musicSuggestions\": \"personalized\",\n  \"monthlyFee\": -92061361.44532451,\n  \"annualFee\": -12841449.248999476\n}",
+							"raw": "{\n  \"name\": \"Gold\",\n  \"description\": \"Breve descrição do Plano\",\n  \"maximumNumberOfUsersDevices\": -81982179,\n  \"numberOfMinutes\": \"Unlimited\",\n  \"musicColections\": -18008312,\n  \"musicSuggestions\": \"personalized\",\n  \"monthlyFee\": 73689339.95846713,\n  \"annualFee\": 57516850.034924716\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1866,7 +1866,7 @@
 					},
 					"response": [
 						{
-							"id": "77ab1a79-8c39-41bd-9ce4-3726380927bd",
+							"id": "c593c432-4ac8-4b3b-ac92-e18520df4d24",
 							"name": "Ok",
 							"originalRequest": {
 								"method": "POST",
@@ -1909,7 +1909,7 @@
 							"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 						},
 						{
-							"id": "7a28ce6f-f25f-425e-b08e-9fad11056eae",
+							"id": "3d32ce51-a237-4195-b9ae-d7415967dff5",
 							"name": "Created",
 							"originalRequest": {
 								"method": "POST",
@@ -1952,7 +1952,7 @@
 							"body": "{\n  \"PID\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"numberOfMinutes\": \"<string>\",\n  \"maximumNumberOfUsersDevices\": \"<long>\",\n  \"musicCollections\": \"<long>\",\n  \"musicSuggestions\": \"<string>\",\n  \"monthlyFee\": \"<currency>\",\n  \"annualFee\": \"<currency>\",\n  \"isPromoted\": \"<boolean>\"\n}"
 						},
 						{
-							"id": "7260da19-9bf3-4aa7-b19e-600b74035084",
+							"id": "b56271bf-2cb7-44c4-b001-b5e2486bfccd",
 							"name": "Bad Request",
 							"originalRequest": {
 								"method": "POST",
@@ -1995,7 +1995,7 @@
 							"body": ""
 						},
 						{
-							"id": "e962d2c0-b199-4637-be6b-b732eded2124",
+							"id": "75b21286-4be7-462f-be77-3a8de0a6dd9f",
 							"name": "Access token is missing or invalid",
 							"originalRequest": {
 								"method": "POST",
@@ -2038,7 +2038,7 @@
 							"body": ""
 						},
 						{
-							"id": "2cdd45ad-1e1f-4d37-af13-b25bf426cc6b",
+							"id": "06a71ae8-adf8-4fd9-b020-2e20f49fb182",
 							"name": "Not Found",
 							"originalRequest": {
 								"method": "POST",
@@ -2084,7 +2084,7 @@
 				},
 				{
 					"name": "1.4  Shows all available plans",
-					"id": "3031154f-9b30-44d0-b3f2-fda50dc76859",
+					"id": "69779ad1-5764-42e2-97b3-35f2a6ef12f5",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2109,7 +2109,7 @@
 					},
 					"response": [
 						{
-							"id": "db4b12a1-7711-48bd-8ff3-ccd8835e79b9",
+							"id": "f53345c0-53fe-4557-9bd7-15d2f677699a",
 							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
@@ -2137,7 +2137,7 @@
 							"body": "[\n  {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  },\n  {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n]"
 						},
 						{
-							"id": "4f6f5f0d-f602-4c06-a2bb-24cf50dd0d68",
+							"id": "f67f13fc-ec19-4ad7-a5f6-6fa6bbc4655c",
 							"name": "Plans Not Found",
 							"originalRequest": {
 								"method": "GET",
@@ -2167,7 +2167,7 @@
 					]
 				}
 			],
-			"id": "bbe383c0-17a4-40bc-8c67-960731054c05"
+			"id": "4d2b2b61-817b-450b-b6ce-991087999ee7"
 		},
 		{
 			"name": "subscription",
@@ -2177,7 +2177,7 @@
 					"item": [
 						{
 							"name": "2.1   Subscribe an existing plan",
-							"id": "56005a60-23dc-4861-b0bc-9924506f0389",
+							"id": "19f81192-f3d9-44ea-88df-724f301e7968",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -2225,7 +2225,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Numeric ID of the plan we want to subscribe"
 										}
 									]
@@ -2234,7 +2234,7 @@
 							},
 							"response": [
 								{
-									"id": "d51afdac-6703-4af5-8c49-b0e1f9473ee1",
+									"id": "edbc8e35-dc96-48b0-9337-dff82c85a2c6",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "POST",
@@ -2267,7 +2267,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to subscribe"
 												}
 											]
@@ -2286,7 +2286,7 @@
 									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"user\": {\n    \"UID\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
 								},
 								{
-									"id": "1d8ad613-862b-4972-ba5d-baa32a4b9bca",
+									"id": "d3549f2a-a581-4c5e-81de-b2c69707bde0",
 									"name": "Bad Request",
 									"originalRequest": {
 										"method": "POST",
@@ -2319,7 +2319,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to subscribe"
 												}
 											]
@@ -2338,7 +2338,7 @@
 									"body": ""
 								},
 								{
-									"id": "0ad22b14-a00d-4022-bbdd-ea9efce0c42c",
+									"id": "c4494c23-d77d-4966-8cc9-59c797786cf6",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "POST",
@@ -2371,7 +2371,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to subscribe"
 												}
 											]
@@ -2390,7 +2390,7 @@
 									"body": ""
 								},
 								{
-									"id": "10ff6d79-ad79-48ef-be9d-f0e1182142e3",
+									"id": "5cfd1784-7659-4703-a263-d14e3b7b0cff",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "POST",
@@ -2423,7 +2423,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to subscribe"
 												}
 											]
@@ -2442,7 +2442,7 @@
 									"body": ""
 								},
 								{
-									"id": "4fbacb74-0fe4-4fc5-b6e8-d9b2b39c3e18",
+									"id": "692c803c-c77c-4f6e-ba39-cfbc051c17e9",
 									"name": "Internal Server Error",
 									"originalRequest": {
 										"method": "POST",
@@ -2475,7 +2475,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to subscribe"
 												}
 											]
@@ -2497,7 +2497,7 @@
 						},
 						{
 							"name": "10.1   Switch plan",
-							"id": "dc029ed3-eddc-4ab5-a7a1-a182d3beed56",
+							"id": "88026317-f181-4782-988e-122627ce32de",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -2545,7 +2545,7 @@
 									"variable": [
 										{
 											"key": "PID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 										}
 									]
@@ -2554,7 +2554,7 @@
 							},
 							"response": [
 								{
-									"id": "b5c9c47f-8f43-4628-837a-d2c6a613582e",
+									"id": "893b7d30-0994-4698-a94f-492df6fe2328",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "PUT",
@@ -2587,7 +2587,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -2606,7 +2606,7 @@
 									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"user\": {\n    \"UID\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
 								},
 								{
-									"id": "0c2cc3a9-555c-4636-95e1-5c5ef605fd37",
+									"id": "fbbfdd19-239b-4a46-a840-7c9b71e3a3bb",
 									"name": "Bad Request",
 									"originalRequest": {
 										"method": "PUT",
@@ -2639,7 +2639,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -2658,7 +2658,7 @@
 									"body": ""
 								},
 								{
-									"id": "abc99516-f497-42ed-8aad-02f266930d18",
+									"id": "68c02db7-3f1e-4972-ac09-2416d0e74858",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "PUT",
@@ -2691,7 +2691,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -2710,7 +2710,7 @@
 									"body": ""
 								},
 								{
-									"id": "9d6c144f-f1a2-4653-a5a4-db636faed771",
+									"id": "edfdc93d-1bbd-405f-82ce-5839fe1bc75d",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "PUT",
@@ -2743,7 +2743,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -2762,7 +2762,7 @@
 									"body": ""
 								},
 								{
-									"id": "8c9e37e9-5b74-4598-8a0e-fd5e1bf3feec",
+									"id": "dd73b0cc-d11e-423f-a6a6-36465dd10b4c",
 									"name": "Internal Server Error",
 									"originalRequest": {
 										"method": "PUT",
@@ -2795,7 +2795,7 @@
 											"variable": [
 												{
 													"key": "PID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -2816,7 +2816,7 @@
 							]
 						}
 					],
-					"id": "7398956b-7133-4efd-a16e-27fd4bf0f67b"
+					"id": "3151a414-8d92-40e2-919d-5e167116c9e3"
 				},
 				{
 					"name": "{UID}",
@@ -2829,7 +2829,7 @@
 									"item": [
 										{
 											"name": "5.2   Subscriber removes devices from subscription ",
-											"id": "dc3426da-7d4e-41a5-bf48-cd5fb8ffe18b",
+											"id": "8ff6a3a4-51ec-4af0-a876-40819592d319",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -2860,12 +2860,12 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "in minim labore tempo",
+															"value": "non eu",
 															"description": "(Required) Delete a device from a specific username identity"
 														},
 														{
 															"key": "DID",
-															"value": "in minim labore tempo",
+															"value": "non eu",
 															"description": "(Required) Delete from a specific identity device"
 														}
 													]
@@ -2874,7 +2874,7 @@
 											},
 											"response": [
 												{
-													"id": "48015928-0038-485d-9710-0748552a6405",
+													"id": "aac77f3b-b4d9-4d98-afab-c217f3b9de6a",
 													"name": "OK",
 													"originalRequest": {
 														"method": "DELETE",
@@ -2899,12 +2899,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Delete a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Delete from a specific identity device"
 																}
 															]
@@ -2923,7 +2923,7 @@
 													"body": ""
 												},
 												{
-													"id": "8d8b0b74-7c70-46af-b46b-532df0457baa",
+													"id": "f0a88dac-5347-406f-a63e-3e6245336624",
 													"name": "Access token is missing or invalid",
 													"originalRequest": {
 														"method": "DELETE",
@@ -2948,12 +2948,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Delete a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Delete from a specific identity device"
 																}
 															]
@@ -2972,7 +2972,7 @@
 													"body": ""
 												},
 												{
-													"id": "b4726b6f-c566-465b-a45e-a6da5e700200",
+													"id": "8c7cb014-9d15-4e59-8eae-92c65c502056",
 													"name": "Not Found",
 													"originalRequest": {
 														"method": "DELETE",
@@ -2997,12 +2997,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Delete a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Delete from a specific identity device"
 																}
 															]
@@ -3021,7 +3021,7 @@
 													"body": ""
 												},
 												{
-													"id": "2a46bea9-7c05-4068-87fe-d2ae0c8b4f89",
+													"id": "95229817-a057-423d-aa95-bce2b6e6b252",
 													"name": "Internal Server Error",
 													"originalRequest": {
 														"method": "DELETE",
@@ -3046,12 +3046,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Delete a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Delete from a specific identity device"
 																}
 															]
@@ -3073,7 +3073,7 @@
 										},
 										{
 											"name": "5.3   Subscriber updates the details of device  ",
-											"id": "29d30004-551c-450a-bb60-3c393476e4cf",
+											"id": "77dd0872-87d3-479f-9a83-2b6247f1fc6d",
 											"protocolProfileBehavior": {
 												"disableBodyPruning": true
 											},
@@ -3122,12 +3122,12 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "in minim labore tempo",
+															"value": "non eu",
 															"description": "(Required) Edit details of a device from a specific username identity"
 														},
 														{
 															"key": "DID",
-															"value": "in minim labore tempo",
+															"value": "non eu",
 															"description": "(Required) Edit details from a specific identity device"
 														}
 													]
@@ -3136,7 +3136,7 @@
 											},
 											"response": [
 												{
-													"id": "a040f58c-a088-41e3-82f0-a544851cbcf9",
+													"id": "a7d12ea8-1b7e-44e0-8e2a-5d4e9d27c0e3",
 													"name": "OK",
 													"originalRequest": {
 														"method": "PUT",
@@ -3170,12 +3170,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Edit details of a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Edit details from a specific identity device"
 																}
 															]
@@ -3194,7 +3194,7 @@
 													"body": "{\n  \"DID\": \"<string>\",\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}"
 												},
 												{
-													"id": "e53dbdf9-2bc5-41f2-abd9-04feec2213d1",
+													"id": "7564a0f1-9b06-4c08-af8f-15186264c58f",
 													"name": "Created",
 													"originalRequest": {
 														"method": "PUT",
@@ -3228,12 +3228,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Edit details of a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Edit details from a specific identity device"
 																}
 															]
@@ -3252,7 +3252,7 @@
 													"body": "{\n  \"DID\": \"<string>\",\n  \"device\": \"<string>\",\n  \"esn\": \"<string>\",\n  \"affiliatedOn\": \"<date>\"\n}"
 												},
 												{
-													"id": "e3b1e4f4-e782-4ca6-9a25-3e49748eb84b",
+													"id": "1d892d7e-fde9-441a-b7ae-52f695844cc0",
 													"name": "Bad Request",
 													"originalRequest": {
 														"method": "PUT",
@@ -3286,12 +3286,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Edit details of a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Edit details from a specific identity device"
 																}
 															]
@@ -3310,7 +3310,7 @@
 													"body": ""
 												},
 												{
-													"id": "0997ada9-9da9-4c1d-b3e2-9f356e7e878b",
+													"id": "7779bf63-e2f3-4395-85a3-95bd6feae9f8",
 													"name": "Access token is missing or invalid",
 													"originalRequest": {
 														"method": "PUT",
@@ -3344,12 +3344,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Edit details of a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Edit details from a specific identity device"
 																}
 															]
@@ -3368,7 +3368,7 @@
 													"body": ""
 												},
 												{
-													"id": "5b7a092d-ceee-4d07-a782-387aa02d3eb4",
+													"id": "fed73a20-8331-46e6-818f-c26907826192",
 													"name": "Not Found",
 													"originalRequest": {
 														"method": "PUT",
@@ -3402,12 +3402,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Edit details of a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Edit details from a specific identity device"
 																}
 															]
@@ -3426,7 +3426,7 @@
 													"body": ""
 												},
 												{
-													"id": "762d4983-76b5-44e8-8dab-8aa5c564afc5",
+													"id": "95f0b011-99f0-4058-b866-6ceb94a5c845",
 													"name": "Internal Server Error",
 													"originalRequest": {
 														"method": "PUT",
@@ -3460,12 +3460,12 @@
 															"variable": [
 																{
 																	"key": "UID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Edit details of a device from a specific username identity"
 																},
 																{
 																	"key": "DID",
-																	"value": "in minim labore tempo",
+																	"value": "non eu",
 																	"description": "(Required) Edit details from a specific identity device"
 																}
 															]
@@ -3486,11 +3486,11 @@
 											]
 										}
 									],
-									"id": "c4397fce-ffdb-401f-bc94-301c6bd5aeb7"
+									"id": "fb7973f8-fafc-4364-9a47-3b1237d0b09a"
 								},
 								{
 									"name": "5.1   Subscriber adds a new device to subscription ",
-									"id": "0d7ef0a7-ad66-44ed-86e8-2ff0082626e8",
+									"id": "fcacb03c-52b5-42ca-b63d-326795da1716",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -3538,7 +3538,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Unique identity username device"
 												}
 											]
@@ -3547,7 +3547,7 @@
 									},
 									"response": [
 										{
-											"id": "a69ffce3-cad1-4d04-8aae-a41a199fecab",
+											"id": "a63a787d-3f92-444f-a72a-8d97ab7ccf48",
 											"name": "Ok",
 											"originalRequest": {
 												"method": "POST",
@@ -3580,7 +3580,7 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "in minim labore tempo",
+															"value": "non eu",
 															"description": "(Required) Unique identity username device"
 														}
 													]
@@ -3599,7 +3599,7 @@
 											"body": "[\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  },\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  }\n]"
 										},
 										{
-											"id": "173e0bb1-ff18-4676-af33-0984201c6e98",
+											"id": "55a01cbd-d577-4237-af72-15ab6c475f7f",
 											"name": "Created",
 											"originalRequest": {
 												"method": "POST",
@@ -3632,7 +3632,7 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "in minim labore tempo",
+															"value": "non eu",
 															"description": "(Required) Unique identity username device"
 														}
 													]
@@ -3651,7 +3651,7 @@
 											"body": "[\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  },\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  }\n]"
 										},
 										{
-											"id": "b6ce9784-1cc2-42cf-b2aa-8e66dc041f70",
+											"id": "eb851053-e581-427f-a123-75aa5351c5d0",
 											"name": "Access token is missing or invalid",
 											"originalRequest": {
 												"method": "POST",
@@ -3684,7 +3684,7 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "in minim labore tempo",
+															"value": "non eu",
 															"description": "(Required) Unique identity username device"
 														}
 													]
@@ -3703,7 +3703,7 @@
 											"body": ""
 										},
 										{
-											"id": "4658d9e3-6026-493e-bc76-1fcde460535f",
+											"id": "d3da02c8-c719-4337-8c50-6b95bd0c71da",
 											"name": "Not Found",
 											"originalRequest": {
 												"method": "POST",
@@ -3736,7 +3736,7 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "in minim labore tempo",
+															"value": "non eu",
 															"description": "(Required) Unique identity username device"
 														}
 													]
@@ -3755,7 +3755,7 @@
 											"body": ""
 										},
 										{
-											"id": "34c5bad8-a7a9-4e8d-bd53-5a2a0b8ca937",
+											"id": "f7acf998-30bd-4417-a8c2-f757bbf72a9e",
 											"name": "Internal Server Error",
 											"originalRequest": {
 												"method": "POST",
@@ -3788,7 +3788,7 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "in minim labore tempo",
+															"value": "non eu",
 															"description": "(Required) Unique identity username device"
 														}
 													]
@@ -3810,7 +3810,7 @@
 								},
 								{
 									"name": "5.4   List of subscriber devices ",
-									"id": "df1f7fe5-7097-4383-9370-08918952e5f2",
+									"id": "c5b84266-7315-45b8-9515-5732f8f009fa",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -3845,7 +3845,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) All devices affiliated"
 												}
 											]
@@ -3854,7 +3854,7 @@
 									},
 									"response": [
 										{
-											"id": "c1fc9527-c3e0-480d-873e-9856b2a575e2",
+											"id": "1800fb01-3027-431f-b016-b614a8409c60",
 											"name": "Ok",
 											"originalRequest": {
 												"method": "GET",
@@ -3878,7 +3878,7 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "in minim labore tempo",
+															"value": "non eu",
 															"description": "(Required) All devices affiliated"
 														}
 													]
@@ -3897,7 +3897,7 @@
 											"body": "[\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  },\n  {\n    \"DID\": \"<string>\",\n    \"device\": \"<string>\",\n    \"esn\": \"<string>\",\n    \"affiliatedOn\": \"<date>\"\n  }\n]"
 										},
 										{
-											"id": "2292036e-319a-4174-baa4-a47582d1df85",
+											"id": "61d9603d-884d-4e43-b97a-48b0e6ca4749",
 											"name": "Not Found",
 											"originalRequest": {
 												"method": "GET",
@@ -3921,7 +3921,7 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "in minim labore tempo",
+															"value": "non eu",
 															"description": "(Required) All devices affiliated"
 														}
 													]
@@ -3940,7 +3940,7 @@
 											"body": ""
 										},
 										{
-											"id": "4acf0ec2-f71e-4e7f-8329-a2cd26b4a995",
+											"id": "59d4a383-d729-41b3-95a8-d62d8293c3fe",
 											"name": "Internal Server Error",
 											"originalRequest": {
 												"method": "GET",
@@ -3964,7 +3964,7 @@
 													"variable": [
 														{
 															"key": "UID",
-															"value": "in minim labore tempo",
+															"value": "non eu",
 															"description": "(Required) All devices affiliated"
 														}
 													]
@@ -3985,11 +3985,11 @@
 									]
 								}
 							],
-							"id": "15831cfd-d253-4715-a9cb-72c9a265cf69"
+							"id": "8e704b21-0066-4534-af95-82b6efce25a8"
 						},
 						{
 							"name": "2.2   Cancel my subscription",
-							"id": "f6c203a4-d56d-45ce-aa9f-baff0ce2cd82",
+							"id": "33b9ed47-0780-45f0-a5e4-cf44499062fc",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -4018,7 +4018,7 @@
 									"variable": [
 										{
 											"key": "UID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Delete unique identity username"
 										}
 									]
@@ -4027,7 +4027,7 @@
 							},
 							"response": [
 								{
-									"id": "2f5aadd4-25c0-46c9-906c-64f330fc6917",
+									"id": "1a80797b-0a0b-4109-b761-307ef0bf6ec5",
 									"name": "OK",
 									"originalRequest": {
 										"method": "DELETE",
@@ -4050,7 +4050,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Delete unique identity username"
 												}
 											]
@@ -4069,7 +4069,7 @@
 									"body": ""
 								},
 								{
-									"id": "96c850a1-2552-4ce5-bf62-1cf791372b94",
+									"id": "4292e8c9-1c17-45a2-a0cc-84d72f61599b",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "DELETE",
@@ -4092,7 +4092,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Delete unique identity username"
 												}
 											]
@@ -4111,7 +4111,7 @@
 									"body": ""
 								},
 								{
-									"id": "7c33c4fc-7bdd-446d-954a-105292c2135e",
+									"id": "31e130d7-d2fc-4cac-ad13-4eb2d7828104",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "DELETE",
@@ -4134,7 +4134,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Delete unique identity username"
 												}
 											]
@@ -4153,7 +4153,7 @@
 									"body": ""
 								},
 								{
-									"id": "b5241122-5ba0-47a4-b9d7-dca1ed6562d6",
+									"id": "f6e0d43f-efd2-4228-bfe3-ec9fc1d2e29e",
 									"name": "Internal Server Error",
 									"originalRequest": {
 										"method": "DELETE",
@@ -4176,7 +4176,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Delete unique identity username"
 												}
 											]
@@ -4198,7 +4198,7 @@
 						},
 						{
 							"name": "2.3   Details of my plan",
-							"id": "3cc3251f-1d93-43d7-8e86-9bbd9f8efda1",
+							"id": "21eb7c18-8f17-4fa1-a477-75dd75219f0e",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -4232,7 +4232,7 @@
 									"variable": [
 										{
 											"key": "UID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Unique identity username"
 										}
 									]
@@ -4241,7 +4241,7 @@
 							},
 							"response": [
 								{
-									"id": "3d25bc72-8ebe-4413-90a4-9ec6a9c4260d",
+									"id": "986f9872-80fa-4d24-a5b6-14e8a04225fc",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "GET",
@@ -4264,7 +4264,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Unique identity username"
 												}
 											]
@@ -4283,7 +4283,7 @@
 									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<date>\",\n  \"endDate\": \"<date>\",\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
 								},
 								{
-									"id": "fbf609f7-d546-4edc-a8b5-87890e9bafcc",
+									"id": "1b093abc-3468-4322-8480-3b3d426543e4",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "GET",
@@ -4306,7 +4306,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Unique identity username"
 												}
 											]
@@ -4325,7 +4325,7 @@
 									"body": ""
 								},
 								{
-									"id": "c75e21a7-3a62-4324-98c7-804313151af9",
+									"id": "832e0a3b-5ed3-4120-86e9-14d5e2c5418a",
 									"name": "Internal Server Error",
 									"originalRequest": {
 										"method": "GET",
@@ -4348,7 +4348,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Unique identity username"
 												}
 											]
@@ -4370,7 +4370,7 @@
 						},
 						{
 							"name": "10.2   Renew annual subscription",
-							"id": "124e1092-34d0-41ce-b79d-9972721bedb2",
+							"id": "7fa7276b-f373-4408-8221-2364686a8f78",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -4404,7 +4404,7 @@
 									"variable": [
 										{
 											"key": "UID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 										}
 									]
@@ -4413,7 +4413,7 @@
 							},
 							"response": [
 								{
-									"id": "b422bc5d-8ae9-46a3-aff9-4754be227af7",
+									"id": "1d2cf079-d4e2-4c53-87a0-ceb5d36b5c82",
 									"name": "Ok",
 									"originalRequest": {
 										"method": "PUT",
@@ -4436,7 +4436,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -4455,7 +4455,7 @@
 									"body": "{\n  \"SID\": \"<string>\",\n  \"isYear\": \"<boolean>\",\n  \"startDate\": \"<string>\",\n  \"endDate\": \"<string>\",\n  \"user\": {\n    \"UID\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  }\n}"
 								},
 								{
-									"id": "8e4f91b0-e300-4445-bc95-51d4053863a6",
+									"id": "ade16a10-0506-480e-841c-bba975de849a",
 									"name": "Bad Request",
 									"originalRequest": {
 										"method": "PUT",
@@ -4478,7 +4478,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -4497,7 +4497,7 @@
 									"body": ""
 								},
 								{
-									"id": "de61c701-801b-4a7a-abd2-1e5cd87e9ca0",
+									"id": "cf66baf8-3a9c-43a6-8e75-2e93c1b9c80f",
 									"name": "Access token is missing or invalid",
 									"originalRequest": {
 										"method": "PUT",
@@ -4520,7 +4520,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -4539,7 +4539,7 @@
 									"body": ""
 								},
 								{
-									"id": "953038ee-671b-4b05-8a66-99f164975972",
+									"id": "26de919e-bac4-4acf-bfe6-3fe5558c1df5",
 									"name": "Not Found",
 									"originalRequest": {
 										"method": "PUT",
@@ -4562,7 +4562,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -4581,7 +4581,7 @@
 									"body": ""
 								},
 								{
-									"id": "7cfe0c36-9c58-4de3-ac3f-b566f8c28eea",
+									"id": "1c2921b3-e6c1-45f7-b784-befbc674f97b",
 									"name": "Internal Server Error",
 									"originalRequest": {
 										"method": "PUT",
@@ -4604,7 +4604,7 @@
 											"variable": [
 												{
 													"key": "UID",
-													"value": "in minim labore tempo",
+													"value": "non eu",
 													"description": "(Required) Numeric ID of the plan we want to uprade/downgrade"
 												}
 											]
@@ -4625,11 +4625,11 @@
 							]
 						}
 					],
-					"id": "2fded198-35f5-4bc6-9cfb-8f238be56a53"
+					"id": "ab9f9f8f-2225-4897-8199-2b5e9fa8846e"
 				},
 				{
 					"name": "10.3 Migrate all subscribers of a certain plan to another one",
-					"id": "b66e1584-5b97-46ea-b1e7-e190d8965b5e",
+					"id": "7e08906b-1849-4dfd-9008-fbc1c0c56504",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -4665,12 +4665,12 @@
 							"variable": [
 								{
 									"key": "OPID",
-									"value": "in minim labore tempo",
+									"value": "non eu",
 									"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
 								},
 								{
 									"key": "NPID",
-									"value": "in minim labore tempo",
+									"value": "non eu",
 									"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
 								}
 							]
@@ -4679,7 +4679,7 @@
 					},
 					"response": [
 						{
-							"id": "227a95c7-8547-4742-9443-27010026c75e",
+							"id": "184fd6c4-242c-4fae-a83b-a3c210602b6d",
 							"name": "OK",
 							"originalRequest": {
 								"method": "PUT",
@@ -4704,12 +4704,12 @@
 									"variable": [
 										{
 											"key": "OPID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
 										},
 										{
 											"key": "NPID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
 										}
 									]
@@ -4728,7 +4728,7 @@
 							"body": "{\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  },\n  \"subscriptions\": [\n    {\n      \"SID\": \"<string>\"\n    },\n    {\n      \"SID\": \"<string>\"\n    }\n  ]\n}"
 						},
 						{
-							"id": "18968219-2dde-4abd-9f30-d5e112882e0b",
+							"id": "c5a16c84-f962-4f46-99eb-00f6622eb500",
 							"name": "Created",
 							"originalRequest": {
 								"method": "PUT",
@@ -4753,12 +4753,12 @@
 									"variable": [
 										{
 											"key": "OPID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
 										},
 										{
 											"key": "NPID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
 										}
 									]
@@ -4777,7 +4777,7 @@
 							"body": "{\n  \"plan\": {\n    \"PID\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"numberOfMinutes\": \"<string>\",\n    \"maximumNumberOfUsersDevices\": \"<long>\",\n    \"musicCollections\": \"<long>\",\n    \"musicSuggestions\": \"<string>\",\n    \"monthlyFee\": \"<currency>\",\n    \"annualFee\": \"<currency>\",\n    \"isPromoted\": \"<boolean>\"\n  },\n  \"subscriptions\": [\n    {\n      \"SID\": \"<string>\"\n    },\n    {\n      \"SID\": \"<string>\"\n    }\n  ]\n}"
 						},
 						{
-							"id": "f414afe5-c3c0-4295-b523-b789f84218eb",
+							"id": "e9e6d1b6-6a5b-443f-9681-461a551372e2",
 							"name": "Access token is missing or invalid",
 							"originalRequest": {
 								"method": "PUT",
@@ -4802,12 +4802,12 @@
 									"variable": [
 										{
 											"key": "OPID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
 										},
 										{
 											"key": "NPID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
 										}
 									]
@@ -4826,7 +4826,7 @@
 							"body": ""
 						},
 						{
-							"id": "25943ed2-fad2-43f1-8c53-ac1af5b60d86",
+							"id": "f72b1952-dc93-4f39-ac95-30dbc51573f2",
 							"name": "Not Found",
 							"originalRequest": {
 								"method": "PUT",
@@ -4851,12 +4851,12 @@
 									"variable": [
 										{
 											"key": "OPID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
 										},
 										{
 											"key": "NPID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
 										}
 									]
@@ -4875,7 +4875,7 @@
 							"body": ""
 						},
 						{
-							"id": "40224a50-6a0a-4e65-badb-4d87744c4a52",
+							"id": "fb81f273-4373-4692-a413-dae60ce4be01",
 							"name": "Internal Server Error",
 							"originalRequest": {
 								"method": "PUT",
@@ -4900,12 +4900,12 @@
 									"variable": [
 										{
 											"key": "OPID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Plan Id of the old plan (plan that will send the subscriptions)"
 										},
 										{
 											"key": "NPID",
-											"value": "in minim labore tempo",
+											"value": "non eu",
 											"description": "(Required) Plan Id of the new plan (plan that will receive the subscriptions)"
 										}
 									]
@@ -4926,14 +4926,14 @@
 					]
 				}
 			],
-			"id": "fc7b4329-b13d-41ac-9277-4c6fcb264eae"
+			"id": "bc5b6344-570c-480a-b81e-b8a261d7c686"
 		},
 		{
 			"name": "dashboard",
 			"item": [
 				{
 					"name": "3.1/11.2 Monthly churn rate from the past n months filtered/broken down by plan with details on active subscribers, and new and canceled subscriptions",
-					"id": "f928ae2b-b8b1-4c59-bc04-a75c94002367",
+					"id": "e377e87a-4127-4da0-beff-d1941ec3c94b",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -4956,7 +4956,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/dashboard?nMonths=10802773.825978518",
+							"raw": "{{baseUrl}}/dashboard?nMonths=-21294258.073165387",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -4966,7 +4966,7 @@
 							"query": [
 								{
 									"key": "nMonths",
-									"value": "10802773.825978518",
+									"value": "-21294258.073165387",
 									"description": "(Required) Number of months"
 								}
 							]
@@ -4975,7 +4975,7 @@
 					},
 					"response": [
 						{
-							"id": "15a81eba-0a20-4f54-bcbf-b8d520a03359",
+							"id": "5bc13227-3b27-4586-9172-25137f8b5294",
 							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
@@ -5015,7 +5015,7 @@
 							"body": "[\n  {\n    \"month\": \"<string>\",\n    \"activeSubscriptions\": \"<int-64>\",\n    \"newSubscriptions\": \"<int-64>\",\n    \"canceledSubscriptions\": \"<int-64>\",\n    \"churnRate\": \"<number>\"\n  },\n  {\n    \"month\": \"<string>\",\n    \"activeSubscriptions\": \"<int-64>\",\n    \"newSubscriptions\": \"<int-64>\",\n    \"canceledSubscriptions\": \"<int-64>\",\n    \"churnRate\": \"<number>\"\n  }\n]"
 						},
 						{
-							"id": "f2e94b78-0168-4216-93b7-492538316cf8",
+							"id": "51379a26-1a54-4f94-9929-e0d0649ee211",
 							"name": "Accepted",
 							"originalRequest": {
 								"method": "GET",
@@ -5055,7 +5055,7 @@
 							"body": ""
 						},
 						{
-							"id": "04323db3-fb34-4ee1-8532-438e7d71aa7c",
+							"id": "b725acce-4577-42b8-8c21-c27ee40f67a8",
 							"name": "Not Found",
 							"originalRequest": {
 								"method": "GET",
@@ -5095,7 +5095,7 @@
 							"body": ""
 						},
 						{
-							"id": "b3937c91-9967-44b5-a03a-9f608cd66828",
+							"id": "0032a4f7-f902-408b-a2d9-a1d355689c3b",
 							"name": "Internal Server Error",
 							"originalRequest": {
 								"method": "GET",
@@ -5138,7 +5138,7 @@
 				},
 				{
 					"name": "11.1 Future cashflows for the upcoming n months filtered/broken down by plan",
-					"id": "e9c38c54-8463-4043-a026-440273cd32a1",
+					"id": "867b91a8-190a-41d9-833b-78f6f6104b94",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -5161,7 +5161,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/dashboard/cashflow?nMonths=10802773.825978518",
+							"raw": "{{baseUrl}}/dashboard/cashflow?nMonths=-21294258.073165387",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -5172,7 +5172,7 @@
 							"query": [
 								{
 									"key": "nMonths",
-									"value": "10802773.825978518",
+									"value": "-21294258.073165387",
 									"description": "(Required) Number of months"
 								}
 							]
@@ -5181,7 +5181,7 @@
 					},
 					"response": [
 						{
-							"id": "f194d55c-8fc7-4db3-b1aa-06696ea9add4",
+							"id": "3c11d819-a3f3-4b41-818e-e56962ba966c",
 							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
@@ -5222,7 +5222,7 @@
 							"body": "[\n  {\n    \"past\": [\n      {\n        \"month\": \"<string>\",\n        \"plans\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"total\": \"<currency>\"\n      },\n      {\n        \"month\": \"<string>\",\n        \"plans\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"total\": \"<currency>\"\n      }\n    ]\n  },\n  {\n    \"past\": [\n      {\n        \"month\": \"<string>\",\n        \"plans\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"total\": \"<currency>\"\n      },\n      {\n        \"month\": \"<string>\",\n        \"plans\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"total\": \"<currency>\"\n      }\n    ]\n  }\n]"
 						},
 						{
-							"id": "820cef95-47c2-4164-992c-223c52dc1017",
+							"id": "cfab9644-9378-45c7-9627-8b6bd7ee6132",
 							"name": "Accepted",
 							"originalRequest": {
 								"method": "GET",
@@ -5263,7 +5263,7 @@
 							"body": ""
 						},
 						{
-							"id": "a9b80c3b-e24d-47e1-a3e9-71ae90e87686",
+							"id": "ab430f1b-c252-4348-9d63-6848ed327859",
 							"name": "Not Found",
 							"originalRequest": {
 								"method": "GET",
@@ -5304,7 +5304,7 @@
 							"body": ""
 						},
 						{
-							"id": "211a9939-522a-453d-b17b-00bbef7fc53a",
+							"id": "75fec61f-8f8b-4576-813d-a9d22abc8e3d",
 							"name": "Internal Server Error",
 							"originalRequest": {
 								"method": "GET",
@@ -5348,7 +5348,7 @@
 				},
 				{
 					"name": "14.2 Year-to-date revenue of my company filtered/broken down by plan",
-					"id": "6340ffe8-b11f-4a25-9eea-c331fd618a92",
+					"id": "de684e3b-0713-434c-9304-cca2e7d12a44",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -5384,7 +5384,7 @@
 					},
 					"response": [
 						{
-							"id": "b6aa3c99-4e71-4e57-ba84-30ef1791a7f0",
+							"id": "c415c799-8e0a-43d1-af4d-16001de37ae5",
 							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
@@ -5419,7 +5419,7 @@
 							"body": "[\n  {\n    \"month\": \"<string>\",\n    \"plans\": [\n      {\n        \"name\": \"<string>\",\n        \"totalRevenue\": \"<currency>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"totalRevenue\": \"<currency>\"\n      }\n    ],\n    \"totalRevenue\": \"<currency>\"\n  },\n  {\n    \"month\": \"<string>\",\n    \"plans\": [\n      {\n        \"name\": \"<string>\",\n        \"totalRevenue\": \"<currency>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"totalRevenue\": \"<currency>\"\n      }\n    ],\n    \"totalRevenue\": \"<currency>\"\n  }\n]"
 						},
 						{
-							"id": "6cc460d8-a141-428d-9d64-c0052e8ade60",
+							"id": "65424b36-72b8-49d9-b820-d01217bdb829",
 							"name": "Accepted",
 							"originalRequest": {
 								"method": "GET",
@@ -5454,7 +5454,7 @@
 							"body": ""
 						},
 						{
-							"id": "8982a3b8-1b61-4490-8c4c-4b0e5722d970",
+							"id": "50f13421-7630-4da9-834d-8d238be394f5",
 							"name": "Not Found",
 							"originalRequest": {
 								"method": "GET",
@@ -5489,7 +5489,7 @@
 							"body": ""
 						},
 						{
-							"id": "b6f40fdb-d7c9-4bd5-972c-a88224c8782e",
+							"id": "d2daa368-1b6d-424a-b21b-9dea6ef50096",
 							"name": "Internal Server Error",
 							"originalRequest": {
 								"method": "GET",
@@ -5526,11 +5526,11 @@
 					]
 				}
 			],
-			"id": "741a8184-8c91-4a26-b414-fa9a393f2f64"
+			"id": "2cb7af8e-22f1-413d-ba69-b9212e7bdddf"
 		},
 		{
 			"name": "Authenticates a user",
-			"id": "6e33d7b2-471c-44d5-b317-9e0630242640",
+			"id": "b6c1a7d4-8c03-49cf-a4f5-4a29f251d980",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -5573,7 +5573,7 @@
 			},
 			"response": [
 				{
-					"id": "df7c3f90-4daf-4c36-bf0e-1e6761b110a0",
+					"id": "d8eff789-68d7-42f5-a083-822d379b5f04",
 					"name": "a JSON web token (JWT) required to login.",
 					"originalRequest": {
 						"method": "POST",
@@ -5619,7 +5619,7 @@
 					"body": ""
 				},
 				{
-					"id": "6ffba431-1ecc-433c-81a6-5568127f4df7",
+					"id": "0ef6cf86-2085-4167-ba43-da6a04856adb",
 					"name": "Access token is missing or invalid",
 					"originalRequest": {
 						"method": "POST",
@@ -5665,7 +5665,7 @@
 					"body": ""
 				},
 				{
-					"id": "8d8a5be0-1835-44a4-a259-ea347372605b",
+					"id": "57b0e931-0b07-4cdc-b7fe-2441641f01bb",
 					"name": "Not Found",
 					"originalRequest": {
 						"method": "POST",
@@ -5711,7 +5711,7 @@
 					"body": ""
 				},
 				{
-					"id": "284f8108-dce2-4eb1-89ae-ebb4db59c038",
+					"id": "227edaba-5b12-459d-80d8-3582e1037aaa",
 					"name": "Internal Server Error",
 					"originalRequest": {
 						"method": "POST",
@@ -5761,7 +5761,7 @@
 	],
 	"variable": [
 		{
-			"id": "4ca1a41c-8a54-4a8d-9d86-d84bdd3f00dd",
+			"id": "60527f48-e591-4b02-a80b-2f2787d42137",
 			"key": "baseUrl",
 			"value": "http://localhost:3000",
 			"type": "string"

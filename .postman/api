@@ -5,7 +5,7 @@ id = 3923c4a2-6ed2-442f-828d-b4e44358f284
 
 [relations.collections]
 rootDirectory = postman/collections
-files[] = {"id":"24115790-8e5ac325-37ce-4d4e-ba2f-818c531e5cb4","path":"Postman API collection.json","metaData":{}}
+files[] = {"id":"24115790-831a00c7-eafc-4e4f-8cd5-4651b3750276","path":"Postman API Collection.json","metaData":{}}
 
 [relations.collections.metaData]
 
@@ -14,5 +14,5 @@ rootDirectory = postman/schemas
 files[] = {"path":"API.json","metaData":{}}
 
 [relations.apiDefinition.metaData]
-type = openapi:3
 rootFiles[] = API.json
+type = openapi:3
