@@ -14,7 +14,20 @@ export interface Subscription {
     UID: string;
     username: string;
     email: string;
-  };
+  },
+  plan: {
+    PID: string;
+    name: string;
+    description: string;
+    numberOfMinutes: String;
+    maximumNumberOfDevices: number;
+    musicCollections: number;
+    musicSuggestions: musicSuggestionsEnum;
+    monthlyFee: number;
+    anualFee: number;
+  },
+  cancelled:Boolean,
+  cancelled_date:string
 }
 
 const subscriptionSchema = new mongoose.Schema<Subscription>(
@@ -24,6 +37,10 @@ const subscriptionSchema = new mongoose.Schema<Subscription>(
     startDate: { type: String, required: false, default: "" },
     endDate: { type: String, required: false, default: "Unlimited" },
     user: { type: Object, required: true },
+    plan:{type: Object, required: true},
+    cancelled:{type: Boolean, required:true},
+    cancelled_date:{type:String, required:false}
+
   },
   { collection: "subscriptions" }
 );

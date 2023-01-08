@@ -43,21 +43,19 @@ authRouter.post("/login", multer().none(), (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-authRouter.patch("/:UID",(req, res) => {
+authRouter.patch("/:UID", (req, res) => {
+  //console.log("TESTE")
   const authHeader = req.headers.authorization;
   if (authHeader) {
     const token = authHeader.split(" ")[1];
     jwt.verify(token, accessTokenSecret, (err: any, user: any) => {
       if (db) {
-        
+        let roleUpd = null;
         authModel.findOne({ UID: req.params.UID }, { _id: 0 }).then((user) => {
-       
-          if (
-            user != null &&
-            user.role != "Subscriber" &&
-            user.role == "Customer"
-          ) {
+          console.log(user);
+          if (user != null && user.role == "Customer") {
             //UPDATE TO CUSTOMER
+            roleUpd = "Subscriber";
             authModel
               .updateOne({ UID: req.params.UID }, { role: "Subscriber" })
               .then(
@@ -68,7 +66,18 @@ authRouter.patch("/:UID",(req, res) => {
                   res.status(500).send("Internal Server Error");
                 }
               );
-            //res.send(user);
+          } else if (user != null && user.role == "Subscriber") {
+            roleUpd = "Costumer";
+            authModel
+              .updateOne({ UID: req.params.UID }, { role: "Costumer" })
+              .then(
+                () => {
+                  res.status(200).send("Ok");
+                },
+                (error) => {
+                  res.status(500).send("Internal Server Error");
+                }
+              );
           } else {
             res.status(400).send("Bad Request");
           }
