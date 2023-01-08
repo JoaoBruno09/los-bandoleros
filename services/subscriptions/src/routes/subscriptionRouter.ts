@@ -372,16 +372,80 @@ subscriptionRouter.put("/:UID", (req, res) => {
     const token = authHeader.split(" ")[1];
     jwt.verify(token, accessTokenSecret, (err: any, user: any) => {
       //res.send(req.params.UID+ "-" + user.UID);
+      //res.send("ok");
       if (user.UID === req.params.UID && user.role == "Subscriber") {
+        // res.send("ok");
         if (db) {
-          subscriptionModel.findOneAndUpdate({
-            "user.UID": req.params.UID,
-            cancelled: false,
-          });
+          //res.send("ok");
+          subscriptionModel
+            .findOne(
+              {
+                "user.UID": req.params.UID,
+                cancelled: false,
+              },
+              { _id: 0, __v: 0, cancelled: 0, cancelled_date: 0 }
+            )
+            .then(
+              (plano) => {
+                //res.send(plan);
+                if (plano) {
+                  //let data = plano.endDate;
+                  //const nova_data = moment('2023-01-08', "YYYY-MM-DD").add(5, 'days').format('YYY-MM-DD');
+                  subscriptionModel
+                    .findOneAndUpdate(
+                      { SID: plano.SID },
+                      {
+                        endDate: moment(String(plano.endDate), "YYYY-MM-DD")
+                          .add(1, "year")
+                          .format("YYYY-MM-DD"),
+                      },
+                      { _id: 0, __v: 0, cancelled: 0, cancelled_date: 0 }
+                    )
+                    .then((newSubscription) => {
+                      if (newSubscription) {
+                        res.status(200).send({
+                          SID: newSubscription.SID,
+                          isYear: newSubscription.isYear,
+                          startDate: newSubscription.isYear,
+                          endDate: newSubscription.endDate,
+                          user: {
+                            UID: newSubscription.user.UID,
+                            username: newSubscription.user.username,
+                            email: newSubscription.user.email,
+                          },
+                          plan: {
+                            PID: newSubscription.plan.PID,
+                            name: newSubscription.plan.name,
+                            description: newSubscription.plan.description,
+                            numberOfMinutes:
+                              newSubscription.plan.numberOfMinutes,
+                            maximumNumberOfDevices:
+                              newSubscription.plan.maximumNumberOfDevices,
+                            musicCollections:
+                              newSubscription.plan.musicCollections,
+                            musicSuggestions:
+                              newSubscription.plan.musicSuggestions,
+                            monthlyFee: newSubscription.plan.monthlyFee,
+                            anualFee: newSubscription.plan.anualFee,
+                          },
+                        });
+                      } else {
+                        res.status(500).send("Internal Server Error");
+                      }
+                    });
+                } else {
+                  res.status(404).send("Not Found");
+                }
+              },
+              (erro) => {
+                res.status(404).send("Bad request!");
+              }
+            );
         } else {
           res.status(500).send("Internal Server Error");
         }
       } else {
+        res.status(404).send("Not Found");
       }
     });
   } else {
